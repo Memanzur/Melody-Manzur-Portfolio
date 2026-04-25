@@ -1,0 +1,234 @@
+/* ==========================================
+   AI Academy Styles
+   ========================================== */
+
+.academy-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+}
+
+.academy-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #7c5cfc 0%, #c084fc 50%, #7c5cfc 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.academy-hero .hero-subtitle {
+    margin: 0 auto 32px;
+}
+
+/* Learning Path */
+
+.academy-path {
+    padding: 80px 0;
+}
+
+.path-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.path-step {
+    text-align: center;
+    padding: 20px;
+}
+
+.path-number {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    margin: 0 auto 12px;
+}
+
+.path-step p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.path-line {
+    width: 60px;
+    height: 2px;
+    background: var(--border);
+    margin-bottom: 32px;
+}
+
+/* Modules */
+
+.modules {
+    padding: 80px 0 120px;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.module-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.module-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.module-number {
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.module-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.module-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.module-topics {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.module-topics li {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.module-topics li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-weight: 700;
+}
+
+.module-level {
+    display: inline-block;
+    background: rgba(124, 92, 252, 0.1);
+    color: var(--accent-light);
+    font-size: 0.75rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Tools Section */
+
+.tools-section {
+    padding: 80px 0 120px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.2s;
+}
+
+.tool-card:hover {
+    border-color: var(--accent);
+}
+
+.tool-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.tool-card p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+/* CTA */
+
+.academy-cta {
+    padding: 80px 0 120px;
+}
+
+.academy-cta h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .path-line {
+        display: none;
+    }
+
+    .path-visual {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
