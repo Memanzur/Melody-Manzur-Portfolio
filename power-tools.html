@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5l12 33 33 12-33 12-12 33-12-33-33-12 33-12z' fill='%23ec4899'/></svg>">
     <link rel="stylesheet" href="style.css?v=20260425">
-    <link rel="stylesheet" href="power-tools.css?v=20260425c">
+    <link rel="stylesheet" href="power-tools.css?v=20260425d">
 </head>
 <body>
     <nav class="nav">
@@ -487,67 +487,150 @@
     <div class="cc-panel" id="panel-audits">
         <section class="pt-section">
             <div class="container">
-                <h2 class="section-title">Audit Commands</h2>
-                <p class="section-subtitle">Copy the command, paste it into Claude Code, point it at the client URL.</p>
 
-                <div class="skills-table-wrapper">
-                    <table class="pt-table">
-                        <thead>
-                            <tr>
-                                <th>Audit</th>
-                                <th>Command</th>
-                                <th>What You Get</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Design Review</strong></td>
-                                <td><code>/design-review</code></td>
-                                <td>Visual hierarchy, typography, spacing, color, AI slop detection, responsive design. Letter-graded report with before/after fixes.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>QA Testing</strong></td>
-                                <td><code>/qa</code></td>
-                                <td>Opens a real browser, clicks through flows, finds bugs, fixes them with atomic commits, generates regression tests.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Bug Report Only</strong></td>
-                                <td><code>/qa-only</code></td>
-                                <td>Same testing as /qa but report only. No code changes. Good for auditing sites you do not own yet.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Security Audit</strong></td>
-                                <td><code>/cso</code></td>
-                                <td>OWASP Top 10, STRIDE threat model, secrets scanning, dependency analysis. Each finding includes exploit scenario.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Performance</strong></td>
-                                <td><code>/benchmark</code></td>
-                                <td>Page load times, Core Web Vitals, resource sizes. Baseline for before/after comparison.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Code Review</strong></td>
-                                <td><code>/review</code></td>
-                                <td>Diff analysis for bugs that pass CI but break in production. Auto-fixes obvious ones.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Full Plan Review</strong></td>
-                                <td><code>/autoplan</code></td>
-                                <td>Runs CEO, design, and eng review automatically. One command, fully reviewed plan.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Design System</strong></td>
-                                <td><code>/design-consultation</code></td>
-                                <td>Build a complete design system from scratch. Typography, color, spacing, layout. Creates DESIGN.md.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Audit Studio: input area -->
+                <div class="audit-studio">
+                    <h2 class="audit-studio-title">Site Audit Studio</h2>
+                    <p class="audit-studio-sub">Enter a client URL, pick your audits, get a ready-to-paste command.</p>
+
+                    <div class="audit-input-row">
+                        <input type="url" id="audit-url" class="audit-url-input" placeholder="https://clientsite.com" autocomplete="off" spellcheck="false">
+                    </div>
+
+                    <div class="audit-pills" id="audit-pills">
+                        <button class="audit-pill selected" data-cmd="/qa-only" data-label="Bug Report">Bug Report</button>
+                        <button class="audit-pill" data-cmd="/design-review" data-label="Design Review">Design Review</button>
+                        <button class="audit-pill" data-cmd="/benchmark" data-label="Performance">Performance</button>
+                        <button class="audit-pill" data-cmd="/cso" data-label="Security">Security</button>
+                        <button class="audit-pill" data-cmd="/qa" data-label="QA + Fix">QA + Fix</button>
+                        <button class="audit-pill" data-cmd="/review" data-label="Code Review">Code Review</button>
+                        <button class="audit-pill" data-cmd="/design-consultation" data-label="Design System">Design System</button>
+                        <button class="audit-pill" data-cmd="/autoplan" data-label="Full Plan Review">Full Plan Review</button>
+                    </div>
+
+                    <button class="audit-generate-btn" id="audit-generate-btn">
+                        <span class="audit-generate-icon">&#9733;</span>
+                        Generate Command
+                    </button>
+
+                    <!-- Output box (hidden until generated) -->
+                    <div class="audit-output" id="audit-output" style="display:none;">
+                        <div class="audit-output-header">
+                            <span class="audit-output-label">Paste this into Claude Code</span>
+                            <button class="audit-copy-btn" id="audit-copy-btn">Copy</button>
+                        </div>
+                        <pre class="audit-output-code" id="audit-output-code"></pre>
+                    </div>
                 </div>
 
-                <div class="business-bottom">
-                    <h3>Audit Workflow for New Clients</h3>
-                    <p>Run these in order: <strong>/qa-only</strong> first (find bugs without touching code), then <strong>/design-review</strong> (visual audit), then <strong>/benchmark</strong> (performance baseline). Save all reports. These become your "before" documentation and your proposal for what to fix. After the work is done, re-run the same audits to show measurable improvement.</p>
+                <!-- Suggested Workflows -->
+                <h3 class="audit-section-label">Suggested Workflows</h3>
+                <div class="audit-suggestions">
+                    <button class="audit-suggestion-card" data-workflow="new-client">
+                        <span class="asc-icon">&#128269;</span>
+                        <strong>New Client Discovery</strong>
+                        <span class="asc-desc">Bug report, design review, performance baseline. Your "before" documentation.</span>
+                        <span class="asc-pills">Bug Report + Design Review + Performance</span>
+                    </button>
+                    <button class="audit-suggestion-card" data-workflow="full-audit">
+                        <span class="asc-icon">&#128640;</span>
+                        <strong>Full Site Audit</strong>
+                        <span class="asc-desc">Everything. Bugs, design, performance, security. Complete picture of what needs work.</span>
+                        <span class="asc-pills">Bug Report + Design Review + Performance + Security</span>
+                    </button>
+                    <button class="audit-suggestion-card" data-workflow="post-launch">
+                        <span class="asc-icon">&#9989;</span>
+                        <strong>Post-Launch Check</strong>
+                        <span class="asc-desc">QA + fix loop, then verify performance. Ship clean.</span>
+                        <span class="asc-pills">QA + Fix + Performance</span>
+                    </button>
                 </div>
+
+                <!-- Audit card details -->
+                <h3 class="audit-section-label">What Each Audit Does</h3>
+                <div class="audit-detail-grid">
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#128065;</span>
+                            <div>
+                                <strong>Bug Report</strong>
+                                <code>/qa-only</code>
+                            </div>
+                        </div>
+                        <p>Opens a real browser, clicks through flows, finds bugs. Report only, no code changes. Perfect for sites you don't own yet.</p>
+                    </div>
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#127912;</span>
+                            <div>
+                                <strong>Design Review</strong>
+                                <code>/design-review</code>
+                            </div>
+                        </div>
+                        <p>Visual hierarchy, typography, spacing, color, AI slop detection, responsive. Letter-graded report with before/after screenshots.</p>
+                    </div>
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#9889;</span>
+                            <div>
+                                <strong>Performance</strong>
+                                <code>/benchmark</code>
+                            </div>
+                        </div>
+                        <p>Page load times, Core Web Vitals, resource sizes. Creates a baseline so you can show measurable improvement after fixes.</p>
+                    </div>
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#128274;</span>
+                            <div>
+                                <strong>Security</strong>
+                                <code>/cso</code>
+                            </div>
+                        </div>
+                        <p>OWASP Top 10, STRIDE threat model, secrets scanning, dependency analysis. Each finding includes an exploit scenario.</p>
+                    </div>
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#128736;</span>
+                            <div>
+                                <strong>QA + Fix</strong>
+                                <code>/qa</code>
+                            </div>
+                        </div>
+                        <p>Same as bug report, but also fixes the bugs. Atomic commits, regression tests. Use when you own the codebase.</p>
+                    </div>
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#128221;</span>
+                            <div>
+                                <strong>Code Review</strong>
+                                <code>/review</code>
+                            </div>
+                        </div>
+                        <p>Diff analysis that catches bugs passing CI but breaking in production. Checks for SQL safety, trust boundary issues.</p>
+                    </div>
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#127752;</span>
+                            <div>
+                                <strong>Design System</strong>
+                                <code>/design-consultation</code>
+                            </div>
+                        </div>
+                        <p>Build a complete design system from scratch. Typography, color, spacing, layout. Creates a DESIGN.md file as the source of truth.</p>
+                    </div>
+                    <div class="audit-detail-card">
+                        <div class="adc-header">
+                            <span class="adc-icon">&#128202;</span>
+                            <div>
+                                <strong>Full Plan Review</strong>
+                                <code>/autoplan</code>
+                            </div>
+                        </div>
+                        <p>Runs CEO, design, and eng review automatically. One command, fully reviewed plan out the other end.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
@@ -949,6 +1032,79 @@
 
         textarea.disabled = true;
         refreshSelect();
+    })();
+
+    // ---- Audit Studio ----
+    (function() {
+        const pills = document.querySelectorAll('.audit-pill');
+        const urlInput = document.getElementById('audit-url');
+        const genBtn = document.getElementById('audit-generate-btn');
+        const outputBox = document.getElementById('audit-output');
+        const outputCode = document.getElementById('audit-output-code');
+        const copyBtn = document.getElementById('audit-copy-btn');
+
+        if (!genBtn) return;
+
+        // Toggle pill selection
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pill.classList.toggle('selected');
+            });
+        });
+
+        // Suggestion cards pre-select pills
+        document.querySelectorAll('.audit-suggestion-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const workflow = card.dataset.workflow;
+                const presets = {
+                    'new-client': ['/qa-only', '/design-review', '/benchmark'],
+                    'full-audit': ['/qa-only', '/design-review', '/benchmark', '/cso'],
+                    'post-launch': ['/qa', '/benchmark']
+                };
+                const cmds = presets[workflow] || [];
+                pills.forEach(p => {
+                    p.classList.toggle('selected', cmds.includes(p.dataset.cmd));
+                });
+                // Scroll to generate button
+                genBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        // Generate command
+        genBtn.addEventListener('click', () => {
+            const url = urlInput.value.trim();
+            const selected = [...document.querySelectorAll('.audit-pill.selected')];
+            if (selected.length === 0) {
+                genBtn.textContent = 'Pick at least one audit';
+                setTimeout(() => {
+                    genBtn.innerHTML = '<span class="audit-generate-icon">&#9733;</span> Generate Command';
+                }, 1500);
+                return;
+            }
+
+            let lines = [];
+            if (url) {
+                lines.push('# Audit: ' + url);
+                lines.push('');
+            }
+            selected.forEach(p => {
+                let line = p.dataset.cmd;
+                if (url) line += ' ' + url;
+                lines.push(line);
+            });
+
+            outputCode.textContent = lines.join('\n');
+            outputBox.style.display = 'block';
+            outputBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // Copy
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(outputCode.textContent).then(() => {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
+            });
+        });
     })();
     </script>
     <script src="script.js"></script>

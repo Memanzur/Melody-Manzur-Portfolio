@@ -605,6 +605,285 @@
     background: transparent;
 }
 
+/* ---- Audit Studio ---- */
+.audit-studio {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 24px var(--glow);
+}
+
+.audit-studio-title {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    color: var(--text);
+    margin: 0 0 6px;
+}
+
+.audit-studio-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0 0 24px;
+    line-height: 1.6;
+}
+
+.audit-input-row {
+    margin-bottom: 20px;
+}
+
+.audit-url-input {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-family: var(--font);
+    background: var(--bg-soft);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    transition: border-color 0.25s ease;
+    box-sizing: border-box;
+}
+
+.audit-url-input:focus {
+    outline: none;
+    border-color: var(--pink);
+}
+
+.audit-url-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.audit-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.audit-pill {
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.audit-pill:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+}
+
+.audit-pill.selected {
+    background: linear-gradient(135deg, var(--pink), var(--lavender));
+    color: #fff;
+    border-color: transparent;
+}
+
+.audit-generate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font);
+    color: #fff;
+    background: linear-gradient(135deg, var(--pink), var(--lavender));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.audit-generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--glow);
+}
+
+.audit-generate-icon {
+    font-size: 1.1rem;
+}
+
+.audit-output {
+    margin-top: 24px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.audit-output-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.audit-output-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.audit-copy-btn {
+    padding: 6px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: var(--font);
+    color: var(--pink);
+    background: var(--pink-soft);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.audit-copy-btn:hover {
+    border-color: var(--pink);
+}
+
+.audit-output-code {
+    padding: 20px;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.audit-section-label {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    color: var(--text);
+    margin: 0 0 16px;
+}
+
+/* Suggestion cards */
+.audit-suggestions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.audit-suggestion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.audit-suggestion-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink);
+    box-shadow: 0 8px 30px var(--glow);
+}
+
+.asc-icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.audit-suggestion-card strong {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+.asc-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.asc-pills {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, var(--bg-soft), var(--lilac));
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Detail cards */
+.audit-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.audit-detail-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.audit-detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px var(--glow);
+}
+
+.adc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.adc-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.adc-header strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+.adc-header code {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--pink);
+    background: var(--pink-soft);
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.audit-detail-card p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
 /* ---- CTA ---- */
 .pt-cta {
     padding: 80px 0;
@@ -668,5 +947,24 @@
 
     .collapse-card.open .collapse-body {
         padding: 0 18px 18px;
+    }
+
+    .audit-studio {
+        padding: 24px;
+    }
+
+    .audit-suggestions,
+    .audit-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audit-url-input {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    .audit-generate-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
