@@ -19,10 +19,18 @@ body.space-theme .nav {
 body.space-theme .nav-logo {
     color: #f9a8d4;
     font-family: 'Dancing Script', cursive;
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 body.space-theme .nav-links a {
     color: #8888aa;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
 }
 
 body.space-theme .nav-links a:hover {
