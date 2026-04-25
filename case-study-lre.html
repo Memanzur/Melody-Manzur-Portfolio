@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Little Red Esthetics | Melody Manzur</title>
+    <meta name="description" content="How I redesigned Little Red Esthetics from a basic template to a full-featured med spa website with 8 pages, interactive features, and SEO optimization.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">MM</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="ai-academy.html">AI Academy</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="case-hero">
+        <div class="container">
+            <a href="index.html#projects" class="back-link">&larr; Back to Projects</a>
+            <p class="hero-tag">Client Case Study</p>
+            <h1 class="case-title">Little Red Esthetics</h1>
+            <p class="case-subtitle">Complete website redesign for a med spa in West Jordan, Utah. Took the client from a basic single-page template to a professional, multi-page website with interactive features, SEO, and a modern brand experience.</p>
+            <div class="case-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Client</span>
+                    <span class="meta-value">Little Red Esthetics</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Industry</span>
+                    <span class="meta-value">Med Spa / Aesthetics</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Services</span>
+                    <span class="meta-value">Web Design, SEO, Branding</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Platform</span>
+                    <span class="meta-value">GitHub Pages</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before / After Comparison -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title">Before & After</h2>
+            <p class="comparison-intro">Click between the tabs to see the original site versus what I built. You can scroll through both to see the full experience.</p>
+
+            <div class="comparison-tabs">
+                <button class="tab-btn active" data-tab="before">Before (Original)</button>
+                <button class="tab-btn" data-tab="after">After (My Redesign)</button>
+            </div>
+
+            <div class="comparison-frames">
+                <div class="frame-container active" id="before">
+                    <div class="frame-label before-label">Original Site</div>
+                    <iframe src="https://littleredesthetics.com" title="Original Little Red Esthetics website" loading="lazy"></iframe>
+                </div>
+                <div class="frame-container" id="after">
+                    <div class="frame-label after-label">My Redesign</div>
+                    <iframe src="https://memanzur.github.io/Little-Red-Esthetics-Website/" title="Redesigned Little Red Esthetics website" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Changed -->
+    <section class="changes">
+        <div class="container">
+            <h2 class="section-title">What I Changed</h2>
+
+            <div class="change-grid">
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-number">01</span>
+                        <h3>1 Page &rarr; 8 Pages</h3>
+                    </div>
+                    <div class="change-detail">
+                        <div class="change-before">
+                            <strong>Before:</strong> A single-page site with a hero image, one testimonial, a basic contact form, and broken navigation links. No real content depth.
+                        </div>
+                        <div class="change-after">
+                            <strong>After:</strong> A full 8-page website: Home, Services, Gallery, Skin Quiz, Shop, About, Contact, and FAQ. Each page is purpose-built to convert visitors into clients.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-number">02</span>
+                        <h3>Generic Template &rarr; Custom Brand Design</h3>
+                    </div>
+                    <div class="change-detail">
+                        <div class="change-before">
+                            <strong>Before:</strong> Standard template feel with generic purple/indigo colors. Placeholder-style hero image. Basic layout with no visual identity.
+                        </div>
+                        <div class="change-after">
+                            <strong>After:</strong> Custom brand system with Cormorant Garamond and Montserrat fonts, a warm burgundy palette that matches "Little Red" branding, sparkle decorations, gradient text effects, and professional photography of the actual injector.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-number">03</span>
+                        <h3>No SEO &rarr; Full SEO Optimization</h3>
+                    </div>
+                    <div class="change-detail">
+                        <div class="change-before">
+                            <strong>Before:</strong> No meta descriptions, no Open Graph tags, no structured data, no keywords. Invisible to search engines.
+                        </div>
+                        <div class="change-after">
+                            <strong>After:</strong> Full SEO package: meta descriptions, Open Graph and Twitter cards, local business schema markup (JSON-LD), keyword-rich content targeting "nurse injector Utah," sitemap.xml, and robots.txt.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-number">04</span>
+                        <h3>Static Content &rarr; Interactive Features</h3>
+                    </div>
+                    <div class="change-detail">
+                        <div class="change-before">
+                            <strong>Before:</strong> Static text and images only. No interactive elements. No engagement features.
+                        </div>
+                        <div class="change-after">
+                            <strong>After:</strong> Interactive skin mapping tool where users tap facial zones to learn about treatments. Skin quiz that recommends personalized treatments. Scroll-triggered fade-in animations. Animated marquee strip. Floating "Book Now" button.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-number">05</span>
+                        <h3>Broken Links &rarr; Full Functionality</h3>
+                    </div>
+                    <div class="change-detail">
+                        <div class="change-before">
+                            <strong>Before:</strong> Broken navigation links. Empty social media URLs. Payment plans page that went nowhere. No booking integration.
+                        </div>
+                        <div class="change-after">
+                            <strong>After:</strong> Every link works. Vagaro booking integration on every page. Working social links (Instagram, Facebook, TikTok). Clickable phone number and email. Google Reviews link.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="change-card">
+                    <div class="change-header">
+                        <span class="change-number">06</span>
+                        <h3>No Social Proof &rarr; Trust Built In</h3>
+                    </div>
+                    <div class="change-detail">
+                        <div class="change-before">
+                            <strong>Before:</strong> One testimonial. No credentials shown. No before/after photos. No trust signals.
+                        </div>
+                        <div class="change-after">
+                            <strong>After:</strong> Google Reviews section with 5.0 rating badge. Three client testimonials. Before/after photo gallery. Credential badges (Licensed RN, 8+ Years, Russian Lip Technique). "Meet Your Injector" section with Celeste's story and qualifications.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pages Built -->
+    <section class="pages-built">
+        <div class="container">
+            <h2 class="section-title">Pages I Built</h2>
+            <div class="pages-grid">
+                <div class="page-card">
+                    <span class="page-icon">&#127968;</span>
+                    <h4>Home</h4>
+                    <p>Hero with portrait, service cards, skin mapping tool, testimonials, before/after gallery, about preview, CTA</p>
+                </div>
+                <div class="page-card">
+                    <span class="page-icon">&#128137;</span>
+                    <h4>Services</h4>
+                    <p>Detailed service listings with pricing, descriptions, and booking links for Botox, fillers, lips, and skincare</p>
+                </div>
+                <div class="page-card">
+                    <span class="page-icon">&#128247;</span>
+                    <h4>Gallery</h4>
+                    <p>Before/after photo showcase with hover overlays and treatment labels</p>
+                </div>
+                <div class="page-card">
+                    <span class="page-icon">&#129504;</span>
+                    <h4>Skin Quiz</h4>
+                    <p>Interactive quiz that recommends personalized treatments based on user answers</p>
+                </div>
+                <div class="page-card">
+                    <span class="page-icon">&#128722;</span>
+                    <h4>Shop</h4>
+                    <p>GlyMed+ skincare product listings with descriptions and purchase options</p>
+                </div>
+                <div class="page-card">
+                    <span class="page-icon">&#128100;</span>
+                    <h4>About</h4>
+                    <p>Celeste's story, credentials, training, and philosophy as a nurse injector</p>
+                </div>
+                <div class="page-card">
+                    <span class="page-icon">&#128233;</span>
+                    <h4>Contact</h4>
+                    <p>Contact form, phone, email, address, business hours, and embedded map</p>
+                </div>
+                <div class="page-card">
+                    <span class="page-icon">&#10067;</span>
+                    <h4>FAQ</h4>
+                    <p>Frequently asked questions about treatments, pricing, aftercare, and booking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">How I Built It</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>HTML / CSS / JavaScript</h4>
+                    <p>Hand-coded, no templates, no frameworks. 2,400+ lines of custom HTML across 8 pages.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>GitHub Pages</h4>
+                    <p>Free, fast hosting with version control. Every change is tracked and deployable in seconds.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Claude Code</h4>
+                    <p>AI-assisted development for rapid iteration. Built and refined the entire site through the terminal.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>SEO & Schema</h4>
+                    <p>Local business structured data, Open Graph, meta tags, sitemap, and robots.txt for search visibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta">
+        <div class="container" style="text-align: center;">
+            <h2>See It Live</h2>
+            <p class="contact-text">Check out both versions for yourself.</p>
+            <div class="contact-links">
+                <a href="https://memanzur.github.io/Little-Red-Esthetics-Website/" target="_blank" class="btn btn-primary">My Redesign</a>
+                <a href="https://littleredesthetics.com" target="_blank" class="btn btn-outline">Original Site</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Melody Manzur &copy; 2025. Built with purpose.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab switching for before/after
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.frame-container').forEach(f => f.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

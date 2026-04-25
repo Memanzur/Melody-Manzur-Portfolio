@@ -1,0 +1,356 @@
+/* ==========================================
+   Case Study Styles
+   ========================================== */
+
+.case-hero {
+    padding: 140px 0 80px;
+}
+
+.back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 24px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+.case-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.case-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.case-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* ==========================================
+   Before / After Comparison
+   ========================================== */
+
+.comparison {
+    padding: 100px 0;
+}
+
+.comparison-intro {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+}
+
+.comparison-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.tab-btn {
+    padding: 12px 28px;
+    background: var(--bg-card);
+    color: var(--text-muted);
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font);
+}
+
+.tab-btn:hover {
+    color: var(--text);
+}
+
+.tab-btn.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.comparison-frames {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-card);
+}
+
+.frame-container {
+    display: none;
+    position: relative;
+}
+
+.frame-container.active {
+    display: block;
+}
+
+.frame-container iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+    display: block;
+}
+
+.frame-label {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+.before-label {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.after-label {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+/* ==========================================
+   Changes Section
+   ========================================== */
+
+.changes {
+    padding: 100px 0;
+}
+
+.change-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.change-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: border-color 0.3s;
+}
+
+.change-card:hover {
+    border-color: var(--accent);
+}
+
+.change-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.change-number {
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.change-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.change-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.change-before, .change-after {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.change-before {
+    background: rgba(239, 68, 68, 0.05);
+    border-left: 3px solid rgba(239, 68, 68, 0.3);
+}
+
+.change-after {
+    background: rgba(34, 197, 94, 0.05);
+    border-left: 3px solid rgba(34, 197, 94, 0.3);
+}
+
+.change-before strong {
+    color: #ef4444;
+}
+
+.change-after strong {
+    color: #22c55e;
+}
+
+/* ==========================================
+   Pages Built
+   ========================================== */
+
+.pages-built {
+    padding: 100px 0;
+}
+
+.pages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.page-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.page-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.page-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.page-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.page-card p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Tech Stack
+   ========================================== */
+
+.tech-stack {
+    padding: 100px 0;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.tech-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+}
+
+.tech-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--accent-light);
+}
+
+.tech-item p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* CTA */
+.case-cta {
+    padding: 80px 0 120px;
+}
+
+.case-cta h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+
+@media (max-width: 768px) {
+    .case-meta {
+        gap: 24px;
+    }
+
+    .change-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .frame-container iframe {
+        height: 500px;
+    }
+
+    .pages-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .pages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .frame-container iframe {
+        height: 400px;
+    }
+}
