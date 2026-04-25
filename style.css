@@ -14,7 +14,6 @@
     --lavender: #c4b5fd;
     --lilac: #e9d5ff;
     --peach: #fecdd3;
-    --mint: #d1fae5;
     --border: #f3d5e8;
     --glow: rgba(236, 72, 153, 0.12);
     --radius: 20px;
@@ -49,7 +48,7 @@ body {
 }
 
 /* ==========================================
-   Floating Sparkles
+   Floating Sparkles & Blobs
    ========================================== */
 
 .sparkles {
@@ -62,27 +61,87 @@ body {
 .sparkle {
     position: absolute;
     color: var(--pink-light);
-    opacity: 0.3;
+    filter: drop-shadow(0 0 4px currentColor);
     animation: float 6s ease-in-out infinite, twinkle 3s ease-in-out infinite;
 }
 
-.s1 { width: 18px; top: 10%; left: 8%; animation-delay: 0s; }
-.s2 { width: 14px; top: 25%; right: 12%; animation-delay: 1s; color: var(--lavender); }
-.s3 { width: 20px; top: 45%; left: 5%; animation-delay: 2s; color: var(--lavender); opacity: 0.25; }
-.s4 { width: 12px; top: 60%; right: 8%; animation-delay: 0.5s; }
-.s5 { width: 16px; top: 80%; left: 15%; animation-delay: 3s; color: var(--lavender); }
-.s6 { width: 10px; top: 15%; left: 45%; animation-delay: 1.5s; }
-.s7 { width: 12px; top: 70%; right: 20%; animation-delay: 2.5s; color: var(--lavender); }
-.s8 { width: 15px; top: 35%; right: 30%; animation-delay: 4s; opacity: 0.2; }
+.s1  { width: 28px; top: 8%;  left: 6%;  animation-delay: 0s;   opacity: 0.5; }
+.s2  { width: 22px; top: 20%; right: 10%; animation-delay: 1s;  color: var(--lavender); opacity: 0.45; }
+.s3  { width: 32px; top: 42%; left: 4%;  animation-delay: 2s;   color: var(--lavender); opacity: 0.35; }
+.s4  { width: 18px; top: 58%; right: 6%; animation-delay: 0.5s; opacity: 0.5; }
+.s5  { width: 24px; top: 78%; left: 12%; animation-delay: 3s;   color: var(--lavender); opacity: 0.4; }
+.s6  { width: 16px; top: 12%; left: 42%; animation-delay: 1.5s; opacity: 0.45; }
+.s7  { width: 20px; top: 68%; right: 18%; animation-delay: 2.5s; color: var(--lavender); opacity: 0.4; }
+.s8  { width: 26px; top: 32%; right: 25%; animation-delay: 4s;  opacity: 0.35; }
+.s9  { width: 14px; top: 90%; left: 40%; animation-delay: 1.8s; color: var(--lavender); opacity: 0.4; }
+.s10 { width: 20px; top: 5%;  right: 35%; animation-delay: 3.5s; opacity: 0.3; }
+
+/* Soft glowing background blobs */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: blobFloat 10s ease-in-out infinite;
+}
+
+.blob1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(236, 72, 153, 0.08);
+    top: 10%;
+    right: -5%;
+    animation-delay: 0s;
+}
+
+.blob2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(196, 181, 253, 0.1);
+    top: 50%;
+    left: -8%;
+    animation-delay: 3s;
+}
+
+.blob3 {
+    width: 300px;
+    height: 300px;
+    background: rgba(249, 168, 212, 0.08);
+    bottom: 5%;
+    right: 15%;
+    animation-delay: 6s;
+}
 
 @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(10deg); }
+    50% { transform: translateY(-25px) rotate(15deg); }
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+    0%, 100% { opacity: var(--tw-start, 0.4); }
+    50% { opacity: var(--tw-end, 0.7); }
+}
+
+@keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+/* ==========================================
+   Section Dividers
+   ========================================== */
+
+.section-divider {
+    height: 80px;
+    background: linear-gradient(135deg, transparent 30%, var(--pink-soft) 50%, transparent 70%);
+    opacity: 0.5;
+    position: relative;
+    z-index: 1;
+}
+
+.section-divider.flip {
+    background: linear-gradient(225deg, transparent 30%, var(--lilac) 50%, transparent 70%);
+    opacity: 0.3;
 }
 
 /* ==========================================
@@ -112,7 +171,7 @@ body {
 
 .nav-logo {
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--pink);
     text-decoration: none;
     font-family: var(--display);
@@ -202,7 +261,7 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.2rem, 5vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
@@ -354,6 +413,21 @@ body {
     background: var(--pink-light);
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     opacity: 0.6;
+}
+
+/* ==========================================
+   Scroll animations (CSS-only with fallback)
+   ========================================== */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ==========================================
@@ -704,6 +778,10 @@ body {
         max-width: 100%;
     }
 
+    .hero-title {
+        font-size: clamp(1.8rem, 8vw, 2.8rem);
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -739,7 +817,11 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 
-    .sparkle { display: none; }
+    .section-divider {
+        height: 40px;
+    }
+
+    .blob { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -749,5 +831,9 @@ body {
 
     .about-stats {
         grid-template-columns: 1fr;
+    }
+
+    .sparkle {
+        transform: scale(0.7);
     }
 }
