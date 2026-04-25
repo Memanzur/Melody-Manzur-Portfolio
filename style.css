@@ -76,39 +76,9 @@ body {
 .s9  { width: 14px; top: 90%; left: 40%; animation-delay: 1.8s; color: var(--lavender); opacity: 0.4; }
 .s10 { width: 20px; top: 5%;  right: 35%; animation-delay: 3.5s; opacity: 0.3; }
 
-/* Soft glowing background blobs */
+/* Blobs hidden - decorative noise */
 .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: blobFloat 10s ease-in-out infinite;
-}
-
-.blob1 {
-    width: 400px;
-    height: 400px;
-    background: rgba(236, 72, 153, 0.08);
-    top: 10%;
-    right: -5%;
-    animation-delay: 0s;
-}
-
-.blob2 {
-    width: 350px;
-    height: 350px;
-    background: rgba(196, 181, 253, 0.1);
-    top: 50%;
-    left: -8%;
-    animation-delay: 3s;
-}
-
-.blob3 {
-    width: 300px;
-    height: 300px;
-    background: rgba(249, 168, 212, 0.08);
-    bottom: 5%;
-    right: 15%;
-    animation-delay: 6s;
+    display: none;
 }
 
 @keyframes float {
@@ -121,18 +91,13 @@ body {
     50% { opacity: var(--tw-end, 0.7); }
 }
 
-@keyframes blobFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -20px) scale(1.05); }
-    66% { transform: translate(-20px, 15px) scale(0.95); }
-}
 
 /* ==========================================
    Section Dividers
    ========================================== */
 
 .section-divider {
-    height: 80px;
+    height: 40px;
     background: linear-gradient(135deg, transparent 30%, var(--pink-soft) 50%, transparent 70%);
     opacity: 0.5;
     position: relative;
@@ -190,6 +155,7 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s;
+    padding: 12px 0;
 }
 
 .nav-links a:hover {
@@ -292,7 +258,7 @@ body {
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, color 0.3s, background 0.3s;
     cursor: pointer;
 }
 
@@ -347,58 +313,6 @@ body {
     object-position: center 75%;
 }
 
-/* Terminal */
-
-.terminal {
-    background: linear-gradient(145deg, #3b1f3b, #2d1a3e);
-    border: 2px solid var(--lilac);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(196, 181, 253, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-.terminal-header {
-    background: rgba(255, 255, 255, 0.06);
-    padding: 14px 18px;
-    display: flex;
-    gap: 8px;
-}
-
-.terminal-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-.terminal-dot.red { background: #f9a8d4; }
-.terminal-dot.yellow { background: #fde68a; }
-.terminal-dot.green { background: #a7f3d0; }
-
-.terminal-body {
-    padding: 22px;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    line-height: 1.9;
-    color: #f3d5e8;
-}
-
-.terminal-body .prompt {
-    color: var(--pink-light);
-}
-
-.terminal-body .output {
-    color: var(--lavender);
-    padding-left: 16px;
-}
-
-.cursor {
-    animation: blink 1s step-end infinite;
-    color: var(--pink-light);
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
 
 /* ==========================================
    Sections shared
@@ -456,7 +370,7 @@ body {
    ========================================== */
 
 .about {
-    padding: 120px 0;
+    padding: 70px 0;
     position: relative;
     z-index: 1;
 }
@@ -491,9 +405,10 @@ body {
     border-radius: var(--radius);
     padding: 24px;
     text-align: center;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(236, 72, 153, 0.06);
 }
 
 .stat-card::before {
@@ -539,7 +454,7 @@ body {
    ========================================== */
 
 .projects {
-    padding: 120px 0;
+    padding: 70px 0;
     position: relative;
     z-index: 1;
 }
@@ -555,9 +470,10 @@ body {
     border: 2px solid var(--border);
     border-radius: var(--radius);
     padding: 32px;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(236, 72, 153, 0.06);
 }
 
 .project-card::after {
@@ -664,7 +580,7 @@ body {
    ========================================== */
 
 .skills {
-    padding: 120px 0;
+    padding: 70px 0;
     position: relative;
     z-index: 1;
 }
@@ -680,9 +596,10 @@ body {
     border: 2px solid var(--border);
     border-radius: var(--radius);
     padding: 28px;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(236, 72, 153, 0.06);
 }
 
 .skill-category::before {
@@ -736,7 +653,7 @@ body {
    ========================================== */
 
 .contact {
-    padding: 120px 0;
+    padding: 70px 0;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -839,7 +756,7 @@ body {
     }
 
     .section-divider {
-        height: 40px;
+        height: 20px;
     }
 
     .blob { display: none; }
