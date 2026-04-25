@@ -279,9 +279,9 @@
 }
 
 .page-icon {
-    font-size: 1.8rem;
     display: block;
     margin-bottom: 12px;
+    color: var(--pink, #ec4899);
 }
 
 .page-card h4 {
