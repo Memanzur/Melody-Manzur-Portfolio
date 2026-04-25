@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Digital Marketing Audit | Melody Manzur</title>
+    <meta name="description" content="Get a free digital marketing audit. Find out what is wrong with your website and social media, and get actionable recommendations to grow your business.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#10024;</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Digital Marketing Audit | Melody Manzur">
+    <meta property="og:description" content="Get a free audit of your website and social media. Find out what is holding your business back online.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://memanzur.github.io/Melody-Manzur-Portfolio/audit.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="audit.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Melody M</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="#audit-form">Get Your Audit</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="mailto:manzurmelody@gmail.com" class="nav-cta">Hire Me</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Floating sparkles -->
+    <div class="sparkles" aria-hidden="true">
+        <svg class="sparkle s1" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s2" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s3" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s4" viewBox="0 0 24 24"><path d="M12 0l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="currentColor"/></svg>
+        <svg class="sparkle s5" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s6" viewBox="0 0 24 24"><path d="M12 0l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="currentColor"/></svg>
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <!-- Hero -->
+    <section class="audit-hero">
+        <div class="container">
+            <p class="hero-tag">free digital marketing audit</p>
+            <h1 class="audit-title">Is Your Online Presence Actually Working?</h1>
+            <p class="hero-subtitle" style="max-width: 650px;">Most businesses are leaving money on the table with a slow website, weak SEO, and inconsistent social media. Find out exactly where you stand in under 60 seconds.</p>
+            <a href="#audit-form" class="btn btn-primary">Get Your Free Audit</a>
+        </div>
+    </section>
+
+    <!-- Audit Form -->
+    <div class="section-divider"></div>
+    <section id="audit-form" class="audit-form-section">
+        <div class="container">
+            <h2 class="section-title">Your Audit</h2>
+
+            <div class="audit-form-wrapper">
+                <form id="auditForm" class="audit-form">
+                    <!-- Step 1: Website -->
+                    <div class="form-step active" data-step="1">
+                        <div class="step-header">
+                            <span class="step-number">1 / 4</span>
+                            <h3>Your Website</h3>
+                            <p>Enter your website URL and we will analyze its performance, SEO, and mobile experience in real time.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Website URL</label>
+                            <input type="url" id="website" placeholder="https://yourbusiness.com" required>
+                            <span class="form-hint">Include https:// for best results</span>
+                        </div>
+                        <button type="button" class="btn btn-primary form-next" data-next="2">Next</button>
+                    </div>
+
+                    <!-- Step 2: Social Media -->
+                    <div class="form-step" data-step="2">
+                        <div class="step-header">
+                            <span class="step-number">2 / 4</span>
+                            <h3>Social Media</h3>
+                            <p>Add your social media handles so we can assess your full digital presence. Leave blank any you don't have.</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="instagram">Instagram</label>
+                                <input type="text" id="instagram" placeholder="@yourbusiness">
+                            </div>
+                            <div class="form-group">
+                                <label for="facebook">Facebook</label>
+                                <input type="text" id="facebook" placeholder="facebook.com/yourbusiness">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tiktok">TikTok</label>
+                                <input type="text" id="tiktok" placeholder="@yourbusiness">
+                            </div>
+                            <div class="form-group">
+                                <label for="google-business">Google Business Profile</label>
+                                <select id="google-business">
+                                    <option value="">Select...</option>
+                                    <option value="yes-active">Yes, active and updated</option>
+                                    <option value="yes-outdated">Yes, but outdated</option>
+                                    <option value="no">No, I don't have one</option>
+                                    <option value="unsure">Not sure</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-outline form-back" data-back="1">Back</button>
+                            <button type="button" class="btn btn-primary form-next" data-next="3">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Business Questions -->
+                    <div class="form-step" data-step="3">
+                        <div class="step-header">
+                            <span class="step-number">3 / 4</span>
+                            <h3>About Your Business</h3>
+                            <p>A few quick questions to personalize your audit and recommendations.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-type">What type of business are you?</label>
+                            <select id="business-type" required>
+                                <option value="">Select your industry...</option>
+                                <option value="medspa">Med Spa / Esthetics</option>
+                                <option value="salon">Salon / Barbershop</option>
+                                <option value="restaurant">Restaurant / Food Service</option>
+                                <option value="retail">Retail / E-commerce</option>
+                                <option value="fitness">Fitness / Wellness</option>
+                                <option value="realestate">Real Estate</option>
+                                <option value="professional">Professional Services (Law, Accounting, etc.)</option>
+                                <option value="health">Healthcare / Dental</option>
+                                <option value="other">Other Local Business</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="biggest-challenge">What is your biggest challenge right now?</label>
+                            <select id="biggest-challenge" required>
+                                <option value="">Select...</option>
+                                <option value="traffic">Not enough website traffic</option>
+                                <option value="leads">Getting leads but not converting them</option>
+                                <option value="social">Social media is not growing</option>
+                                <option value="brand">Brand looks outdated or unprofessional</option>
+                                <option value="seo">Can't be found on Google</option>
+                                <option value="everything">All of the above</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="current-marketing">What are you currently doing for marketing?</label>
+                            <select id="current-marketing">
+                                <option value="">Select...</option>
+                                <option value="nothing">Nothing / Word of mouth only</option>
+                                <option value="social-only">Posting on social media sometimes</option>
+                                <option value="some">Have a website + some social media</option>
+                                <option value="active">Actively marketing but not seeing results</option>
+                                <option value="agency">Working with someone but want a second opinion</option>
+                            </select>
+                        </div>
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-outline form-back" data-back="2">Back</button>
+                            <button type="button" class="btn btn-primary form-next" data-next="4">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Contact Info -->
+                    <div class="form-step" data-step="4">
+                        <div class="step-header">
+                            <span class="step-number">4 / 4</span>
+                            <h3>Get Your Results</h3>
+                            <p>Enter your info to see your full audit report. Your information will only be used to send you your results.</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" placeholder="Jane Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="jane@business.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone (optional)</label>
+                            <input type="tel" id="phone" placeholder="(555) 123-4567">
+                        </div>
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-outline form-back" data-back="3">Back</button>
+                            <button type="submit" class="btn btn-primary" id="runAudit">Run My Audit</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Progress bar -->
+                <div class="form-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading State -->
+    <section id="audit-loading" class="audit-loading" style="display: none;">
+        <div class="container" style="text-align: center;">
+            <div class="loading-spinner"></div>
+            <h3>Analyzing your digital presence...</h3>
+            <p class="loading-status" id="loadingStatus">Running website performance test...</p>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section id="audit-results" class="audit-results" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Your Audit Results</h2>
+
+            <!-- Overall Score -->
+            <div class="overall-score-card">
+                <div class="overall-score">
+                    <div class="score-circle" id="overallScoreCircle">
+                        <span class="score-value" id="overallScore">--</span>
+                        <span class="score-label">/ 100</span>
+                    </div>
+                    <h3>Overall Digital Health Score</h3>
+                    <p id="overallVerdict" class="score-verdict"></p>
+                </div>
+            </div>
+
+            <!-- Score Breakdown -->
+            <div class="scores-grid">
+                <div class="score-card" id="perfCard">
+                    <div class="score-header">
+                        <h4>Website Speed</h4>
+                        <span class="score-badge" id="perfScore">--</span>
+                    </div>
+                    <div class="score-bar-track"><div class="score-bar" id="perfBar"></div></div>
+                    <p class="score-detail" id="perfDetail"></p>
+                </div>
+                <div class="score-card" id="seoCard">
+                    <div class="score-header">
+                        <h4>SEO</h4>
+                        <span class="score-badge" id="seoScore">--</span>
+                    </div>
+                    <div class="score-bar-track"><div class="score-bar" id="seoBar"></div></div>
+                    <p class="score-detail" id="seoDetail"></p>
+                </div>
+                <div class="score-card" id="accessCard">
+                    <div class="score-header">
+                        <h4>Accessibility</h4>
+                        <span class="score-badge" id="accessScore">--</span>
+                    </div>
+                    <div class="score-bar-track"><div class="score-bar" id="accessBar"></div></div>
+                    <p class="score-detail" id="accessDetail"></p>
+                </div>
+                <div class="score-card" id="bpCard">
+                    <div class="score-header">
+                        <h4>Best Practices</h4>
+                        <span class="score-badge" id="bpScore">--</span>
+                    </div>
+                    <div class="score-bar-track"><div class="score-bar" id="bpBar"></div></div>
+                    <p class="score-detail" id="bpDetail"></p>
+                </div>
+                <div class="score-card" id="socialCard">
+                    <div class="score-header">
+                        <h4>Social Media Presence</h4>
+                        <span class="score-badge" id="socialScore">--</span>
+                    </div>
+                    <div class="score-bar-track"><div class="score-bar" id="socialBar"></div></div>
+                    <p class="score-detail" id="socialDetail"></p>
+                </div>
+                <div class="score-card" id="marketingCard">
+                    <div class="score-header">
+                        <h4>Marketing Readiness</h4>
+                        <span class="score-badge" id="marketingScore">--</span>
+                    </div>
+                    <div class="score-bar-track"><div class="score-bar" id="marketingBar"></div></div>
+                    <p class="score-detail" id="marketingDetail"></p>
+                </div>
+            </div>
+
+            <!-- Issues Found -->
+            <div class="issues-section">
+                <h3 class="results-heading">Issues Found</h3>
+                <div class="issues-list" id="issuesList"></div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="recs-section">
+                <h3 class="results-heading">What You Should Do</h3>
+                <div class="recs-list" id="recsList"></div>
+            </div>
+
+            <!-- How I Can Help -->
+            <div class="help-section">
+                <h3 class="results-heading">How I Can Help</h3>
+                <div class="help-grid" id="helpGrid"></div>
+                <div class="help-cta">
+                    <h4>Ready to fix these issues?</h4>
+                    <p>I specialize in helping businesses like yours build a stronger online presence. Let's talk about what a custom plan looks like for you.</p>
+                    <div class="contact-links">
+                        <a href="mailto:manzurmelody@gmail.com" class="btn btn-primary">Email Me</a>
+                        <a href="#audit-form" class="btn btn-outline" id="rerunAudit">Run Another Audit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <div class="section-divider flip"></div>
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">What I Do for Businesses</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Website Design and Redesign</h3>
+                    <p>Custom websites that look professional, load fast, work on mobile, and actually convert visitors into customers. No templates, no page builders, real code.</p>
+                </div>
+                <div class="service-card">
+                    <h3>SEO and Google Presence</h3>
+                    <p>Get found on Google. I optimize your site structure, meta tags, content, and Google Business Profile so people in your area actually find you.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Social Media Strategy</h3>
+                    <p>Stop posting randomly and hoping for the best. I build a content strategy that matches your brand voice, targets your audience, and drives real engagement.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Brand Identity</h3>
+                    <p>Your brand is more than a logo. I create a cohesive visual identity across your website, social media, and marketing materials that makes you look established.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Conversion Optimization</h3>
+                    <p>You are getting visitors but they are not booking, buying, or calling. I analyze your user flow and fix the friction points so traffic turns into revenue.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Full Digital Marketing Package</h3>
+                    <p>Website + SEO + social media + brand, all handled. One person, one vision, everything consistent. This is what I did for Little Red Esthetics and it transformed their business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="section-divider"></div>
+    <section class="audit-final-cta">
+        <div class="container" style="text-align: center;">
+            <h2>Your Competition is Already Online</h2>
+            <p class="contact-text">Every day without a strong digital presence is a day your competitors are getting the customers that should be yours. Let's fix that.</p>
+            <div class="contact-links">
+                <a href="#audit-form" class="btn btn-primary">Get Your Free Audit</a>
+                <a href="mailto:manzurmelody@gmail.com" class="btn btn-outline">Skip to Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Melody Manzur &copy; 2026. Built with purpose.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="audit.js"></script>
+</body>
+</html>
