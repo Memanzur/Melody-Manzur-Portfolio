@@ -989,6 +989,33 @@ body.space-theme .nav-toggle span {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .star,
+    .shooting-star,
+    .nebula,
+    .mm-title,
+    .mm-progress-fill,
+    .path-dot.current,
+    .module,
+    .confetti-piece {
+        animation: none !important;
+    }
+
+    .mm-hero .hero-tag,
+    .mm-hero .hero-subtitle,
+    .mm-hero .btn,
+    .mm-progress {
+        opacity: 1;
+        transform: none;
+        animation: none !important;
+    }
+
+    .mm-title {
+        opacity: 1;
+        -webkit-text-fill-color: #f9a8d4;
+    }
+}
+
 @media (max-width: 480px) {
     .mm-title {
         font-size: 2.4rem;
