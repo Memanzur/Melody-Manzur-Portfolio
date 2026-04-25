@@ -618,7 +618,7 @@ body.space-theme .quiz-option:focus-visible {
 }
 
 .tool-compare-item h5 {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 8px;
     color: #e0e0f0;
@@ -626,7 +626,7 @@ body.space-theme .quiz-option:focus-visible {
 }
 
 .tool-compare-item p {
-    font-size: 0.78rem;
+    font-size: 0.875rem;
     margin-bottom: 0;
     line-height: 1.6;
 }
