@@ -22,6 +22,7 @@
                 <li><a href="#sprint">Sprint</a></li>
                 <li><a href="#skills-table">All Skills</a></li>
                 <li><a href="#github">GitHub</a></li>
+                <li><a href="#superpowers">Superpowers</a></li>
                 <li><a href="#business">For Business</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle menu">
@@ -474,8 +475,136 @@
         </div>
     </section>
 
-    <!-- Architecture & Business -->
+    <!-- Superpowers by Jesse Vincent -->
     <div class="section-divider"></div>
+    <section id="superpowers" class="pt-section">
+        <div class="container">
+            <h2 class="section-title">Superpowers by Jesse Vincent</h2>
+            <p class="section-subtitle"><strong>Superpowers</strong> is an agentic skills framework and software development methodology created by <strong>Jesse Vincent</strong> at <strong>Prime Radiant</strong>. It works across Claude Code, OpenAI Codex, Cursor, Gemini CLI, and GitHub Copilot. Instead of letting your coding agent jump straight into writing code, Superpowers forces a real process: spec first, plan second, build third.</p>
+
+            <div class="pt-intro">
+                <div class="pt-intro-text">
+                    <p><strong>The core idea:</strong> Your coding agent does not just write code. It steps back, asks what you are really trying to do, teases a spec out of the conversation, then shows it to you in chunks short enough to actually read. After you sign off on the design, it creates an implementation plan clear enough for an enthusiastic junior engineer to follow. Then it launches subagents to work through each task, reviewing their work as they go.</p>
+                    <p>Superpowers enforces true red/green test-driven development. Write a failing test, watch it fail, write minimal code to make it pass, commit. No code gets written before a test exists. Combined with YAGNI (You Aren't Gonna Need It) and DRY principles, it keeps agents from overbuilding.</p>
+                    <p>The result: Claude can work autonomously for a couple hours at a time without deviating from the plan you put together. The skills trigger automatically, so you do not need to do anything special. Your coding agent just has Superpowers.</p>
+                </div>
+                <div class="pt-quote-card">
+                    <blockquote>"Because the skills trigger automatically, you don't need to do anything special. Your coding agent just has Superpowers."</blockquote>
+                    <cite>Jesse Vincent, creator of Superpowers</cite>
+                </div>
+            </div>
+
+            <h3 class="table-heading">The Superpowers Workflow</h3>
+            <div class="sprint-flow">
+                <div class="sprint-step">
+                    <div class="sprint-number">1</div>
+                    <h3>Brainstorm</h3>
+                    <p>Before any code, the agent refines your rough idea through questions. Explores alternatives, presents the design in digestible sections for you to validate. Saves a design document.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">2</div>
+                    <h3>Plan</h3>
+                    <p>Breaks work into bite-sized tasks (2-5 minutes each). Every task has exact file paths, complete code, and verification steps. Uses git worktrees for isolated workspaces.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">3</div>
+                    <h3>Build</h3>
+                    <p>Subagent-driven development. Dispatches a fresh subagent per task with two-stage review: first spec compliance, then code quality. Enforces TDD at every step.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">4</div>
+                    <h3>Review</h3>
+                    <p>Automated code review between tasks. Reports issues by severity. Critical issues block progress. The agent checks for relevant skills before every task.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">5</div>
+                    <h3>Finish</h3>
+                    <p>Verifies all tests pass, presents options (merge, PR, keep branch, or discard), and cleans up the worktree. Systematic debugging if anything fails.</p>
+                </div>
+            </div>
+
+            <h3 class="table-heading">Skills Library</h3>
+            <div class="fix-grid">
+                <div class="fix-card">
+                    <h3>Test-Driven Development</h3>
+                    <p>RED-GREEN-REFACTOR enforced at every step. Write a failing test first, watch it fail, write minimal code to pass, then refactor. Includes testing anti-patterns reference. If code gets written before tests, the skill deletes it.</p>
+                    <div class="fix-flow">
+                        <span>Red (fail)</span>
+                        <span>Green (pass)</span>
+                        <span>Refactor</span>
+                        <span>Commit</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>Systematic Debugging</h3>
+                    <p>4-phase root cause process with defense-in-depth and condition-based waiting. No guessing, no random fixes. Includes verification-before-completion so bugs are actually fixed, not just patched.</p>
+                    <div class="fix-flow">
+                        <span>Isolate</span>
+                        <span>Trace root cause</span>
+                        <span>Fix</span>
+                        <span>Verify</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>Subagent-Driven Development</h3>
+                    <p>Dispatches parallel subagents for concurrent work. Each subagent gets a fresh context, works one task, then gets reviewed in two stages: does it match the spec, then is the code quality good. Fast iteration without context pollution.</p>
+                    <div class="fix-flow">
+                        <span>Dispatch</span>
+                        <span>Execute</span>
+                        <span>Spec review</span>
+                        <span>Quality review</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>Brainstorming and Planning</h3>
+                    <p>Socratic design refinement before any code. The agent asks questions, challenges assumptions, and explores alternatives. Then breaks work into 2-5 minute tasks with exact file paths and verification steps.</p>
+                    <div class="fix-flow">
+                        <span>Question</span>
+                        <span>Refine</span>
+                        <span>Design doc</span>
+                        <span>Task plan</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>Git Worktrees</h3>
+                    <p>Isolated workspaces on separate branches. Each feature gets its own worktree so parallel development does not interfere. Clean test baseline verified before work starts. Automatic cleanup when the branch is finished.</p>
+                    <div class="fix-flow">
+                        <span>Create worktree</span>
+                        <span>Verify baseline</span>
+                        <span>Work</span>
+                        <span>Merge/cleanup</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>Code Review Pipeline</h3>
+                    <p>Pre-review checklist before submitting, then structured feedback handling when receiving reviews. Reviews happen between tasks automatically, not just at the end. Critical issues block progress until resolved.</p>
+                    <div class="fix-flow">
+                        <span>Self-check</span>
+                        <span>Submit</span>
+                        <span>Receive feedback</span>
+                        <span>Resolve</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="business-bottom">
+                <h3>Why I Use Superpowers Alongside gstack</h3>
+                <p>gstack gives me the virtual engineering team: CEO review, design audit, QA, security, shipping. Superpowers gives me the development methodology: spec-first design, TDD, subagent orchestration, and systematic debugging. They complement each other. gstack handles the what (product, design, deployment), Superpowers handles the how (process, testing, code quality). Together they cover the full lifecycle from idea to production.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Business -->
+    <div class="section-divider flip"></div>
     <section id="business" class="pt-section">
         <div class="container">
             <h2 class="section-title">Architecture and Business Restructuring</h2>
