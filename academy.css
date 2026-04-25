@@ -542,15 +542,13 @@ body.space-theme .footer p {
     max-height: 0;
     overflow: hidden;
     padding: 0 0 0 22px;
-    border-left: 2px solid transparent;
     margin-left: 4px;
-    transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, padding 0.3s;
+    transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s;
 }
 
 .lesson.open .lesson-body {
     max-height: 3000px;
     padding: 16px 0 16px 22px;
-    border-left-color: rgba(236, 72, 153, 0.15);
 }
 
 .lesson-body p {
