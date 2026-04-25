@@ -447,7 +447,7 @@ body.space-theme .quiz-option:focus-visible {
 }
 
 .module-badge {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     padding: 4px 12px;
     border-radius: 20px;
     font-weight: 600;
@@ -665,7 +665,7 @@ body.space-theme .quiz-option:focus-visible {
 
 .quiz-subtitle {
     color: #6a6a88;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     margin-bottom: 24px;
 }
 
