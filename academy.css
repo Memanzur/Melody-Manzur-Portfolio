@@ -45,6 +45,17 @@ body.space-theme .footer p {
     color: #5a5a7a;
 }
 
+/* Focus visible */
+body.space-theme *:focus-visible {
+    outline: 2px solid #ec4899;
+    outline-offset: 2px;
+}
+
+body.space-theme .quiz-option:focus-visible {
+    outline-offset: -2px;
+    border-color: #ec4899;
+}
+
 /* Star field */
 .star-field {
     position: fixed;
