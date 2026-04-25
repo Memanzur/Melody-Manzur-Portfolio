@@ -1,5 +1,5 @@
 /* ==========================================
-   Power Tools Page Styles
+   Command Center Styles
    ========================================== */
 
 /* Hero */
@@ -16,9 +16,230 @@
     margin-bottom: 20px;
 }
 
-/* Sections */
+/* ---- Tab Bar (sticky) ---- */
+.cc-tab-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    backdrop-filter: blur(20px);
+}
+
+.cc-tab-bar .container {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px 0;
+}
+
+.cc-tab-bar .container::-webkit-scrollbar {
+    display: none;
+}
+
+.cc-tab {
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.cc-tab:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+}
+
+.cc-tab.active {
+    background: linear-gradient(135deg, var(--pink), var(--lavender));
+    color: #fff;
+    border-color: transparent;
+}
+
+/* ---- Tab Panels ---- */
+.cc-panel {
+    display: none;
+}
+
+.cc-panel.active {
+    display: block;
+}
+
+/* ---- Collapsible Cards ---- */
+.collapse-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    margin-bottom: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--glow);
+}
+
+.collapse-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 18px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font);
+    text-align: left;
+}
+
+.collapse-header h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    color: var(--text);
+    margin: 0;
+}
+
+.collapse-arrow {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.collapse-card.open .collapse-arrow {
+    transform: rotate(180deg);
+    color: var(--pink);
+}
+
+.collapse-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s;
+}
+
+.collapse-card.open .collapse-body {
+    max-height: 5000px;
+    padding: 0 24px 24px;
+}
+
+.collapse-body p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.collapse-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---- Client Notepad ---- */
+.notepad {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px var(--glow);
+}
+
+.notepad-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.notepad-header h3 {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    color: var(--text);
+    margin: 0;
+}
+
+.notepad-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.notepad-controls select,
+.notepad-controls input {
+    padding: 8px 12px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 0.85rem;
+}
+
+.notepad-controls select {
+    min-width: 160px;
+}
+
+.notepad-controls input {
+    width: 140px;
+}
+
+.notepad-controls button {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-family: var(--font);
+}
+
+.notepad-controls button:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+}
+
+#notepad-text {
+    width: 100%;
+    min-height: 180px;
+    padding: 16px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    resize: vertical;
+}
+
+#notepad-text:focus {
+    outline: none;
+    border-color: var(--pink);
+}
+
+#notepad-text:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ---- Sections ---- */
 .pt-section {
-    padding: 80px 0;
+    padding: 40px 0 60px;
 }
 
 .section-subtitle {
@@ -30,7 +251,7 @@
     line-height: 1.7;
 }
 
-/* gstack Intro */
+/* ---- gstack Intro ---- */
 .pt-intro {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -68,7 +289,7 @@
     font-weight: 500;
 }
 
-/* Sprint Flow */
+/* ---- Sprint Flow ---- */
 .sprint-flow {
     display: flex;
     align-items: flex-start;
@@ -130,12 +351,12 @@
     flex-shrink: 0;
 }
 
-/* Tables */
+/* ---- Tables ---- */
 .table-heading {
     font-family: var(--display);
     font-size: 1.4rem;
     color: var(--text);
-    margin: 50px 0 20px;
+    margin: 40px 0 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--border);
 }
@@ -196,10 +417,10 @@
     font-weight: 500;
 }
 
-/* Fix & Improve Grid */
+/* ---- Fix & Improve Grid ---- */
 .fix-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -245,73 +466,15 @@
     font-weight: 500;
 }
 
-/* Business Grid */
+/* ---- Business Grid ---- */
 .business-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
 }
 
-.business-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 32px;
-    box-shadow: 0 4px 20px var(--glow);
-    transition: transform 0.3s ease;
-}
-
-.business-card:hover {
-    transform: translateY(-4px);
-}
-
-.business-card h3 {
-    font-family: var(--display);
-    font-size: 1.2rem;
-    margin-bottom: 4px;
-    color: var(--text);
-}
-
-.business-card h4 {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--pink);
-    margin-bottom: 14px;
-    font-weight: 500;
-}
-
-.business-card p {
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 14px;
-    font-size: 0.95rem;
-}
-
-.business-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.business-card ul li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.business-card ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 12px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--pink), var(--lavender));
-}
-
 .business-bottom {
-    margin-top: 50px;
+    margin-top: 40px;
     background: linear-gradient(135deg, var(--bg-soft), var(--lilac));
     border-radius: var(--radius);
     padding: 40px;
@@ -333,48 +496,10 @@
     margin: 0 auto;
 }
 
-/* Parallel Grid */
-.parallel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-}
-
-.parallel-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 32px;
-    box-shadow: 0 4px 20px var(--glow);
-    transition: transform 0.3s ease;
-}
-
-.parallel-card:hover {
-    transform: translateY(-4px);
-}
-
-.parallel-card h3 {
-    font-family: var(--display);
-    font-size: 1.15rem;
-    margin-bottom: 12px;
-    color: var(--text);
-}
-
-.parallel-card p {
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-/* CTA */
-.pt-cta {
-    padding: 80px 0;
-}
-
-/* Dashboard Grid */
+/* ---- Dashboard Grid ---- */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 16px;
     margin-bottom: 40px;
 }
@@ -388,6 +513,8 @@
     text-decoration: none;
     text-align: center;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-family: var(--font);
 }
 
 .dash-card:hover {
@@ -423,11 +550,12 @@
     line-height: 1.5;
 }
 
-/* Quick Links */
+/* ---- Quick Links ---- */
 .quick-links-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 32px;
 }
 
 .quick-link {
@@ -450,7 +578,7 @@
     box-shadow: 0 4px 12px var(--glow);
 }
 
-/* Checklists */
+/* ---- Checklists ---- */
 .checklist {
     list-style: none;
     padding: 0;
@@ -477,7 +605,12 @@
     background: transparent;
 }
 
-/* Responsive */
+/* ---- CTA ---- */
+.pt-cta {
+    padding: 80px 0;
+}
+
+/* ---- Responsive ---- */
 @media (max-width: 768px) {
     .pt-intro {
         grid-template-columns: 1fr;
@@ -501,7 +634,6 @@
 
     .fix-grid,
     .business-grid,
-    .parallel-grid,
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
@@ -513,5 +645,28 @@
     .pt-table th,
     .pt-table td {
         padding: 10px 12px;
+    }
+
+    .cc-tab {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+
+    .notepad-controls {
+        width: 100%;
+    }
+
+    .notepad-controls select,
+    .notepad-controls input {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .collapse-header {
+        padding: 14px 18px;
+    }
+
+    .collapse-card.open .collapse-body {
+        padding: 0 18px 18px;
     }
 }
