@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5l12 33 33 12-33 12-12 33-12-33-33-12 33-12z' fill='%23ec4899'/></svg>">
     <link rel="stylesheet" href="style.css?v=20260425b">
-    <link rel="stylesheet" href="academy.css?v=20260425e">
+    <link rel="stylesheet" href="academy.css?v=20260425f">
 </head>
 <body class="space-theme">
     <div class="star-field" aria-hidden="true"></div>
@@ -572,10 +572,79 @@
                         </div>
                     </div>
 
+                    <div class="lesson" data-lesson="4">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Building Your First AI Agent (Step by Step)</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>You do not need to be a programmer to build an AI agent. You need to understand the pattern. Here is the simplest version that actually works:</p>
+                            <p><strong>Step 1: Define the job.</strong> Be extremely specific. Not "help me with marketing" but "take a blog post URL, extract the key points, write 5 Twitter threads, 3 Instagram captions, and 1 LinkedIn post, all in my brand voice." The more specific the job, the better the agent performs.</p>
+                            <p><strong>Step 2: Give it tools.</strong> In Claude Code, tools are built in. The agent can read files, write files, search the web, run commands, and interact with APIs. You describe what you want, and the agent picks the right tools. In other platforms, you connect tools through plugins or function calling.</p>
+                            <p><strong>Step 3: Write the instructions.</strong> This is your CLAUDE.md or system prompt. It tells the agent who it is, what it does, and how it should behave. Think of it like onboarding a new employee. You would not just say "do marketing." You would say "here is our brand voice, here are our content pillars, here is what we never do."</p>
+                            <p><strong>Step 4: Test with real tasks.</strong> Give it an actual job, not a toy example. Watch what it does. Where does it get confused? Where does it make wrong assumptions? Fix those by making your instructions more specific.</p>
+                            <p><strong>Step 5: Iterate.</strong> No agent is perfect on the first try. The good ones get better because you keep refining the instructions based on real usage. This is the same loop you use with any employee: delegate, review, give feedback, repeat.</p>
+                            <div class="highlight">The secret to building good agents is not technical skill. It is clear thinking about what the job actually is. If you can write a detailed job description for a human, you can build an AI agent.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="5">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Agent Architecture: CLAUDE.md and Skills</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>When you build agents in Claude Code, the architecture is simpler than you think. Two files do most of the heavy lifting:</p>
+                            <p><strong>CLAUDE.md</strong> is your agent's brain. It sits in the root of your project and tells Claude Code how to behave. What the project is, what conventions to follow, what commands to run, what to avoid. Every time Claude starts a session, it reads this file first. Think of it as permanent instructions that do not disappear between conversations.</p>
+                            <p><strong>Skills (SKILL.md files)</strong> are specialized workflows. Each skill is a set of step-by-step instructions for a specific task. /design-review is a skill. /qa is a skill. /ship is a skill. You can write your own. A skill file tells the agent exactly how to approach a type of work, what tools to use, when to stop and ask, and what the output should look like.</p>
+                            <p><strong>How they work together:</strong> CLAUDE.md sets the baseline behavior for everything. Skills override that baseline for specific tasks. So your CLAUDE.md might say "this is a Next.js project, use TypeScript, tests go in __tests__/" and then your /qa skill adds "open a browser, click through every page, screenshot failures."</p>
+                            <p><strong>Writing your own skill:</strong> Start with a task you do repeatedly. Write out every step you take when doing it manually. That list of steps becomes your SKILL.md. Be specific about inputs, outputs, and decision points. The more explicit you are, the less the agent guesses.</p>
+                            <div class="highlight">CLAUDE.md is "who you are and how you work." Skills are "here is exactly how to do this specific job." Together they turn a general-purpose AI into your specialized assistant.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="6">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Workflow Automation: Work Smarter, Not Harder</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Automation is not about replacing yourself. It is about never doing the same boring task twice. Here are the workflows that save the most time:</p>
+                            <p><strong>Content repurposing.</strong> Write one long-form piece (blog post, newsletter, video script). Then have AI break it into social posts, email snippets, carousel slides, and tweet threads. One input, ten outputs. This alone can save 5-10 hours per week for a content creator.</p>
+                            <p><strong>Client onboarding.</strong> Create a template that collects all the information you need from every new client. Use AI to generate the initial audit report, competitor analysis, and project plan from that intake form. What used to take a full day now takes an hour.</p>
+                            <p><strong>Code review and QA.</strong> Instead of manually clicking through every page after a change, run /qa and let it open a real browser, test every flow, and report bugs with screenshots. Instead of eyeballing the design, run /design-review and get a graded report with specific fixes.</p>
+                            <p><strong>Email and follow-ups.</strong> Draft email sequences, follow-up templates, and client reports with AI. You review and personalize, but the first draft is done in seconds instead of 30 minutes.</p>
+                            <p><strong>Reporting.</strong> Pull analytics data, have AI summarize the trends, generate a client-ready report with recommendations. Monthly reporting goes from a half-day chore to a 20-minute review.</p>
+                            <div class="highlight">The automation mindset: every time you do something for the second time, ask yourself "can I automate this?" If the answer is yes and the task takes more than 15 minutes, automate it. Your time is worth more than the 30 minutes it takes to set up the automation.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="7">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Automation Stack: The Tools That Connect Everything</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Here are the tools that make automation actually work in practice:</p>
+                            <p><strong>Claude Code + CLAUDE.md:</strong> Your main workhorse. Anything that involves reading, writing, building, or fixing code. Set up your CLAUDE.md once and every session starts with context.</p>
+                            <p><strong>Zapier / Make (Integromat):</strong> Connect apps without code. "When a new form submission comes in, create a Notion page, send a Slack message, and add a row to a spreadsheet." These tools connect the things that do not talk to each other natively.</p>
+                            <p><strong>GitHub Actions:</strong> Automate anything that happens when you push code. Run tests, deploy to production, update documentation, send notifications. Free for public repos, generous free tier for private.</p>
+                            <p><strong>Notion / Airtable:</strong> Your operational database. Track clients, projects, deliverables, and deadlines. Use templates so every new client gets the same setup. Connect to Zapier for automatic updates.</p>
+                            <p><strong>Calendly / Cal.com:</strong> Stop the "when are you free?" email chain. Share a link, people book themselves. Automatic confirmations, reminders, and calendar blocks.</p>
+                            <p><strong>Mailchimp / ConvertKit:</strong> Email automation. Welcome sequences, drip campaigns, and segmented lists. Set it up once, it runs forever.</p>
+                            <p><strong>The principle:</strong> Start with the task that wastes the most time. Automate that one thing. Then move to the next. Do not try to automate everything at once. That is how you end up with a mess of broken automations that nobody maintains.</p>
+                            <div class="highlight">The best automation is the one you actually use. Start simple. One Zap, one GitHub Action, one email sequence. Get it working, then build from there. Complexity is the enemy of automation that lasts.</div>
+                        </div>
+                    </div>
+
                     <!-- Quiz -->
                     <div class="quiz-section">
                         <h3 class="quiz-title">Module 4 Quiz</h3>
-                        <p class="quiz-subtitle">Get 4 out of 5 right to pass.</p>
+                        <p class="quiz-subtitle">Get 5 out of 7 right to pass.</p>
 
                         <div class="quiz-question">
                             <span class="q-num">Q1</span>
@@ -629,6 +698,28 @@
                                 <button class="quiz-option" data-correct="false">Free models do not work at all</button>
                                 <button class="quiz-option" data-correct="true">Cheap models produce slop on complex tasks, costing more time to fix than you save</button>
                                 <button class="quiz-option" data-correct="false">It does not actually matter which model you use</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q6</span>
+                            <p>What is a CLAUDE.md file used for?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">It stores your API keys</button>
+                                <button class="quiz-option" data-correct="true">It gives the AI permanent instructions about your project and how to behave</button>
+                                <button class="quiz-option" data-correct="false">It is a log file that records what the AI did</button>
+                                <button class="quiz-option" data-correct="false">It is required to install Claude Code</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q7</span>
+                            <p>What is the best approach to automating your workflow?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Automate everything at once for maximum efficiency</button>
+                                <button class="quiz-option" data-correct="false">Only automate things that are fun to set up</button>
+                                <button class="quiz-option" data-correct="true">Start with the task that wastes the most time, automate it, then move to the next</button>
+                                <button class="quiz-option" data-correct="false">Wait until you have a big team before automating</button>
                             </div>
                         </div>
 
