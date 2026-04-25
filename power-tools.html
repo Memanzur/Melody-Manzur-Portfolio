@@ -604,6 +604,41 @@
         </div>
     </footer>
 
+    <div id="pt-lock" style="position:fixed;inset:0;z-index:9999;background:#0a0a18;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;font-family:'Inter',sans-serif;">
+        <h2 style="color:#f9a8d4;font-family:'Dancing Script',cursive;font-size:2rem;">Melody's Power Tools</h2>
+        <p style="color:#8a8aa8;font-size:0.95rem;">This page is private. Enter the passcode to continue.</p>
+        <input id="pt-code" type="password" maxlength="4" placeholder="----" autocomplete="off"
+            style="width:140px;text-align:center;font-size:1.8rem;letter-spacing:12px;padding:12px;background:#111125;border:2px solid #2a2a4a;border-radius:12px;color:#e0e0f0;font-family:'JetBrains Mono',monospace;outline:none;">
+        <button id="pt-unlock" style="padding:10px 32px;background:linear-gradient(135deg,#ec4899,#a855f7);color:#fff;border:none;border-radius:50px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Unlock</button>
+        <p id="pt-error" style="color:#f43f5e;font-size:0.82rem;min-height:1.2em;"></p>
+    </div>
+    <script>
+    (function(){
+        var KEY='ptUnlocked';
+        if(sessionStorage.getItem(KEY)==='true'){
+            document.getElementById('pt-lock').remove();
+        } else {
+            document.body.style.overflow='hidden';
+            var input=document.getElementById('pt-code');
+            var btn=document.getElementById('pt-unlock');
+            var err=document.getElementById('pt-error');
+            function tryUnlock(){
+                if(input.value==='2686'){
+                    sessionStorage.setItem(KEY,'true');
+                    document.getElementById('pt-lock').remove();
+                    document.body.style.overflow='';
+                } else {
+                    err.textContent='Wrong code. Try again.';
+                    input.value='';
+                    input.focus();
+                }
+            }
+            btn.addEventListener('click',tryUnlock);
+            input.addEventListener('keydown',function(e){if(e.key==='Enter')tryUnlock();});
+            input.focus();
+        }
+    })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
