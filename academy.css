@@ -580,11 +580,11 @@ body.space-theme .footer p {
 
 .lesson-body .highlight {
     background: linear-gradient(135deg, rgba(236, 72, 153, 0.06), rgba(168, 85, 247, 0.06));
-    border-left: 3px solid #ec4899;
-    padding: 14px 18px;
-    border-radius: 0 12px 12px 0;
+    border: 1px solid rgba(236, 72, 153, 0.15);
+    padding: 16px 20px;
+    border-radius: 12px;
     margin: 16px 0;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #b0b0cc;
     line-height: 1.7;
 }
