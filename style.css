@@ -1,18 +1,20 @@
 /* ==========================================
-   Melody Manzur Portfolio
+   Melody Manzur Portfolio - Pink Vibe Coder
    ========================================== */
 
 :root {
-    --bg: #0a0a0f;
-    --bg-card: #12121a;
-    --bg-card-hover: #1a1a2e;
-    --text: #e4e4e7;
-    --text-muted: #8b8b9e;
-    --accent: #7c5cfc;
-    --accent-light: #a78bfa;
-    --accent-glow: rgba(124, 92, 252, 0.15);
-    --border: #1e1e2e;
-    --radius: 12px;
+    --bg: #fdf6f9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fff5f8;
+    --text: #2d2040;
+    --text-muted: #7a6b8a;
+    --accent: #e84393;
+    --accent-light: #f78fb3;
+    --accent-glow: rgba(232, 67, 147, 0.1);
+    --accent-soft: #fce4ec;
+    --lavender: #d6bcfa;
+    --border: #f0dce8;
+    --radius: 16px;
     --font: 'Inter', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', monospace;
 }
@@ -51,7 +53,7 @@ body {
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(253, 246, 249, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
 }
@@ -90,14 +92,14 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--text);
+    color: var(--accent);
 }
 
 .nav-cta {
     background: var(--accent);
     color: #fff !important;
     padding: 8px 20px;
-    border-radius: 8px;
+    border-radius: 24px;
     transition: background 0.2s, transform 0.2s !important;
 }
 
@@ -136,6 +138,7 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 100px 24px 60px;
+    position: relative;
 }
 
 .hero-content {
@@ -156,7 +159,7 @@ body {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--text) 0%, var(--accent-light) 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--lavender) 50%, var(--accent-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -179,7 +182,7 @@ body {
 .btn {
     display: inline-block;
     padding: 12px 28px;
-    border-radius: 8px;
+    border-radius: 24px;
     font-weight: 600;
     font-size: 0.95rem;
     text-decoration: none;
@@ -199,7 +202,7 @@ body {
 }
 
 .btn-outline {
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     color: var(--text);
     background: transparent;
 }
@@ -218,15 +221,15 @@ body {
 }
 
 .terminal {
-    background: #0d0d14;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: #2d2040;
+    border: 2px solid var(--border);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 60px rgba(232, 67, 147, 0.1);
 }
 
 .terminal-header {
-    background: #16161e;
+    background: #3d2e52;
     padding: 12px 16px;
     display: flex;
     gap: 8px;
@@ -238,28 +241,30 @@ body {
     border-radius: 50%;
 }
 
-.terminal-dot.red { background: #ff5f57; }
-.terminal-dot.yellow { background: #febc2e; }
-.terminal-dot.green { background: #28c840; }
+.terminal-dot.red { background: #ff6b8a; }
+.terminal-dot.yellow { background: #ffd166; }
+.terminal-dot.green { background: #6bcb77; }
 
 .terminal-body {
     padding: 20px;
     font-family: var(--mono);
     font-size: 0.85rem;
     line-height: 1.8;
+    color: #f0dce8;
 }
 
 .terminal-body .prompt {
-    color: var(--accent);
+    color: var(--accent-light);
 }
 
 .terminal-body .output {
-    color: var(--text-muted);
+    color: var(--lavender);
     padding-left: 16px;
 }
 
 .cursor {
     animation: blink 1s step-end infinite;
+    color: var(--accent-light);
 }
 
 @keyframes blink {
@@ -289,7 +294,7 @@ body {
     left: 0;
     width: 60px;
     height: 3px;
-    background: var(--accent);
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
     border-radius: 2px;
 }
 
@@ -319,7 +324,7 @@ body {
 
 .stat-card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     border-radius: var(--radius);
     padding: 24px;
     text-align: center;
@@ -327,8 +332,9 @@ body {
 }
 
 .stat-card:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-light);
     transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--accent-glow);
 }
 
 .stat-number {
@@ -361,7 +367,7 @@ body {
 
 .project-card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     border-radius: var(--radius);
     padding: 32px;
     transition: border-color 0.3s, transform 0.3s;
@@ -369,13 +375,14 @@ body {
 }
 
 .project-card:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-light);
     transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--accent-glow);
 }
 
 .project-card.featured {
-    border-color: var(--accent);
-    background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-glow) 100%);
+    border-color: var(--accent-light);
+    background: linear-gradient(135deg, #fff 0%, var(--accent-soft) 100%);
 }
 
 .project-badge {
@@ -399,7 +406,7 @@ body {
 }
 
 .project-type {
-    color: var(--accent-light);
+    color: var(--accent);
     font-size: 0.85rem;
     font-weight: 500;
     margin-bottom: 16px;
@@ -420,8 +427,8 @@ body {
 }
 
 .project-tags span {
-    background: rgba(124, 92, 252, 0.1);
-    color: var(--accent-light);
+    background: var(--accent-soft);
+    color: var(--accent);
     font-size: 0.75rem;
     padding: 4px 12px;
     border-radius: 20px;
@@ -461,21 +468,22 @@ body {
 
 .skill-category {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     border-radius: var(--radius);
     padding: 28px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, transform 0.2s;
 }
 
 .skill-category:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-light);
+    box-shadow: 0 8px 24px var(--accent-glow);
 }
 
 .skill-category h3 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 16px;
-    color: var(--accent-light);
+    color: var(--accent);
 }
 
 .skill-category ul {
@@ -486,7 +494,7 @@ body {
     color: var(--text-muted);
     font-size: 0.9rem;
     padding: 6px 0;
-    border-bottom: 1px solid rgba(30, 30, 46, 0.5);
+    border-bottom: 1px solid var(--border);
 }
 
 .skill-category li:last-child {
@@ -568,7 +576,7 @@ body {
         top: 64px;
         left: 0;
         right: 0;
-        background: rgba(10, 10, 15, 0.95);
+        background: rgba(253, 246, 249, 0.95);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 24px;
