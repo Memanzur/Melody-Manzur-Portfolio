@@ -176,7 +176,7 @@ body {
     background: linear-gradient(135deg, var(--pink), #d946ef) !important;
 }
 
-.nav-divider {
+.nav-divider, .nav-label {
     display: none;
 }
 
@@ -785,12 +785,23 @@ body {
         background: var(--bg-soft);
     }
 
-    .nav-divider {
+    .nav-label {
         display: block;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, var(--pink-light), transparent);
-        margin: 8px 24px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--pink);
+        padding: 12px 16px 4px;
         list-style: none;
+        border-top: 1px solid var(--border);
+        margin-top: 4px;
+    }
+
+    .nav-label:first-child {
+        border-top: none;
+        margin-top: 0;
+        padding-top: 4px;
     }
 
     .nav-cta {
