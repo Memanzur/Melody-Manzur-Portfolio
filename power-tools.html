@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Tools | Melody Manzur</title>
+    <meta name="description" content="The tools that turn one person into a full engineering team. gstack, sprint workflows, code review, architecture restructuring, and what businesses actually need.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="power-tools.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Melody M</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="ai-academy.html">AI Academy</a></li>
+                <li><a href="#sprint">Sprint</a></li>
+                <li><a href="#skills-table">All Skills</a></li>
+                <li><a href="#business">For Business</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-hero">
+        <div class="container">
+            <p class="hero-tag">The Tools Behind the Work</p>
+            <h1 class="pt-title">Power Tools</h1>
+            <p class="hero-subtitle" style="max-width: 700px;">One person shipping like a team of twenty. These are the tools, workflows, and systems I use every day to build products, fix code, review architecture, and help businesses level up.</p>
+        </div>
+    </section>
+
+    <!-- gstack Overview -->
+    <section id="gstack" class="pt-section">
+        <div class="container">
+            <h2 class="section-title">gstack by Garry Tan</h2>
+            <div class="pt-intro">
+                <div class="pt-intro-text">
+                    <p><strong>gstack</strong> is an open-source software factory created by <strong>Garry Tan</strong>, President and CEO of <strong>Y Combinator</strong>. Before YC, Garry was one of the first eng/PM/designers at Palantir, cofounded Posterous (sold to Twitter), and built Bookface, YC's internal social network. He has worked with thousands of startups including Coinbase, Instacart, and Rippling when they were just one or two people in a garage.</p>
+                    <p>gstack turns Claude Code into a virtual engineering team: a CEO who rethinks the product, an eng manager who locks architecture, a designer who catches AI slop, a reviewer who finds production bugs, a QA lead who opens a real browser, a security officer who runs OWASP + STRIDE audits, and a release engineer who ships the PR. <strong>23 specialists and 8 power tools</strong>, all slash commands, all Markdown, all free, MIT licensed.</p>
+                    <p>Garry's 2026 run rate: <strong>~810x his 2013 pace</strong> (11,417 vs 14 logical lines/day). Same person, different era. The difference is the tooling.</p>
+                </div>
+                <div class="pt-quote-card">
+                    <blockquote>"I don't think I've typed like a line of code probably since December, basically, which is an extremely large change."</blockquote>
+                    <cite>Andrej Karpathy, No Priors podcast, March 2026</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Sprint -->
+    <div class="section-divider"></div>
+    <section id="sprint" class="pt-section">
+        <div class="container">
+            <h2 class="section-title">The Sprint Workflow</h2>
+            <p class="section-subtitle">gstack is a process, not a collection of tools. The skills run in the order a sprint runs. Each skill feeds into the next. Nothing falls through the cracks because every step knows what came before it.</p>
+
+            <div class="sprint-flow">
+                <div class="sprint-step">
+                    <div class="sprint-number">1</div>
+                    <h3>Think</h3>
+                    <p>Start with /office-hours. Six forcing questions reframe your product before you write code. Pushes back on your framing, challenges premises, generates implementation alternatives.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">2</div>
+                    <h3>Plan</h3>
+                    <p>CEO review rethinks the problem. Eng review locks architecture. Design review rates every dimension 0-10. The plan gets challenged from every angle before a line of code is written.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">3</div>
+                    <h3>Build</h3>
+                    <p>Write the code with AI. gstack's continuous checkpoint mode auto-commits your work as you go. Survives crashes and context switches.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">4</div>
+                    <h3>Review</h3>
+                    <p>/review finds bugs that pass CI but blow up in production. Auto-fixes the obvious ones. /codex gets a second opinion from a completely different AI model.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">5</div>
+                    <h3>Test</h3>
+                    <p>/qa opens a real browser, clicks through flows, finds bugs, fixes them with atomic commits, and generates regression tests. The agent has eyes now.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">6</div>
+                    <h3>Ship</h3>
+                    <p>Sync main, run tests, audit coverage, push, open PR. /land-and-deploy merges, waits for CI, and verifies production health.</p>
+                </div>
+                <div class="sprint-arrow"></div>
+                <div class="sprint-step">
+                    <div class="sprint-number">7</div>
+                    <h3>Reflect</h3>
+                    <p>/retro runs a team-aware weekly retrospective. Per-person breakdowns, shipping streaks, test health trends, and growth opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Skills Table -->
+    <div class="section-divider flip"></div>
+    <section id="skills-table" class="pt-section">
+        <div class="container">
+            <h2 class="section-title">All 23 Skills + 8 Power Tools</h2>
+            <p class="section-subtitle">Every specialist on your virtual engineering team. Each one is a slash command in Claude Code.</p>
+
+            <h3 class="table-heading">The Sprint Skills</h3>
+            <div class="skills-table-wrapper">
+                <table class="pt-table">
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Your Specialist</th>
+                            <th>What They Do</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/office-hours</code></td>
+                            <td>YC Office Hours</td>
+                            <td>Start here. Six forcing questions that reframe your product before you write code. Pushes back on your framing, challenges premises, generates implementation alternatives. Design doc feeds into every downstream skill.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/plan-ceo-review</code></td>
+                            <td>CEO / Founder</td>
+                            <td>Rethink the problem. Find the 10-star product hiding inside the request. Four modes: Expansion, Selective Expansion, Hold Scope, Reduction.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/plan-eng-review</code></td>
+                            <td>Eng Manager</td>
+                            <td>Lock in architecture, data flow, diagrams, edge cases, and tests. Forces hidden assumptions into the open.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/plan-design-review</code></td>
+                            <td>Senior Designer</td>
+                            <td>Rates each design dimension 0-10, explains what a 10 looks like, then edits the plan to get there. AI Slop detection. Interactive.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/plan-devex-review</code></td>
+                            <td>DX Lead</td>
+                            <td>Interactive DX review: explores developer personas, benchmarks against competitors, designs magical moments, traces friction points. Three modes: DX Expansion, DX Polish, DX Triage.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/design-consultation</code></td>
+                            <td>Design Partner</td>
+                            <td>Build a complete design system from scratch. Researches the landscape, proposes creative risks, generates realistic product mockups.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/design-shotgun</code></td>
+                            <td>Design Explorer</td>
+                            <td>Generates 4-6 AI mockup variants, opens a comparison board in your browser, collects structured feedback, and iterates. Taste memory learns what you like.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/design-html</code></td>
+                            <td>Design Engineer</td>
+                            <td>Turn a mockup into production-quality HTML/CSS. Text actually reflows, heights adjust, layouts are dynamic. 30KB overhead, zero deps. Detects React/Svelte/Vue.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/review</code></td>
+                            <td>Staff Engineer</td>
+                            <td>Find the bugs that pass CI but blow up in production. Auto-fixes the obvious ones. Flags completeness gaps.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/investigate</code></td>
+                            <td>Debugger</td>
+                            <td>Systematic root-cause debugging. Iron Law: no fixes without investigation. Traces data flow, tests hypotheses, stops after 3 failed fixes.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/design-review</code></td>
+                            <td>Designer Who Codes</td>
+                            <td>Same audit as /plan-design-review, then fixes what it finds. Atomic commits, before/after screenshots.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/devex-review</code></td>
+                            <td>DX Tester</td>
+                            <td>Live developer experience audit. Actually tests your onboarding: navigates docs, tries the getting started flow, times TTHW, screenshots errors.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/qa</code></td>
+                            <td>QA Lead</td>
+                            <td>Test your app, find bugs, fix them with atomic commits, re-verify. Auto-generates regression tests for every fix.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/qa-only</code></td>
+                            <td>QA Reporter</td>
+                            <td>Same methodology as /qa but report only. Pure bug report without code changes.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/cso</code></td>
+                            <td>Chief Security Officer</td>
+                            <td>OWASP Top 10 + STRIDE threat model. Zero-noise: 17 false positive exclusions, 8/10+ confidence gate, independent finding verification.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/ship</code></td>
+                            <td>Release Engineer</td>
+                            <td>Sync main, run tests, audit coverage, push, open PR. Bootstraps test frameworks if you don't have one.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/land-and-deploy</code></td>
+                            <td>Release Engineer</td>
+                            <td>Merge the PR, wait for CI and deploy, verify production health. One command from "approved" to "verified in production."</td>
+                        </tr>
+                        <tr>
+                            <td><code>/canary</code></td>
+                            <td>SRE</td>
+                            <td>Post-deploy monitoring loop. Watches for console errors, performance regressions, and page failures.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/benchmark</code></td>
+                            <td>Performance Engineer</td>
+                            <td>Baseline page load times, Core Web Vitals, and resource sizes. Compare before/after on every PR.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/document-release</code></td>
+                            <td>Technical Writer</td>
+                            <td>Update all project docs to match what you just shipped. Catches stale READMEs automatically.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/browse</code></td>
+                            <td>QA Engineer</td>
+                            <td>Give the agent eyes. Real Chromium browser, real clicks, real screenshots. ~100ms per command.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/retro</code></td>
+                            <td>Eng Manager</td>
+                            <td>Team-aware weekly retro. Per-person breakdowns, shipping streaks, test health trends, growth opportunities.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/autoplan</code></td>
+                            <td>Review Pipeline</td>
+                            <td>One command, fully reviewed plan. Runs CEO, design, and eng review automatically with encoded decision principles.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/pair-agent</code></td>
+                            <td>Multi-Agent Coordinator</td>
+                            <td>Share your browser with any AI agent. Works with OpenClaw, Hermes, Codex, Cursor, or anything that can curl. Scoped tokens, tab isolation, rate limiting.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/learn</code></td>
+                            <td>Memory</td>
+                            <td>Manage what gstack learned across sessions. Review, search, prune, and export project-specific patterns. Learnings compound over time.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="table-heading">Power Tools</h3>
+            <div class="skills-table-wrapper">
+                <table class="pt-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>What It Does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/codex</code></td>
+                            <td><strong>Second Opinion</strong> -- independent code review from OpenAI Codex CLI. Three modes: review (pass/fail gate), adversarial challenge, and open consultation. Cross-model analysis when both /review and /codex have run.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/careful</code></td>
+                            <td><strong>Safety Guardrails</strong> -- warns before destructive commands (rm -rf, DROP TABLE, force-push). Override any warning.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/freeze</code></td>
+                            <td><strong>Edit Lock</strong> -- restrict file edits to one directory. Prevents accidental changes outside scope while debugging.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/guard</code></td>
+                            <td><strong>Full Safety</strong> -- /careful + /freeze in one command. Maximum safety for production work.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/unfreeze</code></td>
+                            <td><strong>Unlock</strong> -- remove the /freeze boundary and allow edits everywhere again.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/open-gstack-browser</code></td>
+                            <td><strong>GStack Browser</strong> -- AI-controlled Chromium with anti-bot stealth, sidebar extension, auto model routing (Sonnet for actions, Opus for analysis), and one-click cookie import.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/setup-deploy</code></td>
+                            <td><strong>Deploy Configurator</strong> -- one-time setup for /land-and-deploy. Detects your platform, production URL, and deploy commands.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/gstack-upgrade</code></td>
+                            <td><strong>Self-Updater</strong> -- upgrade gstack to latest. Detects global vs vendored install, syncs both, shows what changed.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="table-heading">Which Review Should You Use?</h3>
+            <div class="skills-table-wrapper">
+                <table class="pt-table">
+                    <thead>
+                        <tr>
+                            <th>Building For...</th>
+                            <th>Plan Stage (Before Code)</th>
+                            <th>Live Audit (After Shipping)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>End users</strong> (UI, web app, mobile)</td>
+                            <td><code>/plan-design-review</code></td>
+                            <td><code>/design-review</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Developers</strong> (API, CLI, SDK, docs)</td>
+                            <td><code>/plan-devex-review</code></td>
+                            <td><code>/devex-review</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Architecture</strong> (data flow, perf, tests)</td>
+                            <td><code>/plan-eng-review</code></td>
+                            <td><code>/review</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>All of the above</strong></td>
+                            <td><code>/autoplan</code></td>
+                            <td>--</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fix & Improve Your Code -->
+    <div class="section-divider"></div>
+    <section id="fix-code" class="pt-section">
+        <div class="container">
+            <h2 class="section-title">Fix and Improve Your Code</h2>
+            <p class="section-subtitle">Stop guessing what is wrong. These tools systematically find bugs, trace root causes, catch security vulnerabilities, and improve code quality with real evidence.</p>
+
+            <div class="fix-grid">
+                <div class="fix-card">
+                    <h3>/review -- Find Production Bugs</h3>
+                    <p>A Staff Engineer reviews your diff for bugs that pass CI but blow up in production. Auto-fixes the obvious ones, flags completeness gaps, and asks about architectural decisions. This is the code review most teams skip.</p>
+                    <div class="fix-flow">
+                        <span>Analyze diff</span>
+                        <span>Find bugs</span>
+                        <span>Auto-fix</span>
+                        <span>Flag gaps</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>/investigate -- Root Cause Debugging</h3>
+                    <p>Systematic debugging with four phases: investigate, analyze, hypothesize, implement. The Iron Law: no fixes without root cause. Traces data flow, tests hypotheses, and stops after 3 failed fixes instead of going in circles.</p>
+                    <div class="fix-flow">
+                        <span>Investigate</span>
+                        <span>Analyze</span>
+                        <span>Hypothesize</span>
+                        <span>Implement</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>/qa -- Test, Fix, Verify</h3>
+                    <p>Opens a real browser, clicks through your app, finds bugs, fixes them with atomic commits, generates regression tests, and re-verifies. Not a test report -- an actual fix-and-verify loop.</p>
+                    <div class="fix-flow">
+                        <span>Open browser</span>
+                        <span>Find bugs</span>
+                        <span>Fix code</span>
+                        <span>Re-verify</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>/cso -- Security Audit</h3>
+                    <p>Chief Security Officer mode. OWASP Top 10 + STRIDE threat modeling. Secrets archaeology, dependency supply chain analysis, CI/CD pipeline security, and LLM/AI security. Each finding includes a concrete exploit scenario.</p>
+                    <div class="fix-flow">
+                        <span>Scan code</span>
+                        <span>Threat model</span>
+                        <span>Verify findings</span>
+                        <span>Report</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>/codex -- Second Opinion</h3>
+                    <p>Independent review from a completely different AI (OpenAI Codex). Three modes: code review with pass/fail gate, adversarial mode that tries to break your code, and open consultation. Cross-model analysis shows where Claude and GPT agree and disagree.</p>
+                    <div class="fix-flow">
+                        <span>Review</span>
+                        <span>Challenge</span>
+                        <span>Consult</span>
+                        <span>Compare</span>
+                    </div>
+                </div>
+
+                <div class="fix-card">
+                    <h3>/benchmark -- Performance Testing</h3>
+                    <p>Baseline page load times, Core Web Vitals, and resource sizes. Compare before/after on every PR. Catch performance regressions before they ship.</p>
+                    <div class="fix-flow">
+                        <span>Baseline</span>
+                        <span>Measure</span>
+                        <span>Compare</span>
+                        <span>Alert</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Business -->
+    <div class="section-divider flip"></div>
+    <section id="business" class="pt-section">
+        <div class="container">
+            <h2 class="section-title">Architecture and Business Restructuring</h2>
+            <p class="section-subtitle">What businesses actually need to ship faster, build better products, and stop wasting time on the wrong things.</p>
+
+            <div class="business-grid">
+                <div class="business-card">
+                    <h3>Product Strategy</h3>
+                    <h4>/office-hours + /plan-ceo-review</h4>
+                    <p>Before writing a single line of code, challenge every assumption. /office-hours asks the six forcing questions that expose demand reality, your actual wedge, and what the status quo is really costing. /plan-ceo-review finds the 10-star product hiding inside a feature request. Four scope modes let you dream big or strip to essentials.</p>
+                    <ul>
+                        <li>Expose demand reality before building</li>
+                        <li>Find the narrowest wedge to ship first</li>
+                        <li>Challenge premises and expand scope when it creates a better product</li>
+                        <li>Generate implementation alternatives with effort estimates</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>Technical Architecture</h3>
+                    <h4>/plan-eng-review</h4>
+                    <p>Lock in the execution plan before building. ASCII diagrams for data flow and state machines. Edge cases, error paths, test coverage, performance concerns. Forces hidden assumptions into the open so you don't discover them in production.</p>
+                    <ul>
+                        <li>Data flow diagrams and state machines</li>
+                        <li>Edge case identification</li>
+                        <li>Test matrix and failure modes</li>
+                        <li>Performance and security concerns upfront</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>Design Systems</h3>
+                    <h4>/design-consultation + /design-shotgun</h4>
+                    <p>Build a complete design system from scratch. Research the competitive landscape, propose creative risks, generate realistic mockups. /design-shotgun shows you 4-6 variants side by side so you pick visually instead of describing in words. Taste memory learns what you like over time.</p>
+                    <ul>
+                        <li>Complete design system creation</li>
+                        <li>Competitive landscape research</li>
+                        <li>Visual variant comparison</li>
+                        <li>Production-ready HTML/CSS output</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>Developer Experience</h3>
+                    <h4>/plan-devex-review + /devex-review</h4>
+                    <p>If you are building for developers (APIs, SDKs, CLIs), this reviews your onboarding experience. Explores developer personas, benchmarks time-to-hello-world against competitors, and traces friction points. The live audit actually tests your docs and getting started flow.</p>
+                    <ul>
+                        <li>Developer persona exploration</li>
+                        <li>Time-to-hello-world benchmarking</li>
+                        <li>Friction point mapping</li>
+                        <li>Live testing of docs and onboarding</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>Security Posture</h3>
+                    <h4>/cso</h4>
+                    <p>Infrastructure-first security audit. Secrets archaeology (are there leaked API keys in git history?), dependency supply chain analysis, CI/CD pipeline security, and LLM/AI security. Two modes: daily zero-noise checks and monthly comprehensive deep scans.</p>
+                    <ul>
+                        <li>OWASP Top 10 + STRIDE threat modeling</li>
+                        <li>Secrets and credential scanning</li>
+                        <li>Dependency supply chain analysis</li>
+                        <li>Concrete exploit scenarios for every finding</li>
+                    </ul>
+                </div>
+
+                <div class="business-card">
+                    <h3>Shipping and Deployment</h3>
+                    <h4>/ship + /land-and-deploy + /canary</h4>
+                    <p>The full release pipeline. /ship syncs main, runs tests, audits coverage, pushes, and opens a PR. /land-and-deploy merges, waits for CI, and verifies production health. /canary monitors post-deploy for console errors, performance regressions, and page failures.</p>
+                    <ul>
+                        <li>Automated test and coverage audit</li>
+                        <li>One-command PR creation</li>
+                        <li>Post-merge production verification</li>
+                        <li>Continuous canary monitoring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="business-bottom">
+                <h3>What This Means for Businesses</h3>
+                <p>A single person with gstack can do the work of a full engineering team. That means startups ship faster, small businesses get enterprise-quality code, and solo builders stop cutting corners. The sprint workflow ensures nothing gets skipped: every feature gets a product review, architecture review, design review, code review, QA pass, security audit, and proper deployment. That is the standard big companies set with 20-person teams. Now one person can hit it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallel Sprints -->
+    <div class="section-divider"></div>
+    <section class="pt-section">
+        <div class="container">
+            <h2 class="section-title">Parallel Sprints</h2>
+            <p class="section-subtitle">gstack is powerful with one sprint. It is transformative with ten running at once.</p>
+            <div class="parallel-grid">
+                <div class="parallel-card">
+                    <h3>10-15 Parallel Workers</h3>
+                    <p>Using Conductor, you can run multiple Claude Code sessions in parallel, each in its own isolated workspace. One session on /office-hours for a new idea, another doing /review on a PR, a third implementing a feature, a fourth running /qa on staging. All at the same time.</p>
+                </div>
+                <div class="parallel-card">
+                    <h3>The Sprint Structure Makes It Work</h3>
+                    <p>Without a process, ten agents is ten sources of chaos. With a process (Think, Plan, Build, Review, Test, Ship, Reflect), each agent knows exactly what to do and when to stop. You manage them the way a CEO manages a team: check in on the decisions that matter, let the rest run.</p>
+                </div>
+                <div class="parallel-card">
+                    <h3>100% Test Coverage is the Goal</h3>
+                    <p>/ship bootstraps test frameworks from scratch if your project doesn't have one. Every /ship run produces a coverage audit. Every /qa bug fix generates a regression test. Tests make vibe coding safe instead of yolo coding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="section-divider flip"></div>
+    <section class="pt-cta">
+        <div class="container" style="text-align: center;">
+            <h2>Want to Learn These Tools?</h2>
+            <p class="contact-text">Check out the AI Academy for hands-on modules covering Claude Code, gstack, and how to actually build with AI.</p>
+            <div class="contact-links">
+                <a href="ai-academy.html" class="btn btn-primary">AI Academy</a>
+                <a href="index.html" class="btn btn-outline">Back to Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Melody Manzur &copy; 2026. Built with purpose.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

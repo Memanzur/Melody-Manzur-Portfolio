@@ -1,0 +1,410 @@
+/* ==========================================
+   Power Tools Page Styles
+   ========================================== */
+
+/* Hero */
+.pt-hero {
+    padding: 140px 0 80px;
+    text-align: center;
+}
+
+.pt-title {
+    font-family: var(--display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+/* Sections */
+.pt-section {
+    padding: 80px 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: -10px auto 50px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* gstack Intro */
+.pt-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.pt-intro-text p {
+    margin-bottom: 16px;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.pt-quote-card {
+    background: linear-gradient(135deg, var(--bg-soft), var(--lilac));
+    border-radius: var(--radius);
+    padding: 40px;
+    border: 1px solid var(--border);
+}
+
+.pt-quote-card blockquote {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.pt-quote-card cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Sprint Flow */
+.sprint-flow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sprint-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    max-width: 180px;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--glow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sprint-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px var(--glow);
+}
+
+.sprint-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink), var(--lavender));
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 1rem;
+}
+
+.sprint-step h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.sprint-step p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.sprint-arrow {
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--pink-light), var(--lavender));
+    align-self: center;
+    margin-top: 30px;
+    flex-shrink: 0;
+}
+
+/* Tables */
+.table-heading {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    color: var(--text);
+    margin: 50px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+}
+
+.table-heading:first-of-type {
+    margin-top: 0;
+}
+
+.skills-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px var(--glow);
+    margin-bottom: 30px;
+}
+
+.pt-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    font-size: 0.92rem;
+}
+
+.pt-table thead {
+    background: linear-gradient(135deg, var(--bg-soft), var(--lilac));
+}
+
+.pt-table th {
+    text-align: left;
+    padding: 14px 18px;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pt-table td {
+    padding: 14px 18px;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    line-height: 1.6;
+    vertical-align: top;
+}
+
+.pt-table tbody tr:hover {
+    background: var(--bg-soft);
+}
+
+.pt-table code {
+    font-family: var(--mono);
+    background: var(--pink-soft);
+    color: var(--pink);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+/* Fix & Improve Grid */
+.fix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.fix-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 4px 20px var(--glow);
+    transition: transform 0.3s ease;
+}
+
+.fix-card:hover {
+    transform: translateY(-4px);
+}
+
+.fix-card h3 {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.fix-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.fix-flow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.fix-flow span {
+    background: linear-gradient(135deg, var(--bg-soft), var(--lilac));
+    color: var(--text);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Business Grid */
+.business-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.business-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 4px 20px var(--glow);
+    transition: transform 0.3s ease;
+}
+
+.business-card:hover {
+    transform: translateY(-4px);
+}
+
+.business-card h3 {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+
+.business-card h4 {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--pink);
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.business-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+}
+
+.business-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.business-card ul li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.business-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink), var(--lavender));
+}
+
+.business-bottom {
+    margin-top: 50px;
+    background: linear-gradient(135deg, var(--bg-soft), var(--lilac));
+    border-radius: var(--radius);
+    padding: 40px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.business-bottom h3 {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.business-bottom p {
+    color: var(--text);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Parallel Grid */
+.parallel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.parallel-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 4px 20px var(--glow);
+    transition: transform 0.3s ease;
+}
+
+.parallel-card:hover {
+    transform: translateY(-4px);
+}
+
+.parallel-card h3 {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.parallel-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* CTA */
+.pt-cta {
+    padding: 80px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pt-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .sprint-flow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sprint-step {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .sprint-arrow {
+        width: 2px;
+        height: 20px;
+        margin-top: 0;
+    }
+
+    .fix-grid,
+    .business-grid,
+    .parallel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pt-table {
+        font-size: 0.82rem;
+    }
+
+    .pt-table th,
+    .pt-table td {
+        padding: 10px 12px;
+    }
+}
