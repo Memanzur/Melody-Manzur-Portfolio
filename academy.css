@@ -2,10 +2,25 @@
    The Melody Method - Space Theme
    ========================================== */
 
-/* Override base theme for space mode */
+/* Design tokens */
 body.space-theme {
-    background: #0a0a18;
-    color: #e0e0f0;
+    --space-bg: #0a0a18;
+    --space-surface: #111125;
+    --space-surface-raised: rgba(17, 17, 37, 0.6);
+    --space-border: #1a1a2e;
+    --space-border-subtle: #1e1e3a;
+    --space-text: #e0e0f0;
+    --space-text-muted: #8a8aa8;
+    --space-text-dim: #6a6a88;
+    --space-accent: #ec4899;
+    --space-accent-light: #f9a8d4;
+    --space-purple: #a855f7;
+    --space-blue: #60a5fa;
+    --space-green: #4ade80;
+    --space-gold: #fbbf24;
+    --space-red: #f43f5e;
+    background: var(--space-bg);
+    color: var(--space-text);
 }
 
 body.space-theme .sparkles { display: none; }
