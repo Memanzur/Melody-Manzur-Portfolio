@@ -408,7 +408,7 @@ body.space-theme .footer p {
 }
 
 .module-info h3 {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #e0e0f0;
     margin-bottom: 3px;
@@ -423,7 +423,7 @@ body.space-theme .footer p {
 
 .module-info p {
     color: #6a6a88;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     line-height: 1.5;
 }
 
@@ -504,7 +504,7 @@ body.space-theme .footer p {
 }
 
 .lesson-header h4 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #b0b0c8;
     flex: 1;
@@ -547,7 +547,7 @@ body.space-theme .footer p {
 
 .lesson-body p {
     color: #8a8aa8;
-    font-size: 0.88rem;
+    font-size: 1rem;
     line-height: 1.85;
     margin-bottom: 14px;
 }
@@ -663,7 +663,7 @@ body.space-theme .footer p {
 }
 
 .quiz-question p {
-    font-size: 0.88rem;
+    font-size: 1rem;
     color: #c0c0d8;
     margin-bottom: 14px;
     font-weight: 500;
@@ -689,12 +689,12 @@ body.space-theme .footer p {
     display: block;
     width: 100%;
     text-align: left;
-    padding: 11px 16px;
+    padding: 12px 16px;
     background: rgba(20, 20, 40, 0.5);
     border: 1px solid #1e1e3a;
     border-radius: 10px;
     color: #9a9ab8;
-    font-size: 0.84rem;
+    font-size: 0.925rem;
     cursor: pointer;
     transition: all 0.25s ease;
     font-family: var(--font);
