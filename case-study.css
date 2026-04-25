@@ -132,6 +132,24 @@
     display: block;
 }
 
+.screenshot-scroll {
+    max-height: 700px;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.screenshot-img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.screenshot-img:last-child {
+    margin-bottom: 0;
+}
+
 .frame-label {
     position: absolute;
     top: 12px;
@@ -340,6 +358,10 @@
         height: 500px;
     }
 
+    .screenshot-scroll {
+        max-height: 500px;
+    }
+
     .pages-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -352,5 +374,9 @@
 
     .frame-container iframe {
         height: 400px;
+    }
+
+    .screenshot-scroll {
+        max-height: 400px;
     }
 }
