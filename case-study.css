@@ -90,21 +90,21 @@
 .tab-btn {
     padding: 12px 28px;
     background: var(--bg-card);
-    color: var(--text-muted);
+    color: var(--text);
     border: none;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background 0.2s, color 0.2s;
     font-family: var(--font);
 }
 
 .tab-btn:hover {
-    color: var(--text);
+    background: var(--bg-soft);
 }
 
 .tab-btn.active {
-    background: var(--accent);
+    background: var(--pink);
     color: #fff;
 }
 
@@ -148,6 +148,13 @@
 
 .screenshot-img:last-child {
     margin-bottom: 0;
+}
+
+.after-live-link {
+    text-align: center;
+    padding: 20px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-soft);
 }
 
 .frame-label {

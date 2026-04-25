@@ -519,32 +519,32 @@
 
     function generateRecommendations(scores, compScores, info, hasReal) {
         var recs = [];
-        if (!info.websiteUrl) recs.push({ title: 'Build a professional website', desc: 'A clean, fast, mobile-friendly site with clear calls to action is your foundation.' });
-        else if (hasReal && scores.performance < 50) recs.push({ title: 'Fix your website speed', desc: 'Compress images, clean up code, and consider better hosting.' });
-        if (hasReal && scores.seo < 80) recs.push({ title: 'Improve your SEO', desc: 'Add proper meta titles and descriptions, create a sitemap, and optimize for local searches.' });
+        if (!info.websiteUrl) recs.push({ title: 'You need a website', desc: 'Without one, people searching for your services will never find you. I would start here before anything else.' });
+        else if (hasReal && scores.performance < 50) recs.push({ title: 'Your website is too slow', desc: 'A ' + scores.performance + '/100 speed score means people are leaving before they even see what you offer. I would compress your images, clean up the code, and look at your hosting.' });
+        else if (hasReal && scores.performance < 90) recs.push({ title: 'Speed up your website', desc: 'Your site scored ' + scores.performance + '/100. Not terrible, but faster sites get better Google rankings and more conversions. Image optimization and code cleanup would help.' });
+        if (hasReal && scores.seo < 80) recs.push({ title: 'Fix your SEO', desc: 'Your site scored ' + scores.seo + '/100 on SEO. I would add proper meta titles, descriptions, a sitemap, and optimize for local searches in your area. This is how people find you on Google.' });
         if (compScores && scores) {
             var youAvg = (scores.performance + scores.seo + scores.accessibility + scores.bestPractices) / 4;
             var themAvg = (compScores.performance + compScores.seo + compScores.accessibility + compScores.bestPractices) / 4;
-            if (themAvg > youAvg) recs.push({ title: 'Close the gap with your competitor', desc: 'They outscore you overall. Focus on the categories where the difference is largest for maximum impact.' });
+            if (themAvg > youAvg) recs.push({ title: 'Your competitor is ahead of you', desc: 'They outscore you overall. I would focus on the categories with the biggest gap first. Small improvements in the right places can flip the rankings.' });
         }
-        if (info.googleBiz === 'no' || info.googleBiz === 'unsure') recs.push({ title: 'Set up Google Business Profile', desc: 'Free, takes 15 minutes. Add hours, photos, services, and start collecting reviews.' });
-        else if (info.googleBiz === 'yes-outdated') recs.push({ title: 'Update your Google Business Profile', desc: 'Add current photos, update hours, list all services, and respond to reviews.' });
-        if (!info.instagram) recs.push({ title: 'Create an Instagram presence', desc: 'Post consistently, use local hashtags, share behind-the-scenes content.' });
-        if (info.currentMarketing === 'nothing' || info.currentMarketing === 'social-only') recs.push({ title: 'Build a content strategy', desc: 'Plan content monthly. Mix educational posts, results, and calls to action. Consistency beats virality.' });
-        if (info.challenge === 'leads') recs.push({ title: 'Optimize your conversion funnel', desc: 'Make your CTA obvious, reduce friction, and add social proof.' });
-        if (info.challenge === 'brand') recs.push({ title: 'Invest in brand consistency', desc: 'Same logo, colors, fonts, and tone everywhere. Inconsistency looks unprofessional.' });
-        recs.push({ title: 'Get a hands-on audit and custom plan', desc: 'This report shows the big picture. A personal consultation digs into your specific market, competitors, and opportunities.' });
+        if (info.googleBiz === 'no' || info.googleBiz === 'unsure') recs.push({ title: 'Set up a Google Business Profile', desc: 'This is free and it takes 15 minutes. Add your hours, photos, and services. This is how you show up on Google Maps when people search near you.' });
+        else if (info.googleBiz === 'yes-outdated') recs.push({ title: 'Update your Google Business Profile', desc: 'An outdated profile makes your business look closed or abandoned. I would add current photos, fix the hours, list all your services, and respond to any reviews.' });
+        if (!info.instagram) recs.push({ title: 'Get on Instagram', desc: 'Your customers are scrolling Instagram right now. I would set up a profile, post consistently with local hashtags, and share behind-the-scenes content.' });
+        if (info.currentMarketing === 'nothing' || info.currentMarketing === 'social-only') recs.push({ title: 'Build an actual content strategy', desc: 'Random posts do not work. I would plan your content monthly, mix educational posts with results and calls to action. Consistency beats going viral.' });
+        if (info.challenge === 'leads') recs.push({ title: 'Fix your conversion flow', desc: 'If people are visiting but not booking or buying, the problem is usually friction. I would make your main CTA impossible to miss, add social proof, and reduce the number of steps to take action.' });
+        if (info.challenge === 'brand') recs.push({ title: 'Make your brand consistent', desc: 'Same logo, colors, fonts, and tone everywhere. If your website says one thing and your Instagram says another, people do not trust you. I would unify everything.' });
         return recs;
     }
 
     function generateHelpCards(scores, info, hasReal) {
         var cards = [];
-        if (!info.websiteUrl || (hasReal && scores.performance < 70)) cards.push({ title: 'Website Design or Redesign', desc: 'A fast, beautiful, mobile-first website that converts visitors into customers. Custom code, not a template.' });
-        if (hasReal && scores.seo < 80) cards.push({ title: 'SEO Optimization', desc: 'Site structure, meta tags, content, and local SEO so people find you first.' });
-        if (!info.instagram || !info.facebook || !info.tiktok) cards.push({ title: 'Social Media Setup and Strategy', desc: 'Profile setup, content calendar, and a system for posting consistently.' });
-        if (info.challenge === 'brand') cards.push({ title: 'Brand Identity Package', desc: 'Colors, fonts, photography style, social templates, and brand guidelines.' });
-        if (info.googleBiz !== 'yes-active') cards.push({ title: 'Google Business Optimization', desc: 'Professional listing that shows up in local searches and map results.' });
-        cards.push({ title: 'Full Digital Marketing Package', desc: 'Website + SEO + social + brand, all handled. One person, one vision, everything consistent.' });
+        if (!info.websiteUrl || (hasReal && scores.performance < 70)) cards.push({ title: 'Website Design or Redesign', desc: 'I will build you a fast, clean website that actually converts visitors into customers. Custom code, no templates. This is what I did for Little Red Esthetics.' });
+        if (hasReal && scores.seo < 80) cards.push({ title: 'SEO That Gets You Found', desc: 'I will fix your site structure, meta tags, and content so people in your area find you on Google instead of your competitor.' });
+        if (!info.instagram || !info.facebook || !info.tiktok) cards.push({ title: 'Social Media Setup and Management', desc: 'I will set up your profiles, build a content calendar, and create a system so your social media actually works for your business.' });
+        if (info.challenge === 'brand') cards.push({ title: 'Brand Identity', desc: 'I will create a consistent look across your website, social media, and marketing materials. Colors, fonts, photography style, everything unified.' });
+        if (info.googleBiz !== 'yes-active') cards.push({ title: 'Google Business Profile', desc: 'I will set up or fix your Google Business listing so you show up when people search near you. This is free traffic you are missing right now.' });
+        cards.push({ title: 'The Full Package', desc: 'Website + SEO + social media + brand, all handled by me. One person, one vision, everything consistent. This is what gets real results.' });
         return cards;
     }
 

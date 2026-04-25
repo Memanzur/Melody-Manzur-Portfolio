@@ -176,6 +176,10 @@ body {
     background: linear-gradient(135deg, var(--pink), #d946ef) !important;
 }
 
+.nav-divider {
+    display: none;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -660,8 +664,36 @@ body {
     color: var(--text-muted);
     font-size: 1.1rem;
     max-width: 500px;
-    margin: 0 auto 32px;
+    margin: 0 auto 24px;
     line-height: 1.7;
+}
+
+.contact-direct {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.contact-item svg {
+    color: var(--pink);
+    flex-shrink: 0;
+}
+
+.contact-item:hover {
+    color: var(--pink);
 }
 
 .contact-links {
@@ -738,6 +770,14 @@ body {
 
     .nav-links.active {
         display: flex;
+    }
+
+    .nav-divider {
+        display: block;
+        height: 1px;
+        background: var(--border);
+        margin: 4px 0;
+        list-style: none;
     }
 
     .nav-toggle {
