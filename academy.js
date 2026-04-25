@@ -48,6 +48,7 @@
     updateProgressBar();
     updateModuleStatuses();
     updateLearningPath();
+    updateQuizVisibility();
   }
 
   function markQuizPassed(moduleId) {
@@ -79,6 +80,17 @@
       if (!isLessonRead(moduleId, i)) { allRead = false; break; }
     }
     return allRead && isQuizPassed(moduleId);
+  }
+
+  function areAllLessonsRead(moduleId) {
+    var mod = document.querySelector('[data-module="' + moduleId + '"]');
+    if (!mod) return false;
+    var lessons = mod.querySelectorAll('.lesson');
+    if (lessons.length === 0) return false;
+    for (var i = 0; i < lessons.length; i++) {
+      if (!isLessonRead(moduleId, i)) return false;
+    }
+    return true;
   }
 
   // ---- Progress Bar ----
@@ -129,18 +141,44 @@
     document.querySelectorAll('.module').forEach(function (mod) {
       var id = mod.dataset.module;
       var lessons = mod.querySelectorAll('.lesson');
-      var allRead = lessons.length > 0;
+      var readCount = 0;
       lessons.forEach(function (lesson, i) {
         if (isLessonRead(id, i)) {
           lesson.classList.add('read');
-        } else {
-          allRead = false;
+          readCount++;
         }
       });
-      if (allRead && isQuizPassed(id)) {
+
+      // Update lesson counter in header
+      var counter = mod.querySelector('.module-lesson-count');
+      if (counter) {
+        counter.textContent = readCount + ' of ' + lessons.length + ' lessons';
+      }
+
+      if (readCount === lessons.length && lessons.length > 0 && isQuizPassed(id)) {
         mod.classList.add('completed');
         var statusEl = mod.querySelector('.module-status');
         if (statusEl) statusEl.textContent = '\u2713';
+      }
+    });
+  }
+
+  // ---- Quiz Visibility ----
+  function updateQuizVisibility() {
+    document.querySelectorAll('.module').forEach(function (mod) {
+      var id = mod.dataset.module;
+      var quiz = mod.querySelector('.quiz-section');
+      if (!quiz) return;
+
+      var allRead = areAllLessonsRead(id);
+      var alreadyPassed = isQuizPassed(id);
+
+      if (allRead || alreadyPassed) {
+        quiz.classList.remove('quiz-locked');
+        quiz.classList.add('quiz-unlocked');
+      } else {
+        quiz.classList.add('quiz-locked');
+        quiz.classList.remove('quiz-unlocked');
       }
     });
   }
@@ -186,8 +224,6 @@
       header.addEventListener('click', function () {
         var lesson = header.closest('.lesson');
         var mod = lesson.closest('.module');
-        var moduleId = mod.dataset.module;
-        var index = Array.from(mod.querySelectorAll('.lesson')).indexOf(lesson);
 
         var wasOpen = lesson.classList.contains('open');
         // Close siblings
@@ -197,13 +233,63 @@
         // Toggle
         if (!wasOpen) {
           lesson.classList.add('open');
-          // Mark as read after a moment
-          setTimeout(function () {
-            markLessonRead(moduleId, index);
-            lesson.classList.add('read');
-          }, 1200);
         }
       });
+    });
+
+    // Add "Got it" buttons to each lesson
+    document.querySelectorAll('.lesson').forEach(function (lesson) {
+      var mod = lesson.closest('.module');
+      var moduleId = mod.dataset.module;
+      var lessons = mod.querySelectorAll('.lesson');
+      var index = Array.from(lessons).indexOf(lesson);
+
+      var body = lesson.querySelector('.lesson-body');
+      if (!body) return;
+
+      var btn = document.createElement('button');
+      btn.className = 'lesson-done-btn';
+
+      if (isLessonRead(moduleId, index)) {
+        btn.textContent = 'Completed';
+        btn.classList.add('is-done');
+        btn.disabled = true;
+      } else {
+        btn.textContent = 'Got it, next lesson';
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (btn.classList.contains('is-done')) return;
+
+        // Mark this lesson as read
+        markLessonRead(moduleId, index);
+        lesson.classList.add('read');
+        btn.textContent = 'Completed';
+        btn.classList.add('is-done');
+        btn.disabled = true;
+
+        // Auto-open next lesson or show quiz
+        var nextLesson = lessons[index + 1];
+        if (nextLesson && !nextLesson.classList.contains('read')) {
+          lesson.classList.remove('open');
+          nextLesson.classList.add('open');
+          setTimeout(function () {
+            nextLesson.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 200);
+        } else {
+          // All lessons done, close this one and scroll to quiz
+          lesson.classList.remove('open');
+          var quiz = mod.querySelector('.quiz-section');
+          if (quiz && areAllLessonsRead(moduleId)) {
+            setTimeout(function () {
+              quiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+          }
+        }
+      });
+
+      body.appendChild(btn);
     });
   }
 
@@ -212,6 +298,12 @@
     document.querySelectorAll('.quiz-section').forEach(function (quiz) {
       var mod = quiz.closest('.module');
       var moduleId = mod.dataset.module;
+
+      // Add locked overlay
+      var lockedMsg = document.createElement('div');
+      lockedMsg.className = 'quiz-locked-msg';
+      lockedMsg.innerHTML = '<p>Complete all lessons above to unlock the quiz.</p>';
+      quiz.insertBefore(lockedMsg, quiz.querySelector('.quiz-question'));
 
       if (isQuizPassed(moduleId)) {
         showQuizPassed(quiz);
@@ -224,6 +316,7 @@
       options.forEach(function (opt) {
         opt.addEventListener('click', function () {
           if (opt.disabled) return;
+          if (quiz.classList.contains('quiz-locked')) return;
           var qBlock = opt.closest('.quiz-question');
           qBlock.querySelectorAll('.quiz-option').forEach(function (o) {
             o.classList.remove('selected');
@@ -240,6 +333,7 @@
 
       if (submitBtn) {
         submitBtn.addEventListener('click', function () {
+          if (quiz.classList.contains('quiz-locked')) return;
           gradeQuiz(quiz, moduleId);
         });
       }
@@ -368,5 +462,6 @@
     updateModuleStatuses();
     updateProgressBar();
     updateLearningPath();
+    updateQuizVisibility();
   });
 })();
