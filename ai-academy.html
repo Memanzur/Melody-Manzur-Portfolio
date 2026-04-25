@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Melody Method | Melody Manzur</title>
-    <meta name="description" content="Learn AI from a practitioner. From understanding what AI is to building your own agents. Practical, no-fluff modules.">
+    <meta name="description" content="Learn AI from a practitioner. From understanding what AI is to building your own agents. Practical and easy to understand.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5l12 33 33 12-33 12-12 33-12-33-33-12 33-12z' fill='%23ec4899'/></svg>">
-    <link rel="stylesheet" href="style.css?v=20260425">
+    <link rel="stylesheet" href="style.css?v=20260425b">
     <link rel="stylesheet" href="academy.css">
 </head>
-<body>
+<body class="space-theme">
+    <div class="star-field" aria-hidden="true"></div>
+
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">MM</a>
             <ul class="nav-links">
                 <li><a href="index.html">Portfolio</a></li>
                 <li><a href="#modules">Modules</a></li>
-                <li><a href="#tools">Tools</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle menu">
                 <span></span>
@@ -29,166 +30,900 @@
         </div>
     </nav>
 
-    <section class="academy-hero">
+    <section class="mm-hero">
         <div class="container">
             <p class="hero-tag">Melody Manzur Presents</p>
-            <h1 class="academy-title">The Melody Method</h1>
-            <p class="hero-subtitle" style="max-width: 600px;">A practical crash course on AI that is actually easy to understand. Learn what AI is, how to use it every day, and how to build your own agents. From someone who ships with these tools daily.</p>
+            <h1 class="mm-title">The Melody Method</h1>
+            <p class="hero-subtitle">A practical crash course on AI that is actually easy to understand. Learn what AI is, how to use it every day, and how to build your own agents. From someone who ships with these tools daily.</p>
+            <div class="mm-progress">
+                <div class="mm-progress-bar"><div class="mm-progress-fill" style="width: 0%"></div></div>
+                <span class="mm-progress-text">0% complete</span>
+            </div>
             <a href="#modules" class="btn btn-primary">Start Learning</a>
         </div>
     </section>
 
-    <section class="academy-path">
-        <div class="container">
-            <h2 class="section-title">Your Learning Path</h2>
-            <div class="path-visual">
-                <div class="path-step">
-                    <div class="path-number">01</div>
-                    <p>Understand AI</p>
-                </div>
-                <div class="path-line"></div>
-                <div class="path-step">
-                    <div class="path-number">02</div>
-                    <p>Use AI Daily</p>
-                </div>
-                <div class="path-line"></div>
-                <div class="path-step">
-                    <div class="path-number">03</div>
-                    <p>Build Agents</p>
-                </div>
-                <div class="path-line"></div>
-                <div class="path-step">
-                    <div class="path-number">04</div>
-                    <p>Power Tools</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="modules" class="modules">
+    <section id="modules" class="mm-modules">
         <div class="container">
             <h2 class="section-title">Learning Modules</h2>
-            <div class="modules-grid">
 
-                <div class="module-card">
-                    <div class="module-number">Module 1</div>
-                    <h3>What is AI, Really?</h3>
-                    <p>Cut through the noise. Learn what AI actually is, how large language models work, the difference between AI types, and why this matters for your career.</p>
-                    <ul class="module-topics">
-                        <li>AI vs Machine Learning vs LLMs</li>
-                        <li>How ChatGPT, Claude, and Gemini actually work</li>
-                        <li>What AI can and cannot do (no magic, just math)</li>
-                        <li>Why AI literacy is a career superpower</li>
-                    </ul>
-                    <span class="module-level">Beginner</span>
+            <!-- ============ MODULE 1 ============ -->
+            <div class="module" data-module="mod1">
+                <div class="module-header">
+                    <div class="module-status">1</div>
+                    <div class="module-info">
+                        <h3>What is AI, Really?</h3>
+                        <p>Cut through the noise. Learn what AI actually is, how it works, and what it can and cannot do.</p>
+                    </div>
+                    <span class="module-badge beginner">Beginner</span>
+                    <span class="module-toggle">&#9660;</span>
                 </div>
+                <div class="module-content">
 
-                <div class="module-card">
-                    <div class="module-number">Module 2</div>
-                    <h3>Using AI Every Day</h3>
-                    <p>Stop asking AI bad questions and getting bad answers. Learn prompt engineering, when to use which AI, and how to 10x your daily workflow.</p>
-                    <ul class="module-topics">
-                        <li>Prompt engineering fundamentals</li>
-                        <li>Which AI is best for what (Claude vs GPT vs Gemini)</li>
-                        <li>AI for writing, research, coding, and analysis</li>
-                        <li>Building your personal AI workflow</li>
-                    </ul>
-                    <span class="module-level">Beginner</span>
+                    <div class="lesson" data-lesson="0">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>AI vs Machine Learning vs LLMs</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p><strong>Artificial Intelligence</strong> is the big umbrella. It means any computer system that can do something that normally requires human intelligence. That includes everything from the spam filter in your email to a self-driving car.</p>
+                            <p><strong>Machine Learning</strong> is a type of AI where instead of writing rules by hand, you feed the computer a bunch of examples and let it figure out the patterns itself. Think of it like teaching a kid to recognize dogs by showing them thousands of pictures of dogs instead of describing what a dog looks like.</p>
+                            <p><strong>Large Language Models</strong> (LLMs) are a specific kind of machine learning. These are the models behind ChatGPT, Claude, and Gemini. They were trained on enormous amounts of text from the internet. Books, articles, code, conversations. They learned patterns in language so well that they can generate new text that sounds human.</p>
+                            <div class="highlight">The key thing to understand: LLMs do not "think" the way you do. They predict the most likely next word based on patterns they learned during training. That prediction is so good it can feel like intelligence, but it is pattern matching at a massive scale.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="1">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>How ChatGPT, Claude, and Gemini Actually Work</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>All three of these tools are built on the same core idea called a <strong>transformer</strong>. Here is the simplified version of how it works:</p>
+                            <p><strong>Step 1: Training.</strong> The model reads billions of pages of text and learns statistical relationships between words. "The cat sat on the ___" probably ends with "mat" or "couch," not "airplane." It does this for every possible combination of words, at every level of complexity.</p>
+                            <p><strong>Step 2: You type a prompt.</strong> When you ask Claude a question, it takes your entire message, processes it through layers of math, and starts generating a response one word at a time. Each word is chosen based on probability. "What is the most likely next word given everything that came before?"</p>
+                            <p><strong>Step 3: Context window.</strong> The model can only "see" a limited amount of text at once. This is called the context window. Think of it like a desk. You can only spread out so many papers before things start falling off. Longer conversations or bigger documents eat into that space.</p>
+                            <div class="highlight">This is why AI sometimes "forgets" what you said earlier in a long conversation. It literally ran out of desk space.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="2">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>What AI Can and Cannot Do</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p><strong>AI is great at:</strong></p>
+                            <p>Writing and editing text. Summarizing long documents. Explaining concepts in simple terms. Writing code. Brainstorming ideas. Translating languages. Analyzing data you give it. Following instructions.</p>
+                            <p><strong>AI is bad at:</strong></p>
+                            <p>Knowing what happened after its training data cutoff. Doing math reliably (it can get it wrong). Accessing the internet in real time (unless given tools). Being creative in a truly original way, it remixes what it learned. Knowing if something is factually true vs just likely sounding.</p>
+                            <p><strong>AI cannot:</strong></p>
+                            <p>Feel emotions. Have opinions (it simulates them). Learn from your conversation permanently (each chat starts fresh unless the tool saves it). Replace human judgment on important decisions. Guarantee accuracy on anything.</p>
+                            <div class="highlight">The biggest mistake people make is treating AI output as fact. Always verify important information. AI is a draft machine, not a truth machine.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="3">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Why AI Literacy is a Career Superpower</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Here is the reality: AI is not going to replace you. But someone who knows how to use AI will outperform someone who does not. Every time.</p>
+                            <p>Think about when spreadsheets first came out. The accountants who learned Excel did not lose their jobs. They became 10x more productive and got promoted. The ones who refused to learn eventually got left behind.</p>
+                            <p>AI is the same thing. It is a tool that amplifies what you already know. A marketer who uses AI can produce more content, test more ideas, and analyze more data than one who does everything manually. A developer who uses AI can ship features faster. A student who uses AI can research deeper and write better.</p>
+                            <p>The people who will win are the ones who learn how AI works well enough to know when to trust it, when to double check it, and when to ignore it completely.</p>
+                            <div class="highlight">That is exactly what The Melody Method teaches you. By the end of this course, you will not just use AI. You will understand it well enough to make it work for your specific goals.</div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="quiz-section">
+                        <h3 class="quiz-title">Module 1 Quiz</h3>
+                        <p class="quiz-subtitle">Get 4 out of 5 right to pass. You got this.</p>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q1</span>
+                            <p>What does a Large Language Model actually do when generating text?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Searches the internet for the answer</button>
+                                <button class="quiz-option" data-correct="true">Predicts the most likely next word based on patterns</button>
+                                <button class="quiz-option" data-correct="false">Copies text from its training data</button>
+                                <button class="quiz-option" data-correct="false">Thinks through the problem like a human brain</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q2</span>
+                            <p>Why does AI sometimes "forget" what you said earlier in a conversation?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">It has a bad memory</button>
+                                <button class="quiz-option" data-correct="false">It gets confused by long text</button>
+                                <button class="quiz-option" data-correct="true">Its context window has a limited size</button>
+                                <button class="quiz-option" data-correct="false">It only remembers the last 5 messages</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q3</span>
+                            <p>Which of these is AI bad at?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Writing code</button>
+                                <button class="quiz-option" data-correct="false">Summarizing documents</button>
+                                <button class="quiz-option" data-correct="true">Reliably doing math</button>
+                                <button class="quiz-option" data-correct="false">Translating languages</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q4</span>
+                            <p>What is the relationship between AI, Machine Learning, and LLMs?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">They are three different names for the same thing</button>
+                                <button class="quiz-option" data-correct="true">AI is the broadest category, ML is a subset, LLMs are a type of ML</button>
+                                <button class="quiz-option" data-correct="false">LLMs are the broadest category</button>
+                                <button class="quiz-option" data-correct="false">Machine Learning is the umbrella that contains AI</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q5</span>
+                            <p>What is the biggest mistake people make with AI?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Using it too often</button>
+                                <button class="quiz-option" data-correct="false">Not giving it enough context</button>
+                                <button class="quiz-option" data-correct="true">Treating its output as fact without verifying</button>
+                                <button class="quiz-option" data-correct="false">Asking it too many questions</button>
+                            </div>
+                        </div>
+
+                        <button class="quiz-submit" disabled>Check My Answers</button>
+                        <div class="quiz-result"></div>
+                    </div>
+
                 </div>
-
-                <div class="module-card">
-                    <div class="module-number">Module 3</div>
-                    <h3>AI for Business</h3>
-                    <p>How businesses are using AI right now to grow faster. Real examples from digital marketing, client work, and product development.</p>
-                    <ul class="module-topics">
-                        <li>AI-powered marketing and content creation</li>
-                        <li>Automating repetitive business tasks</li>
-                        <li>Using AI for client deliverables</li>
-                        <li>When to use AI and when not to</li>
-                    </ul>
-                    <span class="module-level">Intermediate</span>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-number">Module 4</div>
-                    <h3>Building AI Agents</h3>
-                    <p>Go from using AI to building with it. Learn how to create agents that do real work, from concept to deployment.</p>
-                    <ul class="module-topics">
-                        <li>What is an AI agent and how is it different from a chatbot</li>
-                        <li>Tools, memory, and reasoning loops</li>
-                        <li>Building your first agent with Claude</li>
-                        <li>Real-world agent architectures</li>
-                    </ul>
-                    <span class="module-level">Advanced</span>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-number">Module 5</div>
-                    <h3>GitHub Superpowers</h3>
-                    <p>GitHub is not just for developers anymore. Learn version control, GitHub Pages, collaboration, and how to use GitHub as your portfolio and deployment platform.</p>
-                    <ul class="module-topics">
-                        <li>Git and GitHub from zero</li>
-                        <li>Deploying websites with GitHub Pages</li>
-                        <li>Collaboration and version control workflows</li>
-                        <li>Building your public portfolio on GitHub</li>
-                    </ul>
-                    <span class="module-level">Beginner to Intermediate</span>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-number">Module 6</div>
-                    <h3>Power User Toolkit</h3>
-                    <p>The tools that separate beginners from power users. Claude Code and gstack turn one person into a full engineering team that ships at 810x speed.</p>
-                    <ul class="module-topics">
-                        <li>Claude Code: AI-powered development in your terminal</li>
-                        <li>gstack: Garry Tan's 23-skill toolkit (CEO, designer, QA, security in one)</li>
-                        <li>The sprint workflow: Think, Plan, Build, Review, Test, Ship, Reflect</li>
-                        <li>Real browser QA, design shotgun, and automated code review</li>
-                    </ul>
-                    <span class="module-level">Advanced</span>
-                </div>
-
             </div>
+
+            <!-- ============ MODULE 2 ============ -->
+            <div class="module" data-module="mod2">
+                <div class="module-header">
+                    <div class="module-status">2</div>
+                    <div class="module-info">
+                        <h3>Using AI Every Day</h3>
+                        <p>Stop asking AI bad questions and getting bad answers. Learn prompt engineering and which AI to use when.</p>
+                    </div>
+                    <span class="module-badge beginner">Beginner</span>
+                    <span class="module-toggle">&#9660;</span>
+                </div>
+                <div class="module-content">
+
+                    <div class="lesson" data-lesson="0">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Prompt Engineering Fundamentals</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>The quality of what AI gives you depends entirely on how you ask. This is called <strong>prompt engineering</strong> and it is the single most important AI skill you can learn.</p>
+                            <p><strong>Rule 1: Be specific.</strong> "Write me a blog post" gives you generic garbage. "Write a 500 word blog post about why small businesses need SEO, targeted at restaurant owners who have never done marketing, in a casual and friendly tone" gives you something you can actually use.</p>
+                            <p><strong>Rule 2: Give context.</strong> Tell the AI who you are, what the situation is, and what you need the output for. "I'm a freelance designer pitching a new client. Help me write a proposal" works way better than "write a proposal."</p>
+                            <p><strong>Rule 3: Give examples.</strong> If you want a specific style or format, show the AI what good looks like. Paste in a sample and say "write something in this style."</p>
+                            <p><strong>Rule 4: Iterate.</strong> Your first prompt rarely gives the best result. Treat it like a conversation. "That's good but make it shorter." "Remove the jargon." "Add a call to action at the end." Each round gets better.</p>
+                            <div class="highlight">Think of prompting like giving instructions to a very smart intern who just started today. They are capable of great work but they know nothing about your specific situation. The more context you give, the better they perform.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="1">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Claude vs ChatGPT vs Gemini: Which AI for What</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>These three are not the same tool. They have different strengths and knowing which one to reach for is a real skill.</p>
+                            <div class="tool-compare">
+                                <div class="tool-compare-item claude">
+                                    <h5>Claude (Anthropic)</h5>
+                                    <p>Best for: long documents, careful analysis, coding, following complex instructions. Tends to be more thoughtful and less likely to make things up. Great for anything where accuracy matters more than speed.</p>
+                                </div>
+                                <div class="tool-compare-item chatgpt">
+                                    <h5>ChatGPT (OpenAI)</h5>
+                                    <p>Best for: brainstorming, creative writing, quick answers, general knowledge. Has a huge plugin ecosystem and image generation built in. The go-to for everyday casual use.</p>
+                                </div>
+                                <div class="tool-compare-item gemini">
+                                    <h5>Gemini (Google)</h5>
+                                    <p>Best for: research that needs current info, anything tied to Google services, multimodal tasks with images and video. Strong when you need Google Search integrated into AI answers.</p>
+                                </div>
+                            </div>
+                            <div class="highlight">My personal workflow: I use Claude for anything serious, coding, long writing, analysis. ChatGPT for quick brainstorms and creative stuff. Gemini when I need something that requires up-to-date search results.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="2">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>AI for Writing, Research, Coding, and Analysis</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p><strong>Writing:</strong> Use AI as a first draft machine, not a finished product machine. Get a rough draft fast, then rewrite it in your voice. Ask it to "write three different versions" so you can pick the best parts from each. Never publish AI text without editing it yourself.</p>
+                            <p><strong>Research:</strong> AI is great at explaining concepts and summarizing information, but always cross-reference important facts. Ask it to cite sources when possible. Use it to understand topics faster, not as your only source of truth.</p>
+                            <p><strong>Coding:</strong> This is where AI really shines. Describe what you want to build in plain English and AI can write the code. But here is the catch: if you do not understand what the code does, you will not be able to fix it when it breaks. Use AI to code faster, not to skip learning.</p>
+                            <p><strong>Analysis:</strong> Paste in data, spreadsheets, or reports and ask AI to find patterns, summarize findings, or suggest next steps. This is one of the highest value uses of AI because it turns hours of manual work into minutes.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="3">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Building Your Personal AI Workflow</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>The goal is not to use AI for everything. The goal is to figure out where AI saves you the most time and build habits around those use cases.</p>
+                            <p><strong>Step 1:</strong> Write down the 5 tasks you do most often in your work. Email, reports, research, content creation, whatever it is.</p>
+                            <p><strong>Step 2:</strong> For each task, try using AI to do 80% of the work. Time yourself. If AI saves you at least 30 minutes per week on that task, it is worth building into your routine.</p>
+                            <p><strong>Step 3:</strong> Save your best prompts. Create a document with prompts that consistently give you good results. This becomes your personal prompt library. You will reuse these constantly.</p>
+                            <p><strong>Step 4:</strong> Review monthly. What is working? What is wasting your time? Kill the workflows that do not save time and double down on the ones that do.</p>
+                            <div class="highlight">The people who get the most out of AI are not the ones who use it the most. They are the ones who use it strategically for the right tasks.</div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="quiz-section">
+                        <h3 class="quiz-title">Module 2 Quiz</h3>
+                        <p class="quiz-subtitle">Get 4 out of 5 right to pass.</p>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q1</span>
+                            <p>What is the most important rule of prompt engineering?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Keep your prompts as short as possible</button>
+                                <button class="quiz-option" data-correct="true">Be specific and give context</button>
+                                <button class="quiz-option" data-correct="false">Always use formal language</button>
+                                <button class="quiz-option" data-correct="false">Never edit the AI's output</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q2</span>
+                            <p>Which AI model is generally best for careful analysis and coding?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Gemini</button>
+                                <button class="quiz-option" data-correct="true">Claude</button>
+                                <button class="quiz-option" data-correct="false">ChatGPT</button>
+                                <button class="quiz-option" data-correct="false">They are all identical</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q3</span>
+                            <p>How should you use AI for writing?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Publish the first draft directly</button>
+                                <button class="quiz-option" data-correct="false">Only use it for spell checking</button>
+                                <button class="quiz-option" data-correct="true">Use it for first drafts, then rewrite in your own voice</button>
+                                <button class="quiz-option" data-correct="false">Never use AI for writing</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q4</span>
+                            <p>What makes a prompt library useful?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">It has the most prompts possible</button>
+                                <button class="quiz-option" data-correct="true">It contains prompts that consistently give good results for tasks you repeat</button>
+                                <button class="quiz-option" data-correct="false">It was written by someone else</button>
+                                <button class="quiz-option" data-correct="false">It only includes one prompt per topic</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q5</span>
+                            <p>When is Gemini the best choice?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">When writing long code</button>
+                                <button class="quiz-option" data-correct="false">When you need creative fiction</button>
+                                <button class="quiz-option" data-correct="true">When you need up-to-date search results integrated with AI</button>
+                                <button class="quiz-option" data-correct="false">When analyzing large documents</button>
+                            </div>
+                        </div>
+
+                        <button class="quiz-submit" disabled>Check My Answers</button>
+                        <div class="quiz-result"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============ MODULE 3 ============ -->
+            <div class="module" data-module="mod3">
+                <div class="module-header">
+                    <div class="module-status">3</div>
+                    <div class="module-info">
+                        <h3>AI for Business</h3>
+                        <p>How businesses are using AI right now to grow faster. Real examples, not theory.</p>
+                    </div>
+                    <span class="module-badge intermediate">Intermediate</span>
+                    <span class="module-toggle">&#9660;</span>
+                </div>
+                <div class="module-content">
+
+                    <div class="lesson" data-lesson="0">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>AI-Powered Marketing and Content Creation</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Content is the engine of modern marketing and AI makes it possible to produce more of it without sacrificing quality. Here is how I use it with my own clients.</p>
+                            <p><strong>Social media:</strong> I use AI to generate post ideas, write captions, and plan content calendars. I give it the brand voice, the target audience, and the goal for each post. Then I edit and add the personal touch. A week's worth of social content that used to take me a full day now takes about two hours.</p>
+                            <p><strong>SEO content:</strong> I use AI to research keywords, outline blog posts, and write first drafts. Then I rewrite to add personal experience, real examples, and the brand's personality. Google can detect pure AI content and will not rank it well. The human layer is what makes it work.</p>
+                            <p><strong>Email marketing:</strong> Subject lines, body copy, CTAs. AI can write ten versions and I pick the best one. Split testing with AI written variants has consistently improved open rates for my clients.</p>
+                            <div class="highlight">The key to using AI in marketing: AI generates the raw material, you add the strategy and personality. Brands that publish raw AI content all sound the same. That is not marketing, that is noise.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="1">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Automating Repetitive Business Tasks</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>The fastest ROI from AI comes from automating the things you do over and over.</p>
+                            <p><strong>Client onboarding:</strong> Create a template prompt that takes a new client's info and generates their welcome email, project timeline, and first set of questions. What used to take 45 minutes now takes 5.</p>
+                            <p><strong>Invoice and proposal generation:</strong> Feed AI your pricing structure and the scope of work. It drafts the proposal. You review and send. This alone saves hours per week if you handle multiple clients.</p>
+                            <p><strong>Meeting summaries:</strong> Record your meetings (with permission), transcribe them, and have AI pull out action items, decisions made, and follow-up tasks. Never lose track of what was agreed on.</p>
+                            <p><strong>Data entry and formatting:</strong> Got messy data from a client? Paste it into AI and ask it to clean, organize, and format it. This works shockingly well for things like contact lists, product catalogs, and spreadsheet cleanup.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="2">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Using AI for Client Deliverables</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Here is a real example from my own business. When I took on Little Red Esthetics as a client, I used AI at every stage:</p>
+                            <p><strong>Research:</strong> I had AI analyze competitor med spa websites and pull out what they did well and what they missed. This gave me a competitive edge before I wrote a single line of code.</p>
+                            <p><strong>Copywriting:</strong> I used AI to draft website copy, then rewrote every section to match the client's voice and brand. The client got professional copy that sounds like them, not like a robot.</p>
+                            <p><strong>Design direction:</strong> I described the brand aesthetic to AI and it helped me generate color palette ideas, layout suggestions, and content hierarchy recommendations.</p>
+                            <p><strong>SEO setup:</strong> AI helped me research local keywords, write meta descriptions, and create a site structure that ranks. The technical SEO stuff that would take hours of manual research.</p>
+                            <div class="highlight">I went from a broken single-page template to an 8-page site with interactive features, SEO, and booking integration. AI did not build the site for me. It made me faster at every step so I could deliver more in less time.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="3">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>When to Use AI and When Not To</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p><strong>Use AI when:</strong></p>
+                            <p>You need a first draft fast. You are doing repetitive work. You need to brainstorm or explore ideas. You are working with data that needs to be organized. You need to explain something in simpler terms. You are coding something you understand but just need written faster.</p>
+                            <p><strong>Do not use AI when:</strong></p>
+                            <p>Accuracy is critical and you cannot verify the output (legal documents, medical advice, financial reporting). When the work requires deep personal experience that AI cannot have. When you are making a decision that affects people's lives or livelihoods. When you need truly original creative vision, not remixed patterns.</p>
+                            <p><strong>Never use AI to:</strong></p>
+                            <p>Replace your own judgment on important decisions. Generate content you publish without reading. Fake expertise you do not have. Do work you do not understand well enough to check. Handle sensitive client data without their knowledge and consent.</p>
+                            <div class="highlight">AI is a power tool. Like any power tool, it is incredibly useful in the right hands and dangerous if you do not know what you are doing. Learn the tool, respect its limits, and use it responsibly.</div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="quiz-section">
+                        <h3 class="quiz-title">Module 3 Quiz</h3>
+                        <p class="quiz-subtitle">Get 3 out of 4 right to pass.</p>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q1</span>
+                            <p>Why does publishing raw AI content hurt your marketing?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">AI content is always factually wrong</button>
+                                <button class="quiz-option" data-correct="true">All brands using raw AI content sound the same, losing their unique voice</button>
+                                <button class="quiz-option" data-correct="false">Search engines immediately ban AI content</button>
+                                <button class="quiz-option" data-correct="false">AI cannot write marketing copy</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q2</span>
+                            <p>What is the fastest way to get ROI from AI in business?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="true">Automating repetitive tasks you do over and over</button>
+                                <button class="quiz-option" data-correct="false">Replacing all your employees with AI</button>
+                                <button class="quiz-option" data-correct="false">Using AI to make all business decisions</button>
+                                <button class="quiz-option" data-correct="false">Building your own AI model from scratch</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q3</span>
+                            <p>When should you NOT use AI?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">When writing first drafts</button>
+                                <button class="quiz-option" data-correct="false">When brainstorming ideas</button>
+                                <button class="quiz-option" data-correct="true">When accuracy is critical and you cannot verify the output</button>
+                                <button class="quiz-option" data-correct="false">When cleaning up messy data</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q4</span>
+                            <p>How did Melody use AI for the Little Red Esthetics project?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">AI built the entire website automatically</button>
+                                <button class="quiz-option" data-correct="false">AI replaced the need for client communication</button>
+                                <button class="quiz-option" data-correct="true">AI accelerated research, copywriting, design direction, and SEO at every stage</button>
+                                <button class="quiz-option" data-correct="false">AI was only used for the color palette</button>
+                            </div>
+                        </div>
+
+                        <button class="quiz-submit" disabled>Check My Answers</button>
+                        <div class="quiz-result"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============ MODULE 4 ============ -->
+            <div class="module" data-module="mod4">
+                <div class="module-header">
+                    <div class="module-status">4</div>
+                    <div class="module-info">
+                        <h3>Building AI Agents</h3>
+                        <p>Go from using AI to building with it. Learn how agents work and what makes them different from chatbots.</p>
+                    </div>
+                    <span class="module-badge advanced">Advanced</span>
+                    <span class="module-toggle">&#9660;</span>
+                </div>
+                <div class="module-content">
+
+                    <div class="lesson" data-lesson="0">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Agents vs Chatbots: What is the Difference?</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>A <strong>chatbot</strong> waits for you to ask a question, answers it, and waits again. It is reactive. You do all the thinking about what to do next.</p>
+                            <p>An <strong>agent</strong> is different. An agent takes a goal, breaks it down into steps, uses tools to complete each step, and keeps going until the job is done. It is proactive. You give it the destination, it figures out the route.</p>
+                            <p>Here is the simplest way to think about it: a chatbot is like texting a smart friend. An agent is like hiring a smart assistant who goes and does the work.</p>
+                            <p><strong>Example:</strong> You tell a chatbot "find me cheap flights to Miami." It gives you a list of suggestions. You tell an agent "book me the cheapest flight to Miami next Friday, window seat, carry-on only." It searches, compares, selects, and books it.</p>
+                            <div class="highlight">The shift from chatbot to agent is the shift from "AI that talks" to "AI that does." This is where AI goes from cool to genuinely useful.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="1">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>How Agents Think: Tools, Memory, and Loops</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Every AI agent has three core components:</p>
+                            <p><strong>1. Tools.</strong> These are actions the agent can take. Read a file, search the web, write code, send an email, call an API. Without tools, an agent is just a chatbot. Tools are what let it interact with the real world.</p>
+                            <p><strong>2. Memory.</strong> Agents need to remember what they have done, what worked, and what did not. Short-term memory is the conversation context. Long-term memory can be files, databases, or notes the agent writes to itself.</p>
+                            <p><strong>3. Reasoning loops.</strong> This is the magic. The agent thinks: "What is my goal? What do I know? What should I do next?" It takes an action, observes the result, and decides the next step. This loop repeats until the goal is met or the agent decides it needs help.</p>
+                            <p>Think of it like a loop: <strong>Think, Act, Observe, Repeat.</strong></p>
+                            <div class="highlight">The difference between a good agent and a bad one is usually the quality of its reasoning loop. A bad agent tries random things. A good agent thinks before it acts, learns from what happens, and adapts its plan.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="2">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Real World Example: How I Built Boppi</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Boppi is a Chrome extension I built and published to the Chrome Web Store. It stops sensitive data from leaking into AI chatbots like ChatGPT, Claude, and Gemini.</p>
+                            <p>Here is how AI agent thinking applies to how I built it:</p>
+                            <p><strong>The problem:</strong> People paste passwords, credit card numbers, API keys, and personal info into AI chatbots without thinking. That data goes to the AI company's servers. Boppi catches that before it happens.</p>
+                            <p><strong>Agent-style building:</strong> I used Claude Code (which is itself an AI agent) to help me build Boppi. I described what I wanted the extension to do. Claude wrote code, I reviewed it, tested it, and iterated. The process was a loop: describe, build, test, fix, repeat.</p>
+                            <p><strong>Why this matters:</strong> I did not hand-write every line of code. I also did not let AI write everything without checking. The combination of my cybersecurity knowledge (knowing what data patterns to detect) plus AI's coding speed (writing the regex patterns and Chrome API calls) is what made Boppi possible in weeks instead of months.</p>
+                            <div class="highlight">Boppi exists because I understood the problem deeply and used AI tools to build the solution faster. That is the whole game: domain knowledge plus AI tools equals shipping real products.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="3">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>The AI Slop Problem: Why Model Quality Matters</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Let me be straight with you about something a lot of AI courses will not tell you: <strong>not all AI models are equal, and using the wrong one will give you garbage output.</strong></p>
+                            <p>"AI slop" is what happens when people use low-end or low-reasoning models to build things. The output looks kind of right at first glance but it is full of problems. Generic copy that sounds like every other AI website. Code that works in the demo but breaks in production. Designs that scream "a robot made this."</p>
+                            <p><strong>Why does this happen?</strong> Cheaper models cut corners. They have less reasoning ability, smaller context windows, and weaker instruction-following. They are fine for simple tasks like "summarize this paragraph." But when you ask them to build something complex, they produce slop.</p>
+                            <p><strong>What does AI slop look like?</strong></p>
+                            <p>Websites with purple gradients, three-column feature grids with icons in circles, and headlines like "Unlock the Power of..." That is AI slop. Code that works for the happy path but crashes on edge cases. That is AI slop. Content that uses words like "delve" and "robust" and "comprehensive" in every paragraph. AI slop.</p>
+                            <div class="highlight">If you are building anything real, anything you want people to use, pay for a capable model. The free tier or the cheapest option will cost you more in the long run because you will spend hours fixing what it gets wrong. Good tools are an investment, not an expense.</div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="quiz-section">
+                        <h3 class="quiz-title">Module 4 Quiz</h3>
+                        <p class="quiz-subtitle">Get 4 out of 5 right to pass.</p>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q1</span>
+                            <p>What is the key difference between a chatbot and an agent?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Agents are newer technology</button>
+                                <button class="quiz-option" data-correct="false">Chatbots are smarter</button>
+                                <button class="quiz-option" data-correct="true">Agents can use tools and take actions to complete goals autonomously</button>
+                                <button class="quiz-option" data-correct="false">There is no real difference</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q2</span>
+                            <p>What are the three core components of an AI agent?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Speed, accuracy, creativity</button>
+                                <button class="quiz-option" data-correct="true">Tools, memory, and reasoning loops</button>
+                                <button class="quiz-option" data-correct="false">Input, processing, output</button>
+                                <button class="quiz-option" data-correct="false">Training, testing, deployment</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q3</span>
+                            <p>What is "AI slop"?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Any content created with AI</button>
+                                <button class="quiz-option" data-correct="true">Low-quality, generic output from weak models that looks AI-generated</button>
+                                <button class="quiz-option" data-correct="false">A type of AI model</button>
+                                <button class="quiz-option" data-correct="false">Content that takes too long to generate</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q4</span>
+                            <p>How did Melody build Boppi?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">She wrote every line of code by hand</button>
+                                <button class="quiz-option" data-correct="false">AI built it entirely without her input</button>
+                                <button class="quiz-option" data-correct="true">She combined her cybersecurity knowledge with AI coding tools in an iterative loop</button>
+                                <button class="quiz-option" data-correct="false">She hired a development team</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q5</span>
+                            <p>Why should you invest in a higher-tier AI model for serious building?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Expensive models always produce perfect results</button>
+                                <button class="quiz-option" data-correct="false">Free models do not work at all</button>
+                                <button class="quiz-option" data-correct="true">Cheap models produce slop on complex tasks, costing more time to fix than you save</button>
+                                <button class="quiz-option" data-correct="false">It does not actually matter which model you use</button>
+                            </div>
+                        </div>
+
+                        <button class="quiz-submit" disabled>Check My Answers</button>
+                        <div class="quiz-result"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============ MODULE 5 ============ -->
+            <div class="module" data-module="mod5">
+                <div class="module-header">
+                    <div class="module-status">5</div>
+                    <div class="module-info">
+                        <h3>GitHub Superpowers</h3>
+                        <p>GitHub is not just for developers anymore. Learn version control, deployment, and how to build your public portfolio.</p>
+                    </div>
+                    <span class="module-badge intermediate">Intermediate</span>
+                    <span class="module-toggle">&#9660;</span>
+                </div>
+                <div class="module-content">
+
+                    <div class="lesson" data-lesson="0">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Git and GitHub from Zero</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p><strong>Git</strong> is a version control system. Think of it like an unlimited undo button for your entire project. Every time you "commit," you save a snapshot of your files. You can go back to any snapshot at any time.</p>
+                            <p><strong>GitHub</strong> is a website that hosts your Git projects (called repositories) online. It is like Google Drive for code, but with superpowers. Collaboration tools, issue tracking, project boards, and free website hosting.</p>
+                            <p><strong>The basics you need to know:</strong></p>
+                            <p><strong>Repository (repo):</strong> A folder for your project with version history attached. Create one for each project.</p>
+                            <p><strong>Commit:</strong> A saved snapshot. Always write a message describing what you changed. "Fixed the nav bar on mobile" is good. "Updated stuff" is useless.</p>
+                            <p><strong>Push:</strong> Upload your local commits to GitHub so they are backed up and visible online.</p>
+                            <p><strong>Pull:</strong> Download changes from GitHub to your local machine. Important when collaborating.</p>
+                            <p><strong>Branch:</strong> A parallel version of your project. Work on a new feature without messing up the main version. When it is ready, merge it back.</p>
+                            <div class="highlight">You do not need to memorize every Git command. You need to understand the concepts: save often (commit), back up online (push), and experiment safely (branch). AI can help you with the specific commands when you need them.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="1">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Deploying Websites with GitHub Pages</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>GitHub Pages is free website hosting, straight from your repository. This portfolio you are reading right now is hosted on GitHub Pages. So is the Little Red Esthetics website I built for my client.</p>
+                            <p><strong>How it works:</strong></p>
+                            <p>1. Create a repository on GitHub with your website files (HTML, CSS, JavaScript).</p>
+                            <p>2. Go to Settings, then Pages.</p>
+                            <p>3. Select the branch you want to deploy (usually "main").</p>
+                            <p>4. GitHub gives you a URL like yourname.github.io/project-name.</p>
+                            <p>That is it. Every time you push changes to that branch, the website updates automatically. Free hosting, free SSL (the little lock icon), and it works with custom domains if you have one.</p>
+                            <p><strong>Why this matters:</strong> You do not need to pay for hosting to launch a website. You do not need to configure servers. You push your code, GitHub serves it to the world. For portfolios, landing pages, documentation, and small business sites, this is genuinely all you need.</p>
+                            <div class="highlight">Every project in my portfolio is deployed on GitHub Pages. Boppi's marketing site, Little Red Esthetics, this entire Melody Method platform. Zero hosting costs.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="2">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Collaboration and Version Control Workflows</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Even if you work solo, version control habits will save you. Here is the workflow I use:</p>
+                            <p><strong>1. Main branch stays clean.</strong> Never work directly on main. It should always be the stable, working version of your project.</p>
+                            <p><strong>2. Feature branches for everything.</strong> Want to add a new page? Create a branch called "add-contact-page." Want to fix a bug? Create "fix-mobile-nav." Each task gets its own branch.</p>
+                            <p><strong>3. Commit often with good messages.</strong> Every time you finish a small piece of work, commit it. "Add hero section to homepage" is good. "WIP" tells you nothing when you look back at it later.</p>
+                            <p><strong>4. Merge when it is ready.</strong> When the feature works and you have tested it, merge the branch back into main. Delete the branch. Keep it clean.</p>
+                            <p><strong>If you are working with a team:</strong> Pull Requests (PRs) are how you propose changes. You create a PR, someone reviews it, and then it gets merged. Even when working solo, PRs are useful because they give you a record of what changed and why.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="3">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Building Your Public Portfolio on GitHub</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Your GitHub profile is your resume for the modern internet. Employers, clients, and collaborators will look at it. Here is how to make it work for you.</p>
+                            <p><strong>Pin your best repos.</strong> GitHub lets you pin 6 repositories to your profile. Choose the ones that show your best work. Quality over quantity.</p>
+                            <p><strong>Write good READMEs.</strong> Every pinned repo should have a README that explains: what the project is, why you built it, how to use it, and what technologies you used. A screenshot or demo link goes a long way.</p>
+                            <p><strong>Keep it active.</strong> A green contribution graph shows consistency. Even small commits count. Fix a typo, update a README, add a feature. Regular activity signals that you are building, not just talking about building.</p>
+                            <p><strong>Create a profile README.</strong> GitHub lets you create a special repo with your username that displays on your profile page. Use it to introduce yourself, list your skills, and link to your best work.</p>
+                            <div class="highlight">Your GitHub is proof of work. Anyone can say "I know how to code" on a resume. A GitHub full of real projects, with real commit history, shows that you actually do the work. That is worth more than any certification.</div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="quiz-section">
+                        <h3 class="quiz-title">Module 5 Quiz</h3>
+                        <p class="quiz-subtitle">Get 4 out of 5 right to pass.</p>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q1</span>
+                            <p>What is a Git commit?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Uploading files to GitHub</button>
+                                <button class="quiz-option" data-correct="true">A saved snapshot of your project at a specific point</button>
+                                <button class="quiz-option" data-correct="false">Deleting old versions of files</button>
+                                <button class="quiz-option" data-correct="false">Creating a new repository</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q2</span>
+                            <p>What does GitHub Pages give you for free?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">A database for your app</button>
+                                <button class="quiz-option" data-correct="false">Email hosting</button>
+                                <button class="quiz-option" data-correct="true">Website hosting with SSL and automatic deploys from your repo</button>
+                                <button class="quiz-option" data-correct="false">A domain name</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q3</span>
+                            <p>Why should you never work directly on the main branch?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="true">Main should always be the stable, working version of your project</button>
+                                <button class="quiz-option" data-correct="false">GitHub does not allow it</button>
+                                <button class="quiz-option" data-correct="false">Main branch is read-only</button>
+                                <button class="quiz-option" data-correct="false">It makes your code run slower</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q4</span>
+                            <p>What makes a good commit message?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">"WIP"</button>
+                                <button class="quiz-option" data-correct="false">"Updated stuff"</button>
+                                <button class="quiz-option" data-correct="true">"Fixed nav bar alignment on mobile screens"</button>
+                                <button class="quiz-option" data-correct="false">"Changes"</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q5</span>
+                            <p>Why is your GitHub profile better than a resume?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">It has more pages</button>
+                                <button class="quiz-option" data-correct="false">Employers prefer green over white paper</button>
+                                <button class="quiz-option" data-correct="true">It shows proof of actual work through real projects and commit history</button>
+                                <button class="quiz-option" data-correct="false">It includes your GPA</button>
+                            </div>
+                        </div>
+
+                        <button class="quiz-submit" disabled>Check My Answers</button>
+                        <div class="quiz-result"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ============ MODULE 6 ============ -->
+            <div class="module" data-module="mod6">
+                <div class="module-header">
+                    <div class="module-status">6</div>
+                    <div class="module-info">
+                        <h3>Power User Toolkit</h3>
+                        <p>The tools that separate beginners from power users. Claude Code and gstack turn one person into a full team.</p>
+                    </div>
+                    <span class="module-badge advanced">Advanced</span>
+                    <span class="module-toggle">&#9660;</span>
+                </div>
+                <div class="module-content">
+
+                    <div class="lesson" data-lesson="0">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Claude Code: AI-Powered Development in Your Terminal</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Claude Code is not just another chatbot. It is an AI agent that lives in your terminal and can read your files, write code, run commands, and build entire features. It is what I used to build this entire portfolio site.</p>
+                            <p><strong>How it works:</strong> You open your terminal, type <code>claude</code>, and start talking to it like a collaborator. "Read the index.html and fix the mobile nav." It reads the file, understands the structure, writes the fix, and applies it. You review and approve.</p>
+                            <p><strong>What makes it different from the web chat:</strong></p>
+                            <p>It can see your entire project. It reads files, understands how they connect, and makes changes across multiple files at once. The web chat version of Claude has no idea what is in your codebase. Claude Code does.</p>
+                            <p>It runs commands. It can install packages, run tests, check for errors, and deploy your site. It is not just suggesting code, it is actively building.</p>
+                            <p>It remembers context. Within a session, Claude Code remembers everything you have discussed and every file it has read. It gets smarter about your specific project as the conversation continues.</p>
+                            <div class="highlight">This is the tool that makes vibe coding possible. You describe what you want in plain English. Claude Code builds it. You review, iterate, and ship. One person doing the work of a team.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="1">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>Investing in the Right Model Tier</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Here is something I learned the hard way: <strong>the model tier you use directly determines the quality of what you can build.</strong></p>
+                            <p>Claude has different tiers. The free version (Haiku) is fine for quick questions and simple tasks. But if you are building a product, writing complex code, or doing anything that requires sustained reasoning over a large codebase, you need the Pro or Max plan with access to Opus or Sonnet.</p>
+                            <p><strong>Why the tier matters:</strong></p>
+                            <p>Cheaper models have weaker reasoning. They can write a function, but they struggle to understand how that function fits into the bigger system. They lose track of what they are doing on complex tasks.</p>
+                            <p>Cheaper models have smaller context windows. They literally cannot hold your whole project in their head at once. For serious building, you need a model that can see the full picture.</p>
+                            <p>Cheaper models produce more "slop." Generic code, generic copy, generic design. The kind of output that takes longer to fix than it would to write from scratch.</p>
+                            <div class="highlight">Think of it this way: you would not try to build a house with toy tools. Depending on your project, you may need to invest in a higher tier of Claude to get the reasoning power your work requires. A $20/month subscription that saves you 20 hours of work is the best deal in tech.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="2">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>gstack: Garry Tan's 23-Skill Power Toolkit</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p><strong>gstack</strong> is a framework built by Garry Tan (the CEO of Y Combinator) that turns Claude Code into a full engineering team. It adds 23 specialized "skills" that each act as a different role: CEO, designer, engineer, QA lead, security officer, and more.</p>
+                            <p><strong>Key skills:</strong></p>
+                            <p><strong>/plan-ceo-review</strong> reviews your project plan from a founder perspective. It asks the hard questions about whether your idea solves a real problem.</p>
+                            <p><strong>/design-review</strong> audits your site with a designer's eye and actually fixes the issues it finds. Spacing, typography, color, responsiveness, the works.</p>
+                            <p><strong>/qa</strong> systematically tests your site, finds bugs, and fixes them with one commit per fix.</p>
+                            <p><strong>/ship</strong> handles the entire deployment process: tests, review, changelog, push, PR.</p>
+                            <p><strong>/investigate</strong> debugs errors systematically with root cause analysis instead of random guessing.</p>
+                            <p><strong>Why this matters:</strong> Solo builders used to have to wear every hat themselves, and most of those hats did not fit. gstack gives you expert-level review in every discipline. It is like having a startup team that works at 810x speed.</p>
+                            <div class="highlight">I used gstack's skills throughout building this portfolio and The Melody Method. /design-review caught visual issues I would have missed. /qa found bugs before users did. /ship made deployment painless. These are not toys. These are professional tools.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson" data-lesson="3">
+                        <div class="lesson-header">
+                            <div class="lesson-marker"></div>
+                            <h4>The Sprint Workflow: Think, Plan, Build, Review, Ship</h4>
+                            <span class="lesson-arrow">&#9654;</span>
+                        </div>
+                        <div class="lesson-body">
+                            <p>Professional software teams use sprints. Short, focused cycles where you plan what to build, build it, review it, and ship it. gstack brings this same discipline to solo building.</p>
+                            <p><strong>The workflow:</strong></p>
+                            <p><strong>1. Think.</strong> What problem are you solving? Who is it for? What does success look like? Use /office-hours to brainstorm and validate your idea.</p>
+                            <p><strong>2. Plan.</strong> Break the work into small, shippable pieces. Use /plan-ceo-review to stress test your plan. Get the scope right before you write a line of code.</p>
+                            <p><strong>3. Build.</strong> Use Claude Code to write the code. Stay focused on one feature at a time. Commit often.</p>
+                            <p><strong>4. Review.</strong> Run /design-review for visual polish. Run /review for code quality. Run /qa to find bugs. Fix everything before moving on.</p>
+                            <p><strong>5. Ship.</strong> Use /ship to push it live. Write a changelog entry. Deploy. Then reflect on what went well and what to improve next time.</p>
+                            <div class="highlight">This is not about following a rigid process. It is about building the discipline to ship things that are actually finished, not half-done demos. The sprint workflow turns "I am working on it" into "it is live and people are using it."</div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="quiz-section">
+                        <h3 class="quiz-title">Module 6 Quiz</h3>
+                        <p class="quiz-subtitle">Get 4 out of 5 right to pass.</p>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q1</span>
+                            <p>What makes Claude Code different from chatting with Claude on the web?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">It uses a different AI model</button>
+                                <button class="quiz-option" data-correct="true">It can read your project files, write code, and run commands directly</button>
+                                <button class="quiz-option" data-correct="false">It is faster at responding</button>
+                                <button class="quiz-option" data-correct="false">It has a better user interface</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q2</span>
+                            <p>Why does using a cheaper AI model cost you more in the long run?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Cheaper models charge hidden fees</button>
+                                <button class="quiz-option" data-correct="true">You spend more time fixing low-quality output than you save on the subscription</button>
+                                <button class="quiz-option" data-correct="false">Cheaper models are actually the same quality</button>
+                                <button class="quiz-option" data-correct="false">Expensive models are always perfect</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q3</span>
+                            <p>What is gstack?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">A programming language</button>
+                                <button class="quiz-option" data-correct="false">A type of AI model</button>
+                                <button class="quiz-option" data-correct="true">A framework with 23 specialized skills that turn Claude Code into a full engineering team</button>
+                                <button class="quiz-option" data-correct="false">A hosting platform</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q4</span>
+                            <p>What is the correct order of the sprint workflow?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">Build, Ship, Think, Plan, Review</button>
+                                <button class="quiz-option" data-correct="false">Plan, Build, Ship, Review, Think</button>
+                                <button class="quiz-option" data-correct="true">Think, Plan, Build, Review, Ship</button>
+                                <button class="quiz-option" data-correct="false">Ship, Review, Build, Plan, Think</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <span class="q-num">Q5</span>
+                            <p>Which gstack skill would you use to find and fix bugs on your live site?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-correct="false">/plan-ceo-review</button>
+                                <button class="quiz-option" data-correct="false">/ship</button>
+                                <button class="quiz-option" data-correct="false">/design-review</button>
+                                <button class="quiz-option" data-correct="true">/qa</button>
+                            </div>
+                        </div>
+
+                        <button class="quiz-submit" disabled>Check My Answers</button>
+                        <div class="quiz-result"></div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="tools" class="tools-section">
+    <section class="mm-cta">
         <div class="container">
-            <h2 class="section-title">Tools Covered</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <h4>Claude / Claude Code</h4>
-                    <p>Anthropic's AI assistant and CLI. The best tool for reasoning, coding, and building agents.</p>
-                </div>
-                <div class="tool-card">
-                    <h4>ChatGPT</h4>
-                    <p>OpenAI's conversational AI. Great for brainstorming, writing, and general knowledge tasks.</p>
-                </div>
-                <div class="tool-card">
-                    <h4>Gemini</h4>
-                    <p>Google's AI. Best for tasks that need deep Google ecosystem integration and multimodal input.</p>
-                </div>
-                <div class="tool-card">
-                    <h4>GitHub</h4>
-                    <p>Version control and collaboration platform. Your public portfolio and deployment engine.</p>
-                </div>
-                <div class="tool-card">
-                    <h4>gstack</h4>
-                    <p>Garry Tan's (YC CEO) personal software factory. 23 slash-command skills that act as your CEO, designer, engineer, QA lead, and security officer. Sprint-based workflow for shipping at team velocity solo.</p>
-                </div>
-                <div class="tool-card">
-                    <h4>Notion</h4>
-                    <p>All-in-one workspace for notes, project management, and knowledge bases. Your second brain.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="academy-cta">
-        <div class="container" style="text-align: center;">
-            <h2>Ready to Level Up Your AI Game?</h2>
-            <p class="contact-text">Modules are being built right now. Follow along as new content drops.</p>
-            <div class="contact-links">
+            <h2>Ready to Start Building?</h2>
+            <p class="contact-text">You just went through everything I use to build, ship, and grow. Now it is your turn.</p>
+            <div class="contact-links" style="margin-top: 24px;">
                 <a href="https://github.com/Memanzur" class="btn btn-primary">Follow on GitHub</a>
                 <a href="index.html" class="btn btn-outline">Back to Portfolio</a>
             </div>
@@ -202,5 +937,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="academy.js"></script>
 </body>
 </html>
