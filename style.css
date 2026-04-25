@@ -60,21 +60,20 @@ body {
 
 .sparkle {
     position: absolute;
-    color: var(--pink-light);
-    filter: drop-shadow(0 0 4px currentColor);
+    filter: drop-shadow(0 0 8px rgba(249, 168, 212, 0.5)) blur(0.3px);
     animation: float 6s ease-in-out infinite, twinkle 3s ease-in-out infinite;
 }
 
-.s1  { width: 28px; top: 8%;  left: 6%;  animation-delay: 0s;   opacity: 0.5; }
-.s2  { width: 22px; top: 20%; right: 10%; animation-delay: 1s;  color: var(--lavender); opacity: 0.45; }
-.s3  { width: 32px; top: 42%; left: 4%;  animation-delay: 2s;   color: var(--lavender); opacity: 0.35; }
-.s4  { width: 18px; top: 58%; right: 6%; animation-delay: 0.5s; opacity: 0.5; }
-.s5  { width: 24px; top: 78%; left: 12%; animation-delay: 3s;   color: var(--lavender); opacity: 0.4; }
-.s6  { width: 16px; top: 12%; left: 42%; animation-delay: 1.5s; opacity: 0.45; }
-.s7  { width: 20px; top: 68%; right: 18%; animation-delay: 2.5s; color: var(--lavender); opacity: 0.4; }
-.s8  { width: 26px; top: 32%; right: 25%; animation-delay: 4s;  opacity: 0.35; }
-.s9  { width: 14px; top: 90%; left: 40%; animation-delay: 1.8s; color: var(--lavender); opacity: 0.4; }
-.s10 { width: 20px; top: 5%;  right: 35%; animation-delay: 3.5s; opacity: 0.3; }
+.s1  { width: 40px; top: 8%;  left: 6%;  animation-delay: 0s;   opacity: 0.55; }
+.s2  { width: 30px; top: 20%; right: 10%; animation-delay: 1s;  opacity: 0.5; }
+.s3  { width: 50px; top: 42%; left: 4%;  animation-delay: 2s;   opacity: 0.35; }
+.s4  { width: 25px; top: 58%; right: 6%; animation-delay: 0.5s; opacity: 0.55; }
+.s5  { width: 35px; top: 78%; left: 12%; animation-delay: 3s;   opacity: 0.45; }
+.s6  { width: 22px; top: 12%; left: 42%; animation-delay: 1.5s; opacity: 0.5; }
+.s7  { width: 28px; top: 68%; right: 18%; animation-delay: 2.5s; opacity: 0.45; }
+.s8  { width: 38px; top: 32%; right: 25%; animation-delay: 4s;  opacity: 0.4; }
+.s9  { width: 20px; top: 90%; left: 40%; animation-delay: 1.8s; opacity: 0.45; }
+.s10 { width: 32px; top: 5%;  right: 35%; animation-delay: 3.5s; opacity: 0.35; }
 
 /* Soft glowing background blobs */
 .blob {
@@ -406,13 +405,14 @@ body {
 .section-title::before {
     content: '';
     position: absolute;
-    top: -8px;
-    right: -20px;
-    width: 14px;
-    height: 14px;
-    background: var(--pink-light);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    opacity: 0.6;
+    top: -10px;
+    right: -24px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--pink-light), var(--lavender));
+    clip-path: path('M10 0 C10.6 6,14 7.2,20 8 C14 8.8,10.6 10,10 20 C9.4 10,6 8.8,0 8 C6 7.2,9.4 6,10 0Z');
+    opacity: 0.7;
+    filter: blur(0.3px);
 }
 
 /* ==========================================
@@ -480,10 +480,11 @@ body {
     position: absolute;
     top: -6px;
     right: -6px;
-    width: 12px;
-    height: 12px;
-    background: var(--lavender);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, var(--pink-light), var(--lavender));
+    clip-path: path('M8 0 C8.5 5,11 6,16 6.5 C11 7,8.5 8,8 16 C7.5 8,5 7,0 6.5 C5 6,7.5 5,8 0Z');
+    filter: blur(0.3px);
     opacity: 0;
     transition: opacity 0.3s;
 }
