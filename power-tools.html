@@ -28,6 +28,9 @@
         </div>
     </nav>
 
+    <!-- Page content (hidden until passcode unlocked) -->
+    <div id="pt-page-content">
+
     <!-- Hero (compact) -->
     <section class="pt-hero" style="padding: 120px 0 20px;">
         <div class="container">
@@ -942,6 +945,8 @@
         </div>
     </footer>
 
+    </div><!-- /pt-page-content -->
+
     <!-- Passcode Lock -->
     <div id="pt-lock" style="position:fixed;inset:0;z-index:9999;background:#0a0a18;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;font-family:'Inter',sans-serif;">
         <h2 style="color:#f9a8d4;font-family:'Dancing Script',cursive;font-size:2rem;">Melody's Command Center</h2>
@@ -956,10 +961,14 @@
     (function(){
         /* ---- Passcode Lock ---- */
         var KEY='ptUnlocked';
+        var pageContent = document.getElementById('pt-page-content');
         if(sessionStorage.getItem(KEY)==='true'){
             document.getElementById('pt-lock').remove();
+            if(pageContent) pageContent.style.display='';
         } else {
             document.body.style.overflow='hidden';
+            document.documentElement.style.overflow='hidden';
+            if(pageContent) pageContent.style.display='none';
             var input=document.getElementById('pt-code');
             var btn=document.getElementById('pt-unlock');
             var err=document.getElementById('pt-error');
@@ -968,6 +977,8 @@
                     sessionStorage.setItem(KEY,'true');
                     document.getElementById('pt-lock').remove();
                     document.body.style.overflow='';
+                    document.documentElement.style.overflow='';
+                    if(pageContent) pageContent.style.display='';
                 } else {
                     err.textContent='Wrong code. Try again.';
                     input.value='';
