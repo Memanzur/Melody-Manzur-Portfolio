@@ -86,6 +86,17 @@
                     <!-- Add client form -->
                     <div class="crm-add-row">
                         <input type="text" id="crm-name" placeholder="Client name" class="crm-input crm-input-name">
+                        <select id="crm-service" class="crm-input crm-input-service">
+                            <option value="">Service type...</option>
+                            <option value="Website Build">Website Build</option>
+                            <option value="Marketing Audit">Marketing Audit</option>
+                            <option value="SEO">SEO</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="AI Automation">AI Automation</option>
+                            <option value="AI Training">AI Training</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="number" id="crm-amount" placeholder="$ Amount" class="crm-input crm-input-amount" min="0" step="50">
                         <select id="crm-stage" class="crm-input crm-input-stage">
                             <option value="lead">Lead</option>
                             <option value="proposal">Proposal Sent</option>
@@ -93,7 +104,6 @@
                             <option value="review">In Review</option>
                             <option value="complete">Complete</option>
                         </select>
-                        <input type="number" id="crm-amount" placeholder="$ Amount" class="crm-input crm-input-amount" min="0" step="50">
                         <button class="crm-add-btn" id="crm-add-btn">+ Add Client</button>
                     </div>
 
@@ -118,6 +128,82 @@
                         <div class="crm-column" data-stage="complete">
                             <div class="crm-column-header"><span class="crm-dot crm-dot-complete"></span> Complete</div>
                             <div class="crm-column-cards" data-stage="complete"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CRM Detail Modal -->
+                <div class="crm-modal-overlay" id="crm-modal-overlay">
+                    <div class="crm-modal" id="crm-modal">
+                        <button class="crm-modal-close" id="crm-modal-close">&#10005;</button>
+                        <div class="crm-modal-body">
+                            <div class="crm-modal-main">
+                                <div class="crm-modal-field">
+                                    <label>Client Name</label>
+                                    <input type="text" id="crm-detail-name" class="crm-input">
+                                </div>
+                                <div class="crm-modal-row">
+                                    <div class="crm-modal-field">
+                                        <label>Service Type</label>
+                                        <select id="crm-detail-service" class="crm-input">
+                                            <option value="">None</option>
+                                            <option value="Website Build">Website Build</option>
+                                            <option value="Marketing Audit">Marketing Audit</option>
+                                            <option value="SEO">SEO</option>
+                                            <option value="Social Media">Social Media</option>
+                                            <option value="AI Automation">AI Automation</option>
+                                            <option value="AI Training">AI Training</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="crm-modal-field">
+                                        <label>Amount ($)</label>
+                                        <input type="number" id="crm-detail-amount" class="crm-input" min="0" step="50">
+                                    </div>
+                                    <div class="crm-modal-field">
+                                        <label>Stage</label>
+                                        <select id="crm-detail-stage" class="crm-input">
+                                            <option value="lead">Lead</option>
+                                            <option value="proposal">Proposal Sent</option>
+                                            <option value="active">Active</option>
+                                            <option value="review">In Review</option>
+                                            <option value="complete">Complete</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="crm-modal-field">
+                                    <label>Notes</label>
+                                    <textarea id="crm-detail-notes" class="crm-input crm-textarea" rows="4" placeholder="Add notes about this client..."></textarea>
+                                </div>
+
+                                <!-- Progress Checklist -->
+                                <div class="crm-modal-field">
+                                    <label>Progress Checklist</label>
+                                    <div class="crm-tasks" id="crm-tasks"></div>
+                                    <div class="crm-task-add">
+                                        <input type="text" id="crm-task-input" class="crm-input" placeholder="Add a task...">
+                                        <button class="crm-task-add-btn" id="crm-task-add-btn">+</button>
+                                    </div>
+                                </div>
+
+                                <!-- Photo Gallery -->
+                                <div class="crm-modal-field">
+                                    <label>Photo Gallery</label>
+                                    <div class="crm-photo-grid" id="crm-photo-grid"></div>
+                                    <div class="crm-photo-upload">
+                                        <input type="text" id="crm-photo-label" class="crm-input" placeholder="Photo label (e.g. Homepage before)">
+                                        <label class="crm-upload-btn">
+                                            Upload Photo
+                                            <input type="file" id="crm-photo-file" accept="image/*" hidden>
+                                        </label>
+                                    </div>
+                                    <p class="crm-storage-warn" id="crm-storage-warn" hidden>Storage is getting full. Consider removing some photos.</p>
+                                </div>
+                            </div>
+
+                            <div class="crm-modal-footer">
+                                <button class="crm-del-client-btn" id="crm-del-client-btn">Delete Client</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1093,13 +1179,86 @@
 
     // ---- CRM Pipeline ----
     (function() {
-        var KEY = 'cc-crm-clients';
+        // Backward compat: migrate old key if present
+        var OLD_KEY = 'cc-crm-clients';
+        var KEY = 'mm_crm_clients';
+        (function migrate() {
+            if (!localStorage.getItem(KEY) && localStorage.getItem(OLD_KEY)) {
+                var old = [];
+                try { old = JSON.parse(localStorage.getItem(OLD_KEY)) || []; } catch(e) {}
+                // Add missing fields to old records
+                old.forEach(function(c) {
+                    if (!c.service) c.service = '';
+                    if (!c.tasks) c.tasks = [];
+                    if (!c.photos) c.photos = [];
+                    if (!c.created) c.created = new Date().toISOString();
+                });
+                localStorage.setItem(KEY, JSON.stringify(old));
+            }
+        })();
+
+        var currentIdx = -1; // index of client open in modal
 
         function load() {
             try { return JSON.parse(localStorage.getItem(KEY)) || []; }
             catch(e) { return []; }
         }
         function save(clients) { localStorage.setItem(KEY, JSON.stringify(clients)); }
+
+        function escHtml(s) {
+            if (!s) return '';
+            var d = document.createElement('div');
+            d.textContent = s;
+            return d.innerHTML;
+        }
+
+        // Check localStorage usage
+        function checkStorage() {
+            var warn = document.getElementById('crm-storage-warn');
+            if (!warn) return;
+            try {
+                var total = 0;
+                for (var k in localStorage) {
+                    if (localStorage.hasOwnProperty(k)) {
+                        total += localStorage[k].length + k.length;
+                    }
+                }
+                // Warn at ~4MB (most browsers allow 5MB)
+                if (total > 4 * 1024 * 1024) {
+                    warn.hidden = false;
+                } else {
+                    warn.hidden = true;
+                }
+            } catch(e) {
+                warn.hidden = true;
+            }
+        }
+
+        // Compress image before storing
+        function compressImage(file, callback) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var img = new Image();
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var maxW = 800;
+                    var w = img.width;
+                    var h = img.height;
+                    if (w > maxW) {
+                        h = Math.round(h * maxW / w);
+                        w = maxW;
+                    }
+                    canvas.width = w;
+                    canvas.height = h;
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+                    var dataUrl = canvas.toDataURL('image/jpeg', 0.6);
+                    callback(dataUrl);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
 
         function render() {
             var clients = load();
@@ -1112,23 +1271,20 @@
 
                 var card = document.createElement('div');
                 card.className = 'crm-card';
+                card.setAttribute('data-idx', idx);
+
+                var serviceTag = c.service ? '<span class="crm-card-service">' + escHtml(c.service) + '</span>' : '';
                 card.innerHTML =
                     '<div class="crm-card-top">' +
                         '<strong class="crm-card-name">' + escHtml(c.name) + '</strong>' +
                         (c.amount ? '<span class="crm-card-amount">$' + Number(c.amount).toLocaleString() + '</span>' : '') +
                     '</div>' +
-                    (c.notes ? '<p class="crm-card-notes">' + escHtml(c.notes) + '</p>' : '') +
-                    '<div class="crm-card-actions">' +
-                        '<select class="crm-move" data-idx="' + idx + '">' +
-                            '<option value="lead"' + (c.stage === 'lead' ? ' selected' : '') + '>Lead</option>' +
-                            '<option value="proposal"' + (c.stage === 'proposal' ? ' selected' : '') + '>Proposal</option>' +
-                            '<option value="active"' + (c.stage === 'active' ? ' selected' : '') + '>Active</option>' +
-                            '<option value="review"' + (c.stage === 'review' ? ' selected' : '') + '>Review</option>' +
-                            '<option value="complete"' + (c.stage === 'complete' ? ' selected' : '') + '>Complete</option>' +
-                        '</select>' +
-                        '<button class="crm-edit-btn" data-idx="' + idx + '" title="Edit">&#9998;</button>' +
-                        '<button class="crm-del-btn" data-idx="' + idx + '" title="Remove">&#10005;</button>' +
-                    '</div>';
+                    serviceTag;
+
+                // Click card to open detail
+                card.addEventListener('click', function() {
+                    openModal(idx);
+                });
 
                 col.appendChild(card);
             });
@@ -1137,68 +1293,234 @@
             var total = clients.length;
             var activeCount = clients.filter(function(c) { return c.stage === 'active'; }).length;
             var totalRev = clients.reduce(function(sum, c) { return sum + (Number(c.amount) || 0); }, 0);
+            var completedRev = clients.filter(function(c) { return c.stage === 'complete'; }).reduce(function(sum, c) { return sum + (Number(c.amount) || 0); }, 0);
             var statsEl = document.getElementById('crm-stats');
             if (statsEl) {
                 statsEl.innerHTML =
                     '<span class="crm-stat">' + total + ' client' + (total !== 1 ? 's' : '') + '</span>' +
                     '<span class="crm-stat">' + activeCount + ' active</span>' +
-                    '<span class="crm-stat">$' + totalRev.toLocaleString() + ' total</span>';
+                    '<span class="crm-stat">$' + totalRev.toLocaleString() + ' total</span>' +
+                    '<span class="crm-stat">$' + completedRev.toLocaleString() + ' completed</span>';
             }
+        }
 
-            // Bind move selects
-            document.querySelectorAll('.crm-move').forEach(function(sel) {
-                sel.addEventListener('change', function() {
-                    var i = Number(this.dataset.idx);
-                    var clients = load();
-                    if (clients[i]) { clients[i].stage = this.value; save(clients); render(); }
-                });
+        // ---- Modal ----
+        var overlay = document.getElementById('crm-modal-overlay');
+        var modal = document.getElementById('crm-modal');
+        var closeBtn = document.getElementById('crm-modal-close');
+
+        function openModal(idx) {
+            var clients = load();
+            var c = clients[idx];
+            if (!c) return;
+            currentIdx = idx;
+
+            document.getElementById('crm-detail-name').value = c.name || '';
+            document.getElementById('crm-detail-service').value = c.service || '';
+            document.getElementById('crm-detail-amount').value = c.amount || '';
+            document.getElementById('crm-detail-stage').value = c.stage || 'lead';
+            document.getElementById('crm-detail-notes').value = c.notes || '';
+
+            renderTasks(c.tasks || []);
+            renderPhotos(c.photos || []);
+            checkStorage();
+
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+            currentIdx = -1;
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closeModal();
             });
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay && overlay.classList.contains('open')) {
+                closeModal();
+            }
+        });
 
-            // Bind delete
-            document.querySelectorAll('.crm-del-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    if (!confirm('Remove this client?')) return;
-                    var i = Number(this.dataset.idx);
-                    var clients = load();
-                    clients.splice(i, 1);
-                    save(clients);
-                    render();
-                });
+        // Auto-save on field change
+        function autoSave() {
+            if (currentIdx < 0) return;
+            var clients = load();
+            var c = clients[currentIdx];
+            if (!c) return;
+            c.name = document.getElementById('crm-detail-name').value.trim() || c.name;
+            c.service = document.getElementById('crm-detail-service').value;
+            c.amount = document.getElementById('crm-detail-amount').value;
+            c.stage = document.getElementById('crm-detail-stage').value;
+            c.notes = document.getElementById('crm-detail-notes').value;
+            save(clients);
+            render();
+        }
+
+        ['crm-detail-name', 'crm-detail-service', 'crm-detail-amount', 'crm-detail-stage', 'crm-detail-notes'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', autoSave);
+                el.addEventListener('change', autoSave);
+            }
+        });
+
+        // Delete client from modal
+        var delClientBtn = document.getElementById('crm-del-client-btn');
+        if (delClientBtn) {
+            delClientBtn.addEventListener('click', function() {
+                if (currentIdx < 0) return;
+                if (!confirm('Remove this client? This cannot be undone.')) return;
+                var clients = load();
+                clients.splice(currentIdx, 1);
+                save(clients);
+                closeModal();
+                render();
             });
+        }
 
-            // Bind edit
-            document.querySelectorAll('.crm-edit-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var i = Number(this.dataset.idx);
+        // ---- Tasks ----
+        function renderTasks(tasks) {
+            var container = document.getElementById('crm-tasks');
+            if (!container) return;
+            container.innerHTML = '';
+            tasks.forEach(function(t, ti) {
+                var row = document.createElement('div');
+                row.className = 'crm-task-row';
+                var cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.checked = !!t.done;
+                cb.className = 'crm-task-check';
+                cb.addEventListener('change', function() {
                     var clients = load();
-                    var c = clients[i];
-                    if (!c) return;
-                    var newName = prompt('Client name:', c.name);
-                    if (newName === null) return;
-                    var newAmount = prompt('Amount ($):', c.amount || '');
-                    if (newAmount === null) return;
-                    var newNotes = prompt('Notes:', c.notes || '');
-                    if (newNotes === null) return;
-                    c.name = newName || c.name;
-                    c.amount = newAmount;
-                    c.notes = newNotes;
-                    save(clients);
-                    render();
+                    if (clients[currentIdx] && clients[currentIdx].tasks[ti]) {
+                        clients[currentIdx].tasks[ti].done = cb.checked;
+                        save(clients);
+                    }
+                });
+                var label = document.createElement('span');
+                label.className = 'crm-task-text' + (t.done ? ' done' : '');
+                label.textContent = t.text;
+                var del = document.createElement('button');
+                del.className = 'crm-task-del';
+                del.textContent = '\u00D7';
+                del.title = 'Remove task';
+                del.addEventListener('click', function() {
+                    var clients = load();
+                    if (clients[currentIdx]) {
+                        clients[currentIdx].tasks.splice(ti, 1);
+                        save(clients);
+                        renderTasks(clients[currentIdx].tasks);
+                    }
+                });
+                row.appendChild(cb);
+                row.appendChild(label);
+                row.appendChild(del);
+                container.appendChild(row);
+            });
+        }
+
+        var taskAddBtn = document.getElementById('crm-task-add-btn');
+        var taskInput = document.getElementById('crm-task-input');
+        if (taskAddBtn && taskInput) {
+            function addTask() {
+                var text = taskInput.value.trim();
+                if (!text || currentIdx < 0) return;
+                var clients = load();
+                if (!clients[currentIdx]) return;
+                if (!clients[currentIdx].tasks) clients[currentIdx].tasks = [];
+                clients[currentIdx].tasks.push({ text: text, done: false });
+                save(clients);
+                renderTasks(clients[currentIdx].tasks);
+                taskInput.value = '';
+                taskInput.focus();
+            }
+            taskAddBtn.addEventListener('click', addTask);
+            taskInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') { e.preventDefault(); addTask(); }
+            });
+        }
+
+        // ---- Photos ----
+        function renderPhotos(photos) {
+            var grid = document.getElementById('crm-photo-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            if (!photos || photos.length === 0) {
+                grid.innerHTML = '<p class="crm-photo-empty">No photos yet</p>';
+                return;
+            }
+            photos.forEach(function(p, pi) {
+                var item = document.createElement('div');
+                item.className = 'crm-photo-item';
+                var img = document.createElement('img');
+                img.src = p.data;
+                img.alt = escHtml(p.label);
+                img.className = 'crm-photo-thumb';
+                var lbl = document.createElement('span');
+                lbl.className = 'crm-photo-label';
+                lbl.textContent = p.label;
+                var del = document.createElement('button');
+                del.className = 'crm-photo-del';
+                del.textContent = '\u00D7';
+                del.title = 'Remove photo';
+                del.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (!confirm('Remove this photo?')) return;
+                    var clients = load();
+                    if (clients[currentIdx] && clients[currentIdx].photos) {
+                        clients[currentIdx].photos.splice(pi, 1);
+                        save(clients);
+                        renderPhotos(clients[currentIdx].photos);
+                        checkStorage();
+                    }
+                });
+                item.appendChild(img);
+                item.appendChild(lbl);
+                item.appendChild(del);
+                grid.appendChild(item);
+            });
+        }
+
+        var photoFile = document.getElementById('crm-photo-file');
+        var photoLabel = document.getElementById('crm-photo-label');
+        if (photoFile) {
+            photoFile.addEventListener('change', function() {
+                if (!this.files || !this.files[0] || currentIdx < 0) return;
+                var label = (photoLabel ? photoLabel.value.trim() : '') || 'Untitled';
+                compressImage(this.files[0], function(dataUrl) {
+                    var clients = load();
+                    if (!clients[currentIdx]) return;
+                    if (!clients[currentIdx].photos) clients[currentIdx].photos = [];
+                    clients[currentIdx].photos.push({ label: label, data: dataUrl });
+                    try {
+                        save(clients);
+                    } catch(e) {
+                        alert('Storage full. Remove some photos before adding more.');
+                        clients[currentIdx].photos.pop();
+                        return;
+                    }
+                    renderPhotos(clients[currentIdx].photos);
+                    checkStorage();
+                    if (photoLabel) photoLabel.value = '';
+                    photoFile.value = '';
                 });
             });
         }
 
-        function escHtml(s) {
-            var d = document.createElement('div');
-            d.textContent = s;
-            return d.innerHTML;
-        }
-
-        // Add client
+        // ---- Add client form ----
         var addBtn = document.getElementById('crm-add-btn');
         if (addBtn) {
             addBtn.addEventListener('click', function() {
                 var nameInput = document.getElementById('crm-name');
+                var serviceInput = document.getElementById('crm-service');
                 var stageInput = document.getElementById('crm-stage');
                 var amountInput = document.getElementById('crm-amount');
                 var name = nameInput.value.trim();
@@ -1208,13 +1530,17 @@
                 clients.push({
                     name: name,
                     stage: stageInput.value,
+                    service: serviceInput ? serviceInput.value : '',
                     amount: amountInput.value || '',
                     notes: '',
-                    created: new Date().toISOString()
+                    created: new Date().toISOString().split('T')[0],
+                    tasks: [],
+                    photos: []
                 });
                 save(clients);
                 nameInput.value = '';
                 amountInput.value = '';
+                if (serviceInput) serviceInput.value = '';
                 stageInput.value = 'lead';
                 render();
             });

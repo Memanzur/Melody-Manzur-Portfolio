@@ -181,6 +181,50 @@
 }
 
 /* ==========================================
+   Results Section
+   ========================================== */
+
+.results {
+    padding: 80px 0;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.result-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.result-card:hover {
+    border-color: var(--pink-light, var(--accent));
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(236, 72, 153, 0.12);
+}
+
+.result-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pink, #ec4899);
+    margin-bottom: 6px;
+}
+
+.result-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* ==========================================
    Changes Section
    ========================================== */
 
@@ -357,6 +401,10 @@
         gap: 24px;
     }
 
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .change-detail {
         grid-template-columns: 1fr;
     }
@@ -375,6 +423,10 @@
 }
 
 @media (max-width: 480px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
     .pages-grid {
         grid-template-columns: 1fr;
     }

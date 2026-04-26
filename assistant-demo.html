@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Demo | Melody Manzur</title>
+    <meta name="description" content="A working demo of a custom AI assistant for businesses. Handles FAQs, books appointments, and works 24/7. Built by Melody Manzur.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI Assistant Demo | Melody Manzur">
+    <meta property="og:description" content="See what a custom AI assistant can do for your business. Try this working demo for a fictional med spa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://memanzur.github.io/Melody-Manzur-Portfolio/assistant-demo.html">
+    <meta property="og:image" content="https://memanzur.github.io/Melody-Manzur-Portfolio/images/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Assistant Demo | Melody Manzur">
+    <meta name="twitter:description" content="See what a custom AI assistant can do for your business. Try this working demo.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5l12 33 33 12-33 12-12 33-12-33-33-12 33-12z' fill='%23ec4899'/></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260425c">
+    <link rel="stylesheet" href="assistant-demo.css?v=20260425a">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Melody M</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="ai-academy.html">The Melody Method</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Floating sparkles -->
+    <div class="sparkles" aria-hidden="true">
+        <svg class="sparkle s1" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s2" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s3" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s4" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="currentColor"/></svg>
+        <svg class="sparkle s5" viewBox="0 0 24 24"><path d="M12 0l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="currentColor"/></svg>
+    </div>
+
+    <section class="demo-hero">
+        <div class="container">
+            <span class="demo-tag">AI Assistant Demo</span>
+            <h1 class="demo-title">Meet Your New Receptionist</h1>
+            <p class="demo-subtitle">This is a working demo of the kind of AI assistant I build for businesses. It handles FAQs, books appointments, and never takes a day off. Try it out.</p>
+        </div>
+    </section>
+
+    <section class="chat-section">
+        <div class="container">
+            <div class="chat-window">
+                <div class="chat-header">
+                    <div class="chat-header-avatar">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 00-3 3v1H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-3V5a3 3 0 00-3-3z"/><circle cx="9" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.5" fill="currentColor" stroke="none"/><path d="M9 16c.5 1 1.5 1.5 3 1.5s2.5-.5 3-1.5"/></svg>
+                    </div>
+                    <div class="chat-header-info">
+                        <span class="chat-header-name">Glow Aesthetics</span>
+                        <span class="chat-header-status">Online</span>
+                    </div>
+                    <button id="chatRestart" class="chat-restart" aria-label="Restart conversation" title="Start over">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 105.64-12.36L1 10"/></svg>
+                    </button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be inserted here by JS -->
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Type your message..." autocomplete="off">
+                    <button id="chatSend" class="chat-send" aria-label="Send message">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="demo-cta-section">
+        <div class="container">
+            <h2 class="section-title">This is what I build for businesses.</h2>
+            <p class="demo-cta-text">A custom AI assistant that handles your most common questions, helps visitors find what they need, and works 24/7. Every assistant I build is tailored to your business, your services, and your voice.</p>
+            <div class="demo-cta-buttons">
+                <a href="mailto:manzurmelody@gmail.com?subject=AI Assistant for My Business" class="btn btn-primary">Get One for Your Business</a>
+                <a href="index.html" class="btn btn-outline">Back to Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Melody Manzur &copy; 2026. Built with purpose.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="assistant-demo.js?v=20260425a"></script>
+</body>
+</html>

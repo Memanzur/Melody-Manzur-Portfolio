@@ -460,9 +460,9 @@ body {
 }
 
 .projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
 }
 
 .project-card {
@@ -485,6 +485,15 @@ body {
 
 .project-card.featured {
     border-color: var(--pink-light);
+    grid-column: 1 / -1;
+}
+
+.project-card:not(.featured) {
+    grid-template-columns: 1fr;
+}
+
+.project-card:not(.featured) .project-preview {
+    max-height: 180px;
 }
 
 .project-preview {
@@ -582,6 +591,136 @@ body {
 }
 
 /* ==========================================
+   CSS Preview Graphics (Blueprint & Assistant)
+   ========================================== */
+
+.preview-graphic {
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Blueprint preview */
+.preview-blueprint {
+    background: linear-gradient(135deg, var(--bg-soft), rgba(233, 213, 255, 0.2));
+}
+
+.preview-blueprint .preview-graphic {
+    gap: 12px;
+}
+
+.preview-track {
+    flex: 1;
+    text-align: center;
+}
+
+.preview-track-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--pink);
+    margin-bottom: 10px;
+    font-family: var(--mono);
+}
+
+.preview-track:nth-child(2) .preview-track-label {
+    color: var(--lavender);
+}
+
+.preview-track:nth-child(3) .preview-track-label {
+    color: #d946ef;
+}
+
+.preview-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.preview-nodes span {
+    display: block;
+    height: 22px;
+    border-radius: 8px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    transition: transform 0.3s;
+}
+
+.project-card:hover .preview-nodes span {
+    transform: translateY(-1px);
+}
+
+.preview-track:nth-child(1) .preview-nodes span:nth-child(1) {
+    border-color: var(--pink-light);
+    background: rgba(236, 72, 153, 0.06);
+}
+
+.preview-track:nth-child(2) .preview-nodes span:nth-child(2) {
+    border-color: var(--lavender);
+    background: rgba(196, 181, 253, 0.1);
+}
+
+.preview-track:nth-child(3) .preview-nodes span:nth-child(1) {
+    border-color: #e879f9;
+    background: rgba(217, 70, 239, 0.06);
+}
+
+/* Assistant preview */
+.preview-assistant {
+    background: linear-gradient(135deg, var(--bg-soft), rgba(249, 168, 212, 0.15));
+}
+
+.preview-chat {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.preview-bubble {
+    height: 20px;
+    border-radius: 12px;
+}
+
+.preview-bubble.bot {
+    width: 75%;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+
+.preview-bubble.bot.short {
+    width: 55%;
+}
+
+.preview-bubble.user {
+    width: 50%;
+    background: linear-gradient(135deg, var(--pink-light), #e879f9);
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+    opacity: 0.7;
+}
+
+.preview-pills {
+    display: flex;
+    gap: 5px;
+    padding-top: 2px;
+}
+
+.preview-pills span {
+    height: 16px;
+    flex: 1;
+    border-radius: 50px;
+    border: 1.5px solid var(--pink-light);
+    background: var(--bg-card);
+}
+
+/* ==========================================
    Skills
    ========================================== */
 
@@ -655,6 +794,74 @@ body {
 }
 
 /* ==========================================
+   Services
+   ========================================== */
+
+.services {
+    padding: 40px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(236, 72, 153, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    border-color: var(--pink-light);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px var(--glow);
+}
+
+.service-icon {
+    color: var(--pink);
+    margin-bottom: 16px;
+}
+
+.service-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: var(--display);
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.service-cta {
+    color: var(--pink);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    align-self: flex-start;
+}
+
+.service-cta:hover {
+    color: var(--text);
+}
+
+/* ==========================================
    Contact
    ========================================== */
 
@@ -718,6 +925,26 @@ body {
     text-align: center;
     position: relative;
     z-index: 1;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--pink);
 }
 
 .footer p {
@@ -816,6 +1043,10 @@ body {
         display: flex;
     }
 
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
     .project-card {
         grid-template-columns: 1fr;
     }
@@ -826,6 +1057,10 @@ body {
 
     .skills-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 
     .section-divider {

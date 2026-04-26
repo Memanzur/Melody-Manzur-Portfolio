@@ -1,0 +1,407 @@
+/* ==========================================
+   The Blueprint - Page Styles
+   ========================================== */
+
+/* ==========================================
+   Hero
+   ========================================== */
+
+.bp-hero {
+    padding: 130px 0 50px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.bp-title {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-family: var(--display);
+    background: linear-gradient(135deg, var(--pink) 0%, #d946ef 50%, var(--pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bp-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   Diagram Section
+   ========================================== */
+
+.bp-diagram {
+    padding: 40px 0 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.bp-tracks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+/* ==========================================
+   Track Headers
+   ========================================== */
+
+.bp-track-header {
+    text-align: center;
+    padding: 28px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bp-track-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    opacity: 0.08;
+}
+
+.bp-track-header.found {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(249, 168, 212, 0.12));
+    border: 2px solid rgba(236, 72, 153, 0.2);
+}
+
+.bp-track-header.chosen {
+    background: linear-gradient(135deg, rgba(196, 181, 253, 0.12), rgba(233, 213, 255, 0.15));
+    border: 2px solid rgba(196, 181, 253, 0.3);
+}
+
+.bp-track-header.paid {
+    background: linear-gradient(135deg, rgba(217, 70, 239, 0.08), rgba(249, 168, 212, 0.1));
+    border: 2px solid rgba(217, 70, 239, 0.2);
+}
+
+.bp-track-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    background: var(--bg-card);
+    box-shadow: 0 2px 12px rgba(236, 72, 153, 0.1);
+}
+
+.bp-track-header.found .bp-track-icon {
+    color: var(--pink);
+}
+
+.bp-track-header.chosen .bp-track-icon {
+    color: var(--lavender);
+}
+
+.bp-track-header.paid .bp-track-icon {
+    color: #d946ef;
+}
+
+.bp-track-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--display);
+    margin-bottom: 4px;
+    color: var(--text);
+}
+
+.bp-track-header p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ==========================================
+   Cards
+   ========================================== */
+
+.bp-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.bp-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 0;
+    width: 100%;
+    position: relative;
+}
+
+.bp-card:hover {
+    border-color: var(--pink-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.1);
+}
+
+.bp-card.active {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15), 0 12px 32px rgba(236, 72, 153, 0.12);
+}
+
+/* Track-specific active colors */
+[data-track="chosen"] .bp-card.active {
+    border-color: var(--lavender);
+    box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.2), 0 12px 32px rgba(196, 181, 253, 0.12);
+}
+
+[data-track="paid"] .bp-card.active {
+    border-color: #d946ef;
+    box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.15), 0 12px 32px rgba(217, 70, 239, 0.12);
+}
+
+/* Card Front */
+.bp-card-front {
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+}
+
+.bp-card-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-soft);
+    color: var(--pink);
+    transition: background 0.3s, color 0.3s;
+}
+
+[data-track="chosen"] .bp-card-icon {
+    background: rgba(196, 181, 253, 0.15);
+    color: #8b5cf6;
+}
+
+[data-track="paid"] .bp-card-icon {
+    background: rgba(217, 70, 239, 0.1);
+    color: #d946ef;
+}
+
+.bp-card.active .bp-card-icon {
+    background: var(--pink);
+    color: #fff;
+}
+
+[data-track="chosen"] .bp-card.active .bp-card-icon {
+    background: #8b5cf6;
+    color: #fff;
+}
+
+[data-track="paid"] .bp-card.active .bp-card-icon {
+    background: #d946ef;
+    color: #fff;
+}
+
+.bp-card-front h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: var(--display);
+    flex: 1;
+}
+
+.bp-card-hint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    font-family: var(--mono);
+    white-space: nowrap;
+    transition: opacity 0.3s;
+}
+
+.bp-card.active .bp-card-hint {
+    opacity: 0;
+}
+
+/* Card Detail */
+.bp-card-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 22px;
+    border-top: 0px solid var(--border);
+}
+
+.bp-card.active .bp-card-detail {
+    max-height: 400px;
+    padding: 0 22px 22px;
+    border-top: 1px solid var(--border);
+}
+
+.bp-card-detail h3 {
+    display: none;
+}
+
+.bp-detail-row {
+    margin-top: 14px;
+}
+
+.bp-detail-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--pink);
+    font-family: var(--mono);
+    margin-bottom: 4px;
+}
+
+[data-track="chosen"] .bp-detail-label {
+    color: #8b5cf6;
+}
+
+[data-track="paid"] .bp-detail-label {
+    color: #d946ef;
+}
+
+.bp-detail-row.pain .bp-detail-label {
+    color: #ef4444;
+}
+
+.bp-detail-row p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.bp-detail-row.pain p {
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ==========================================
+   CTA Section
+   ========================================== */
+
+.bp-cta-section {
+    padding: 60px 0 70px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.bp-cta-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    font-family: var(--display);
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.bp-cta-text {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 32px;
+}
+
+.bp-cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   Scroll Fade-in Animation
+   ========================================== */
+
+.bp-card.animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.bp-card.animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bp-track-header.animate-in {
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.bp-track-header.animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+
+@media (max-width: 900px) {
+    .bp-tracks {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .bp-hero {
+        padding: 120px 0 40px;
+    }
+
+    .bp-subtitle {
+        font-size: 1rem;
+    }
+
+    .bp-card-front {
+        padding: 16px 18px;
+    }
+
+    .bp-card-front h3 {
+        font-size: 0.88rem;
+    }
+
+    .bp-card-hint {
+        display: none;
+    }
+
+    .bp-card.active + .bp-card,
+    .bp-card {
+        /* Prevent accidental close when scrolling on mobile */
+    }
+
+    .bp-track-header {
+        padding: 22px 16px;
+    }
+
+    .bp-track-header h2 {
+        font-size: 1.15rem;
+    }
+
+    .bp-cta-section {
+        padding: 50px 0 60px;
+    }
+}
