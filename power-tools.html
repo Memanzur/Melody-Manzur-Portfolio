@@ -81,6 +81,17 @@
                     <div class="crm-header">
                         <h3>Client Pipeline</h3>
                         <div class="crm-stats" id="crm-stats"></div>
+                        <div class="crm-backup-btns">
+                            <button class="crm-backup-btn" id="crm-export" title="Download backup">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                Backup
+                            </button>
+                            <label class="crm-backup-btn" id="crm-import-label" title="Restore from backup">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                Restore
+                                <input type="file" id="crm-import" accept=".json" style="display:none">
+                            </label>
+                        </div>
                     </div>
 
                     <!-- Add client form -->
@@ -1543,6 +1554,62 @@
                 if (serviceInput) serviceInput.value = '';
                 stageInput.value = 'lead';
                 render();
+            });
+        }
+
+        // Export backup
+        var exportBtn = document.getElementById('crm-export');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', function() {
+                var clients = load();
+                var data = JSON.stringify(clients, null, 2);
+                var blob = new Blob([data], { type: 'application/json' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = 'melody-crm-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                exportBtn.textContent = 'Downloaded!';
+                setTimeout(function() { exportBtn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Backup'; }, 2000);
+            });
+        }
+
+        // Import backup
+        var importInput = document.getElementById('crm-import');
+        if (importInput) {
+            importInput.addEventListener('change', function(e) {
+                var file = e.target.files[0];
+                if (!file) return;
+                var reader = new FileReader();
+                reader.onload = function(ev) {
+                    try {
+                        var imported = JSON.parse(ev.target.result);
+                        if (!Array.isArray(imported)) throw new Error('Invalid format');
+                        var existing = load();
+                        var action = existing.length > 0
+                            ? confirm('You have ' + existing.length + ' existing client(s). Click OK to replace them with the backup, or Cancel to merge (add backup clients to your existing ones).')
+                            : true;
+                        if (action) {
+                            save(imported);
+                        } else {
+                            var merged = existing.concat(imported);
+                            save(merged);
+                        }
+                        render();
+                        var label = document.getElementById('crm-import-label');
+                        if (label) {
+                            label.childNodes[label.childNodes.length - 3].textContent = ' Restored! ';
+                            setTimeout(function() { label.childNodes[label.childNodes.length - 3].textContent = ' Restore '; }, 2000);
+                        }
+                    } catch(err) {
+                        alert('Could not read that file. Make sure it is a CRM backup JSON file.');
+                    }
+                    importInput.value = '';
+                };
+                reader.readAsText(file);
             });
         }
 
