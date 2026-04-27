@@ -192,6 +192,87 @@
                                     <textarea id="crm-detail-notes" class="crm-input crm-textarea" rows="4" placeholder="Add notes about this client..."></textarea>
                                 </div>
 
+                                <!-- Client Kickoff -->
+                                <div class="crm-modal-field">
+                                    <label>Client Kickoff</label>
+                                    <div class="crm-kickoff" id="crm-kickoff">
+                                        <div class="kickoff-section">
+                                            <button class="kickoff-header" data-section="discovery">
+                                                <span>Discovery Call</span>
+                                                <span class="kickoff-progress" id="kickoff-prog-discovery"></span>
+                                                <span class="kickoff-arrow">&#9660;</span>
+                                            </button>
+                                            <div class="kickoff-body" id="kickoff-body-discovery">
+                                                <div class="kickoff-items" id="kickoff-items-discovery">
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="biz"> What is the business? Who are the customers?</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="problem"> What problem are we solving right now?</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="success"> What does success look like in 30/60/90 days?</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="competition"> Who is the competition? What are they doing well?</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="tried"> What has been tried before? What worked?</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="budget"> What is the budget and timeline?</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="decision"> Who is the decision maker?</label>
+                                                </div>
+                                                <textarea class="crm-input kickoff-notes" id="kickoff-notes-discovery" rows="3" placeholder="Discovery call notes..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="kickoff-section">
+                                            <button class="kickoff-header" data-section="audit">
+                                                <span>Site Audit</span>
+                                                <span class="kickoff-progress" id="kickoff-prog-audit"></span>
+                                                <span class="kickoff-arrow">&#9660;</span>
+                                            </button>
+                                            <div class="kickoff-body" id="kickoff-body-audit">
+                                                <div class="kickoff-items" id="kickoff-items-audit">
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="screenshots"> Screenshot every page (desktop + mobile)</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="design_review"> Run design review on the live site</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="qa"> Run QA to find bugs and broken flows</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="pagespeed"> Run PageSpeed Insights on key pages</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="search_console"> Check Google Search Console</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="analytics"> Check analytics for traffic patterns</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="seo_basics"> Review SEO basics (titles, descriptions, headings)</label>
+                                                </div>
+                                                <textarea class="crm-input kickoff-notes" id="kickoff-notes-audit" rows="3" placeholder="Audit findings..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="kickoff-section">
+                                            <button class="kickoff-header" data-section="competitors">
+                                                <span>Competitor Analysis</span>
+                                                <span class="kickoff-progress" id="kickoff-prog-competitors"></span>
+                                                <span class="kickoff-arrow">&#9660;</span>
+                                            </button>
+                                            <div class="kickoff-body" id="kickoff-body-competitors">
+                                                <div class="kickoff-items" id="kickoff-items-competitors">
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="identify"> Identify top 3-5 direct competitors</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="screenshot_comp"> Screenshot their key pages</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="strengths"> Note what they do well</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="weaknesses"> Note what they do poorly</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="comp_seo"> Check their SEO and keywords</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="comp_social"> Check their social presence</label>
+                                                </div>
+                                                <textarea class="crm-input kickoff-notes" id="kickoff-notes-competitors" rows="3" placeholder="Competitor notes..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="kickoff-section">
+                                            <button class="kickoff-header" data-section="goals">
+                                                <span>Goals and Deliverables</span>
+                                                <span class="kickoff-progress" id="kickoff-prog-goals"></span>
+                                                <span class="kickoff-arrow">&#9660;</span>
+                                            </button>
+                                            <div class="kickoff-body" id="kickoff-body-goals">
+                                                <div class="kickoff-items" id="kickoff-items-goals">
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="primary_goals"> Define 3 primary goals (specific, measurable)</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="deliverables"> List all deliverables with deadlines</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="tracking"> Set up analytics/tracking before work begins</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="project_board"> Create a shared project board</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="checkins"> Schedule check-in cadence</label>
+                                                    <label class="kickoff-item"><input type="checkbox" data-key="baseline"> Document the baseline metrics</label>
+                                                </div>
+                                                <textarea class="crm-input kickoff-notes" id="kickoff-notes-goals" rows="3" placeholder="Goals and deliverables notes..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- Progress Checklist -->
                                 <div class="crm-modal-field">
                                     <label>Progress Checklist</label>
@@ -1313,6 +1394,7 @@
                     created: c.created || '',
                     tasks: c.tasks || [],
                     photos: c.photos || [],
+                    kickoff: c.kickoff || {},
                     updated_at: new Date().toISOString()
                 };
             });
@@ -1346,7 +1428,8 @@
                         notes: row.notes || '',
                         created: row.created || '',
                         tasks: row.tasks || [],
-                        photos: row.photos || []
+                        photos: row.photos || [],
+                        kickoff: row.kickoff || {}
                     };
                 });
                 // Merge: keep any local clients that don't have an id in Supabase
@@ -1483,6 +1566,7 @@
             document.getElementById('crm-detail-stage').value = c.stage || 'lead';
             document.getElementById('crm-detail-notes').value = c.notes || '';
 
+            renderKickoff(c.kickoff || {});
             renderTasks(c.tasks || []);
             renderPhotos(c.photos || []);
             checkStorage();
@@ -1585,6 +1669,95 @@
                 render();
             });
         }
+
+        // ---- Kickoff ----
+        var KICKOFF_SECTIONS = ['discovery', 'audit', 'competitors', 'goals'];
+
+        function renderKickoff(kickoff) {
+            KICKOFF_SECTIONS.forEach(function(section) {
+                var data = kickoff[section] || {};
+                var checks = data.checks || {};
+                var notes = data.notes || '';
+
+                // Set checkbox states
+                var items = document.querySelectorAll('#kickoff-items-' + section + ' input[type="checkbox"]');
+                var checked = 0;
+                items.forEach(function(cb) {
+                    var key = cb.getAttribute('data-key');
+                    cb.checked = !!checks[key];
+                    var label = cb.closest('.kickoff-item');
+                    if (cb.checked) {
+                        label.classList.add('checked');
+                        checked++;
+                    } else {
+                        label.classList.remove('checked');
+                    }
+                });
+
+                // Set notes
+                var notesEl = document.getElementById('kickoff-notes-' + section);
+                if (notesEl) notesEl.value = notes;
+
+                // Update progress
+                var progEl = document.getElementById('kickoff-prog-' + section);
+                if (progEl) progEl.textContent = checked + '/' + items.length;
+            });
+        }
+
+        function saveKickoff() {
+            if (currentIdx < 0) return;
+            var clients = load();
+            var c = clients[currentIdx];
+            if (!c) return;
+            if (!c.kickoff) c.kickoff = {};
+
+            KICKOFF_SECTIONS.forEach(function(section) {
+                var checks = {};
+                var items = document.querySelectorAll('#kickoff-items-' + section + ' input[type="checkbox"]');
+                items.forEach(function(cb) {
+                    checks[cb.getAttribute('data-key')] = cb.checked;
+                });
+                var notesEl = document.getElementById('kickoff-notes-' + section);
+                c.kickoff[section] = {
+                    checks: checks,
+                    notes: notesEl ? notesEl.value : ''
+                };
+            });
+
+            save(clients);
+        }
+
+        // Toggle kickoff sections open/closed
+        document.querySelectorAll('.kickoff-header').forEach(function(header) {
+            header.addEventListener('click', function(e) {
+                e.preventDefault();
+                header.closest('.kickoff-section').classList.toggle('open');
+            });
+        });
+
+        // Auto-save on kickoff checkbox change
+        document.querySelectorAll('.kickoff-item input[type="checkbox"]').forEach(function(cb) {
+            cb.addEventListener('change', function() {
+                var label = cb.closest('.kickoff-item');
+                if (cb.checked) label.classList.add('checked');
+                else label.classList.remove('checked');
+                // Update progress counter
+                var section = cb.closest('.kickoff-section');
+                var sectionName = section.querySelector('.kickoff-header').getAttribute('data-section');
+                var all = section.querySelectorAll('input[type="checkbox"]');
+                var done = section.querySelectorAll('input[type="checkbox"]:checked');
+                var prog = document.getElementById('kickoff-prog-' + sectionName);
+                if (prog) prog.textContent = done.length + '/' + all.length;
+                saveKickoff();
+            });
+        });
+
+        // Auto-save on kickoff notes change
+        document.querySelectorAll('.kickoff-notes').forEach(function(textarea) {
+            textarea.addEventListener('input', function() {
+                saveKickoff();
+            });
+        });
 
         // ---- Tasks ----
         function renderTasks(tasks) {
