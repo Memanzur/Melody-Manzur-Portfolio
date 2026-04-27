@@ -11,6 +11,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5l12 33 33 12-33 12-12 33-12-33-33-12 33-12z' fill='%23ec4899'/></svg>">
     <link rel="stylesheet" href="style.css?v=20260425">
     <link rel="stylesheet" href="power-tools.css?v=20260425e">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <nav class="nav">
@@ -140,6 +141,10 @@
                             <div class="crm-column-header"><span class="crm-dot crm-dot-complete"></span> Complete</div>
                             <div class="crm-column-cards" data-stage="complete"></div>
                         </div>
+                        <div class="crm-column crm-column-trash" data-stage="trash">
+                            <div class="crm-column-header"><span class="crm-dot crm-dot-trash"></span> Trash</div>
+                            <div class="crm-column-cards" data-stage="trash"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -213,7 +218,8 @@
                             </div>
 
                             <div class="crm-modal-footer">
-                                <button class="crm-del-client-btn" id="crm-del-client-btn">Delete Client</button>
+                                <button class="crm-restore-btn" id="crm-restore-btn" hidden>Restore Client</button>
+                                <button class="crm-del-client-btn" id="crm-del-client-btn">Move to Trash</button>
                             </div>
                         </div>
                     </div>
@@ -1121,13 +1127,59 @@
         var delBtn = document.getElementById('notepad-delete');
         var textarea = document.getElementById('notepad-text');
 
+        var _sbNotes = null;
+        try {
+            if (window.supabase) {
+                _sbNotes = window.supabase.createClient(
+                    'https://uydxykwgomowdrrxetdv.supabase.co',
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5ZHh5a3dnb21vd2RycnhldGR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzMjIxMzMsImV4cCI6MjA5MDg5ODEzM30.aVVrrNLG4dVTRdV2WWhyeHZrpoCVKLAKYkIqGJIKBTM'
+                );
+            }
+        } catch(e) { console.warn('Supabase unavailable for notes:', e.message); }
+
+        var _notesSyncTimer = null;
+
         function loadNotes() {
             try { return JSON.parse(localStorage.getItem(NOTES_KEY)) || {}; }
             catch(e) { return {}; }
         }
 
         function saveNotes(data) {
-            localStorage.setItem(NOTES_KEY, JSON.stringify(data));
+            try {
+                localStorage.setItem(NOTES_KEY, JSON.stringify(data));
+            } catch(e) {
+                alert('Storage is full. Try removing some data.');
+                return;
+            }
+            clearTimeout(_notesSyncTimer);
+            _notesSyncTimer = setTimeout(function() { syncNotesToSupabase(data); }, 800);
+        }
+
+        function syncNotesToSupabase(data) {
+            if (!_sbNotes) return;
+            var rows = Object.keys(data).map(function(name) {
+                return { client_name: name, notes: data[name], updated_at: new Date().toISOString() };
+            });
+            if (rows.length === 0) return;
+            _sbNotes.from('client_notes').upsert(rows, { onConflict: 'client_name' }).then();
+        }
+
+        function loadNotesFromSupabase() {
+            if (!_sbNotes) return;
+            _sbNotes.from('client_notes').select('*').then(function(res) {
+                if (res.error || !res.data) return;
+                var local = loadNotes();
+                var merged = {};
+                // Start with Supabase data
+                res.data.forEach(function(row) { merged[row.client_name] = row.notes || ''; });
+                // Merge any local-only entries
+                Object.keys(local).forEach(function(k) {
+                    if (!(k in merged)) merged[k] = local[k];
+                });
+                localStorage.setItem(NOTES_KEY, JSON.stringify(merged));
+                refreshSelect(select.value || '');
+                if (select.value) textarea.value = merged[select.value] || '';
+            });
         }
 
         function refreshSelect(selectClient) {
@@ -1176,9 +1228,11 @@
         delBtn.addEventListener('click', function() {
             if (!select.value) return;
             if (!confirm('Delete notes for "' + select.value + '"?')) return;
+            var clientName = select.value;
             var data = loadNotes();
-            delete data[select.value];
+            delete data[clientName];
             saveNotes(data);
+            if (_sbNotes) _sbNotes.from('client_notes').delete().eq('client_name', clientName).then();
             refreshSelect();
             textarea.value = '';
             textarea.disabled = true;
@@ -1186,6 +1240,7 @@
 
         textarea.disabled = true;
         refreshSelect();
+        loadNotesFromSupabase();
     })();
 
     // ---- CRM Pipeline ----
@@ -1197,7 +1252,6 @@
             if (!localStorage.getItem(KEY) && localStorage.getItem(OLD_KEY)) {
                 var old = [];
                 try { old = JSON.parse(localStorage.getItem(OLD_KEY)) || []; } catch(e) {}
-                // Add missing fields to old records
                 old.forEach(function(c) {
                     if (!c.service) c.service = '';
                     if (!c.tasks) c.tasks = [];
@@ -1208,13 +1262,109 @@
             }
         })();
 
+        // Supabase client (anon key is public by design; RLS protects the data)
+        var _sb = null;
+        try {
+            if (window.supabase) {
+                _sb = window.supabase.createClient(
+                    'https://uydxykwgomowdrrxetdv.supabase.co',
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5ZHh5a3dnb21vd2RycnhldGR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzMjIxMzMsImV4cCI6MjA5MDg5ODEzM30.aVVrrNLG4dVTRdV2WWhyeHZrpoCVKLAKYkIqGJIKBTM'
+                );
+            }
+        } catch(e) { console.warn('Supabase unavailable for CRM:', e.message); }
+        var _syncTimer = null;
+
         var currentIdx = -1; // index of client open in modal
+
+        function generateId() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0;
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+        }
 
         function load() {
             try { return JSON.parse(localStorage.getItem(KEY)) || []; }
             catch(e) { return []; }
         }
-        function save(clients) { localStorage.setItem(KEY, JSON.stringify(clients)); }
+
+        function save(clients) {
+            // Ensure every client has an id
+            clients.forEach(function(c) { if (!c.id) c.id = generateId(); });
+            localStorage.setItem(KEY, JSON.stringify(clients));
+            // Debounced sync to Supabase
+            clearTimeout(_syncTimer);
+            _syncTimer = setTimeout(function() { syncToSupabase(clients); }, 600);
+        }
+
+        // Track explicitly deleted IDs instead of nuclear table wipe
+        var _pendingDeletes = [];
+
+        function syncToSupabase(clients) {
+            if (!_sb) return;
+            var rows = clients.map(function(c) {
+                return {
+                    id: c.id,
+                    name: c.name || '',
+                    stage: c.stage || 'lead',
+                    service: c.service || '',
+                    amount: Number(c.amount) || 0,
+                    notes: c.notes || '',
+                    created: c.created || '',
+                    tasks: c.tasks || [],
+                    photos: c.photos || [],
+                    updated_at: new Date().toISOString()
+                };
+            });
+            // Only upsert if there are rows
+            if (rows.length > 0) {
+                _sb.from('client_projects').upsert(rows, { onConflict: 'id' }).then(function(res) {
+                    if (res.error) console.warn('Supabase CRM sync error:', res.error.message);
+                });
+            }
+            // Delete only explicitly removed clients
+            if (_pendingDeletes.length > 0) {
+                var ids = _pendingDeletes.slice();
+                _pendingDeletes = [];
+                _sb.from('client_projects').delete().in('id', ids).then();
+            }
+        }
+
+        function loadFromSupabase() {
+            if (!_sb) return;
+            _sb.from('client_projects').select('*').order('created_at', { ascending: true }).then(function(res) {
+                if (res.error || !res.data || res.data.length === 0) return;
+                var local = load();
+                // If Supabase has data, use it as source of truth
+                var sbClients = res.data.map(function(row) {
+                    return {
+                        id: row.id,
+                        name: row.name,
+                        stage: row.stage || 'lead',
+                        service: row.service || '',
+                        amount: row.amount || '',
+                        notes: row.notes || '',
+                        created: row.created || '',
+                        tasks: row.tasks || [],
+                        photos: row.photos || []
+                    };
+                });
+                // Merge: keep any local clients that don't have an id in Supabase
+                var sbIds = sbClients.map(function(c) { return c.id; });
+                local.forEach(function(c) {
+                    if (c.id && sbIds.indexOf(c.id) === -1) {
+                        sbClients.push(c);
+                    } else if (!c.id) {
+                        c.id = generateId();
+                        sbClients.push(c);
+                    }
+                });
+                localStorage.setItem(KEY, JSON.stringify(sbClients));
+                render();
+                // Sync merged data back
+                syncToSupabase(sbClients);
+            });
+        }
 
         function escHtml(s) {
             if (!s) return '';
@@ -1288,7 +1438,7 @@
                 card.innerHTML =
                     '<div class="crm-card-top">' +
                         '<strong class="crm-card-name">' + escHtml(c.name) + '</strong>' +
-                        (c.amount ? '<span class="crm-card-amount">$' + Number(c.amount).toLocaleString() + '</span>' : '') +
+                        (c.amount !== '' && c.amount != null ? '<span class="crm-card-amount">$' + Number(c.amount).toLocaleString() + '</span>' : '') +
                     '</div>' +
                     serviceTag;
 
@@ -1300,11 +1450,12 @@
                 col.appendChild(card);
             });
 
-            // Stats
-            var total = clients.length;
-            var activeCount = clients.filter(function(c) { return c.stage === 'active'; }).length;
-            var totalRev = clients.reduce(function(sum, c) { return sum + (Number(c.amount) || 0); }, 0);
-            var completedRev = clients.filter(function(c) { return c.stage === 'complete'; }).reduce(function(sum, c) { return sum + (Number(c.amount) || 0); }, 0);
+            // Stats (exclude trashed clients)
+            var liveClients = clients.filter(function(c) { return c.stage !== 'trash'; });
+            var total = liveClients.length;
+            var activeCount = liveClients.filter(function(c) { return c.stage === 'active'; }).length;
+            var totalRev = liveClients.reduce(function(sum, c) { return sum + (Number(c.amount) || 0); }, 0);
+            var completedRev = liveClients.filter(function(c) { return c.stage === 'complete'; }).reduce(function(sum, c) { return sum + (Number(c.amount) || 0); }, 0);
             var statsEl = document.getElementById('crm-stats');
             if (statsEl) {
                 statsEl.innerHTML =
@@ -1335,6 +1486,17 @@
             renderTasks(c.tasks || []);
             renderPhotos(c.photos || []);
             checkStorage();
+
+            // Show restore button and change delete text when in trash
+            var restoreBtn = document.getElementById('crm-restore-btn');
+            var delBtn2 = document.getElementById('crm-del-client-btn');
+            if (c.stage === 'trash') {
+                restoreBtn.hidden = false;
+                delBtn2.textContent = 'Delete Forever';
+            } else {
+                restoreBtn.hidden = true;
+                delBtn2.textContent = 'Move to Trash';
+            }
 
             overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
@@ -1383,14 +1545,41 @@
             }
         });
 
-        // Delete client from modal
+        // Delete client from modal (soft-delete or permanent)
         var delClientBtn = document.getElementById('crm-del-client-btn');
         if (delClientBtn) {
             delClientBtn.addEventListener('click', function() {
                 if (currentIdx < 0) return;
-                if (!confirm('Remove this client? This cannot be undone.')) return;
                 var clients = load();
-                clients.splice(currentIdx, 1);
+                var c = clients[currentIdx];
+                if (!c) return;
+
+                if (c.stage === 'trash') {
+                    // Permanent delete
+                    if (!confirm('Permanently delete "' + c.name + '"? This cannot be undone.')) return;
+                    var removed = clients.splice(currentIdx, 1)[0];
+                    if (removed && removed.id) _pendingDeletes.push(removed.id);
+                    save(clients);
+                } else {
+                    // Soft delete - move to trash
+                    if (!confirm('Move "' + c.name + '" to trash?')) return;
+                    c.stage = 'trash';
+                    save(clients);
+                }
+                closeModal();
+                render();
+            });
+        }
+
+        // Restore client from trash
+        var restoreBtn = document.getElementById('crm-restore-btn');
+        if (restoreBtn) {
+            restoreBtn.addEventListener('click', function() {
+                if (currentIdx < 0) return;
+                var clients = load();
+                var c = clients[currentIdx];
+                if (!c) return;
+                c.stage = 'lead';
                 save(clients);
                 closeModal();
                 render();
@@ -1414,6 +1603,9 @@
                     if (clients[currentIdx] && clients[currentIdx].tasks[ti]) {
                         clients[currentIdx].tasks[ti].done = cb.checked;
                         save(clients);
+                        // Update visual immediately
+                        if (cb.checked) { label.classList.add('done'); }
+                        else { label.classList.remove('done'); }
                     }
                 });
                 var label = document.createElement('span');
@@ -1528,14 +1720,19 @@
 
         // ---- Add client form ----
         var addBtn = document.getElementById('crm-add-btn');
+        var _addingClient = false;
         if (addBtn) {
             addBtn.addEventListener('click', function() {
+                if (_addingClient) return;
+                _addingClient = true;
+                setTimeout(function() { _addingClient = false; }, 500);
+
                 var nameInput = document.getElementById('crm-name');
                 var serviceInput = document.getElementById('crm-service');
                 var stageInput = document.getElementById('crm-stage');
                 var amountInput = document.getElementById('crm-amount');
                 var name = nameInput.value.trim();
-                if (!name) { nameInput.focus(); return; }
+                if (!name) { nameInput.focus(); _addingClient = false; return; }
 
                 var clients = load();
                 clients.push({
@@ -1614,6 +1811,7 @@
         }
 
         render();
+        loadFromSupabase();
     })();
 
     // ---- Audit Studio ----

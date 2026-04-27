@@ -729,7 +729,7 @@
 /* Pipeline columns */
 .crm-pipeline {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 12px;
 }
 
@@ -763,6 +763,29 @@
 .crm-dot-active { background: #10b981; }
 .crm-dot-review { background: #8b5cf6; }
 .crm-dot-complete { background: var(--pink); }
+.crm-dot-trash { background: #6b7280; }
+
+.crm-column-trash { opacity: 0.6; }
+.crm-column-trash:hover { opacity: 1; }
+
+.crm-restore-btn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font);
+    color: #10b981;
+    background: transparent;
+    border: 1px solid #6ee7b7;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: auto;
+}
+
+.crm-restore-btn:hover {
+    background: #ecfdf5;
+    border-color: #10b981;
+}
 
 .crm-column-cards {
     display: flex;
